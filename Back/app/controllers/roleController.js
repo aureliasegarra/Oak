@@ -1,17 +1,17 @@
 const roleController = {
-  getAllroles: async (req, res) => {
+  getAllRoles: async (req, res) => {
     res.send('Hello world !');
   },
-  getroleById: async (req, res) => {
+  getRoleById: async (req, res) => {
     res.send('Hello world !');
   },
-  addrole: async (req, res) => {
+  addRole: async (req, res) => {
     res.send('Hello world !');
   },
-  deleterole: async (req, res) => {
+  deleteRole: async (req, res) => {
     res.send('Hello world !');
   },
-  updaterole: async (req, res) => {
+  updateRole: async (req, res) => {
     res.send('Hello world !');
   },
 };
