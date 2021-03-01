@@ -1,0 +1,6 @@
+{
+    "extends": [
+      "wesbos"
+    ],
+    "overrides": [{"files":["app/views/*.ejs","app/views/partials/*.ejs"],"excludedFiles": "*.ejs"}]
+  }
