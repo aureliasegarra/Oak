@@ -1,0 +1,65 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+@path=api
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}/{{path}}
+
+// AUTHOR ROUTES
+### Get all authors
+GET {{baseUrl}}/authors
+### Get author by id
+GET {{baseUrl}}/author/1
+
+/// BADGE ROUTES
+### Get all badges
+GET {{baseUrl}}/badges
+### Get badge by id
+GET {{baseUrl}}/badge/1
+
+// BOOK ROUTES
+### Get all books
+GET {{baseUrl}}/books
+### Get book by id
+GET {{baseUrl}}/book/1
+
+
+// BOOKPOSITION ROUTES
+### Get all bookPositions
+GET {{baseUrl}}/bookPositions
+### Get bookPosition by id
+GET {{baseUrl}}/bookPosition/1
+
+
+// LIST ROUTES
+### Get all lists
+GET {{baseUrl}}/lists
+### Get list by id
+GET {{baseUrl}}/list/1
+
+
+// RATING ROUTES
+### Get all ratings
+GET {{baseUrl}}/ratings
+### Get rating by id
+GET {{baseUrl}}/rating/1
+
+
+// REVIEW ROUTES
+### Get all reviews
+GET {{baseUrl}}/reviews
+### Get review by id
+GET {{baseUrl}}/review/1
+
+
+// ROLE ROUTES
+### Get all roles
+GET {{baseUrl}}/roles
+### Get role by id
+GET {{baseUrl}}/role/1
+
+
+// USER ROUTES
+### Get all users
+GET {{baseUrl}}/users
+### Get user by id
+GET {{baseUrl}}/user/1
