@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "label": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",
+    "publish_time": "2021-01-25 21:10:49.422445+01",
+    "book_id": 5,
+    "user_id": 3
+  },
+  {
+    "id": 2,
+    "label": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.\n\nFusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
+    "publish_time": "2021-01-25 21:10:49.422445+01",
+    "book_id": 8,
+    "user_id": 8
+  },
+  {
+    "id": 3,
+    "label": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+    "publish_time": "2021-01-25 21:10:49.422445+01",
+    "book_id": 4,
+    "user_id": 8
+  },
+  {
+    "id": 4,
+    "label": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.\n\nCum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nEtiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
+    "publish_time": "2021-01-25 21:10:49.422445+01",
+    "book_id": 3,
+    "user_id": 10
+  },
+  {
+    "id": 5,
+    "label": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+    "publish_time": "2021-01-25 21:10:49.422445+01",
+    "book_id": 4,
+    "user_id": 1
+  },
+  {
+    "id": 6,
+    "label": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\n\nPhasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+    "publish_time": "2021-01-25 21:10:49.422445+01",
+    "book_id": 1,
+    "user_id": 8
+  },
+  {
+    "id": 7,
+    "label": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+    "publish_time": "2021-01-25 21:10:49.422445+01",
+    "book_id": 4,
+    "user_id": 10
+  },
+  {
+    "id": 8,
+    "label": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.\n\nMaecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+    "publish_time": "2021-01-25 21:10:49.422445+01",
+    "book_id": 1,
+    "user_id": 10
+  },
+  {
+    "id": 9,
+    "label": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+    "publish_time": "2021-01-25 21:10:49.422445+01",
+    "book_id": 4,
+    "user_id": 8
+  },
+  {
+    "id": 10,
+    "label": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.",
+    "publish_time": "2021-01-25 21:10:49.422445+01",
+    "book_id": 1,
+    "user_id": 8
+  }
+]

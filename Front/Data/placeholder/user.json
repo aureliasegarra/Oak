@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "username": "Staford Bagger",
+    "email": "sbagger0@hibu.com",
+    "avatar": "http://dummyimage.com/128x161.png/dddddd/000000",
+    "password": "ujKb0Zp3gzs9",
+    "role_id": 1
+  },
+  {
+    "id": 2,
+    "username": "Cynthea Elsegood",
+    "email": "celsegood1@example.com",
+    "avatar": "http://dummyimage.com/128x161.png/dddddd/000000",
+    "password": "qTQKVgl2U8v",
+    "role_id": 2
+  },
+  {
+    "id": 3,
+    "username": "Iver Sterling",
+    "email": "isterling2@spiegel.de",
+    "avatar": "http://dummyimage.com/128x161.png/dddddd/000000",
+    "password": "9sMe4X90b",
+    "role_id": 1
+  },
+  {
+    "id": 4,
+    "username": "Benji Dumbreck",
+    "email": "bdumbreck3@bing.com",
+    "avatar": "http://dummyimage.com/128x161.png/dddddd/000000",
+    "password": "LaMVv4",
+    "role_id": 2
+  },
+  {
+    "id": 5,
+    "username": "Annabel Eglaise",
+    "email": "aeglaise4@alibaba.com",
+    "avatar": "http://dummyimage.com/128x161.png/dddddd/000000",
+    "password": "4lvV63x6A",
+    "role_id": 1
+  },
+  {
+    "id": 6,
+    "username": "Freddy Spadoni",
+    "email": "fspadoni5@fc2.com",
+    "avatar": "http://dummyimage.com/128x161.png/ff4444/ffffff",
+    "password": "j9o6iM",
+    "role_id": 2
+  },
+  {
+    "id": 7,
+    "username": "Austen Cradock",
+    "email": "acradock6@goodreads.com",
+    "avatar": "http://dummyimage.com/128x161.png/5fa2dd/ffffff",
+    "password": "X7XN2zKe0",
+    "role_id": 1
+  },
+  {
+    "id": 8,
+    "username": "Fremont Breche",
+    "email": "fbreche7@fema.gov",
+    "avatar": "http://dummyimage.com/128x161.png/ff4444/ffffff",
+    "password": "to9r8Or",
+    "role_id": 2
+  },
+  {
+    "id": 9,
+    "username": "Jeth Melanaphy",
+    "email": "jmelanaphy8@sourceforge.net",
+    "avatar": "http://dummyimage.com/128x161.png/ff4444/ffffff",
+    "password": "6U7mcI",
+    "role_id": 1
+  },
+  {
+    "id": 10,
+    "username": "Erl Dumini",
+    "email": "edumini9@seesaa.net",
+    "avatar": "http://dummyimage.com/128x161.png/cc0000/ffffff",
+    "password": "LWMNfOwt",
+    "role_id": 1
+  }
+]

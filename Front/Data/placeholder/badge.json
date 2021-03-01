@@ -1,0 +1,12 @@
+[
+  { "id": 1, "label": "Optimized" },
+  { "id": 2, "label": "hybrid" },
+  { "id": 3, "label": "Robust" },
+  { "id": 4, "label": "Open-source" },
+  { "id": 5, "label": "frame" },
+  { "id": 6, "label": "fault-tolerant" },
+  { "id": 7, "label": "orchestration" },
+  { "id": 8, "label": "capability" },
+  { "id": 9, "label": "Digitized" },
+  { "id": 10, "label": "bi-directional" }
+]

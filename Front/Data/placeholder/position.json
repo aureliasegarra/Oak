@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "position": "Bobbye",
+    "user_id": "Sedworth",
+    "book_id": "bsedworth0@istockphoto.com"
+  },
+  {
+    "id": 2,
+    "position": "Lutero",
+    "user_id": "Fruchter",
+    "book_id": "lfruchter1@harvard.edu"
+  },
+  {
+    "id": 3,
+    "position": "Vincenty",
+    "user_id": "Seiter",
+    "book_id": "vseiter2@goodreads.com"
+  },
+  {
+    "id": 4,
+    "position": "Yvonne",
+    "user_id": "Storck",
+    "book_id": "ystorck3@webeden.co.uk"
+  },
+  {
+    "id": 5,
+    "position": "Roddy",
+    "user_id": "Leatherland",
+    "book_id": "rleatherland4@dailymotion.com"
+  },
+  {
+    "id": 6,
+    "position": "Owen",
+    "user_id": "Hales",
+    "book_id": "ohales5@wufoo.com"
+  },
+  {
+    "id": 7,
+    "position": "Faith",
+    "user_id": "Petronis",
+    "book_id": "fpetronis6@nyu.edu"
+  },
+  {
+    "id": 8,
+    "position": "Charil",
+    "user_id": "Scamwell",
+    "book_id": "cscamwell7@wikia.com"
+  },
+  {
+    "id": 9,
+    "position": "Belva",
+    "user_id": "Sybry",
+    "book_id": "bsybry8@toplist.cz"
+  },
+  {
+    "id": 10,
+    "position": "Sabrina",
+    "user_id": "Giacobazzi",
+    "book_id": "sgiacobazzi9@unc.edu"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "label": "interactive",
+    "position": 1,
+    "description": "Fusion of Left Knee Joint with Autologous Tissue Substitute, Open Approach",
+    "user_id": 8
+  },
+  {
+    "id": 2,
+    "label": "instruction set",
+    "position": 3,
+    "description": "Drainage of Right Fallopian Tube, Via Natural or Artificial Opening Endoscopic",
+    "user_id": 3
+  },
+  {
+    "id": 3,
+    "label": "algorithm",
+    "position": 3,
+    "description": "Receptive/Expressive Language Assessment",
+    "user_id": 9
+  },
+  {
+    "id": 4,
+    "label": "intangible",
+    "position": 3,
+    "description": "Dilation of Left Axillary Artery with Four or More Intraluminal Devices, Percutaneous Endoscopic Approach",
+    "user_id": 3
+  },
+  {
+    "id": 5,
+    "label": "product",
+    "position": 3,
+    "description": "Dilation of Left Femoral Artery, Bifurcation, with Intraluminal Device, Open Approach",
+    "user_id": 4
+  },
+  {
+    "id": 6,
+    "label": "systematic",
+    "position": 1,
+    "description": "Removal of Splint on Right Foot",
+    "user_id": 7
+  },
+  {
+    "id": 7,
+    "label": "orchestration",
+    "position": 3,
+    "description": "Insertion of External Fixation Device into Right Thumb Phalanx, Percutaneous Endoscopic Approach",
+    "user_id": 10
+  },
+  {
+    "id": 8,
+    "label": "model",
+    "position": 2,
+    "description": "Destruction of Perineum Bursa and Ligament, Percutaneous Endoscopic Approach",
+    "user_id": 8
+  },
+  {
+    "id": 9,
+    "label": "Team-oriented",
+    "position": 2,
+    "description": "Plain Radiography of Superior Vena Cava using Low Osmolar Contrast",
+    "user_id": 3
+  },
+  {
+    "id": 10,
+    "label": "Persevering",
+    "position": 3,
+    "description": "Dilation of Right Common Carotid Artery, Bifurcation, with Three Drug-eluting Intraluminal Devices, Open Approach",
+    "user_id": 1
+  }
+]
