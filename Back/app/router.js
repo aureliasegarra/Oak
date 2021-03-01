@@ -2,15 +2,15 @@ const { Router } = require('express');
 
 const router = Router();
 
-const bookController = require('./controllers/bookController');
 const authorController = require('./controllers/authorController');
+const badgeController = require('./controllers/badgeController');
+const bookController = require('./controllers/bookController');
+const bookPositionController = require('./controllers/bookPositionController');
+const listController = require('./controllers/listController');
+const ratingController = require('./controllers/ratingController');
 const reviewController = require('./controllers/reviewController');
 const roleController = require('./controllers/roleController');
 const userController = require('./controllers/userController');
-const ratingController = require('./controllers/ratingController');
-const listController = require('./controllers/listController');
-const badgeController = require('./controllers/badgeController');
-const bookPositionController = require('./controllers/bookPositionController');
 
 
 // AUTHOR ROUTES
@@ -105,7 +105,7 @@ router.get('/role/:id', roleController.getRoleById);
 // Add role
 router.post('/role/', roleController.addRole);
 // Delete role
-router.delete('/role/:id', roleController.removeRole);
+router.delete('/role/:id', roleController.deleteRole);
 // Update role
 router.put('/role/:id', roleController.updateRole);
 
@@ -117,7 +117,7 @@ router.get('/user/:id', userController.getUserById);
 // Add user
 router.post('/user/', userController.addUser);
 // Delete user
-router.delete('/user/:id', userController.removeUser);
+router.delete('/user/:id', userController.deleteUser);
 // Update user
 router.put('/user/:id', userController.updateUser);
 
