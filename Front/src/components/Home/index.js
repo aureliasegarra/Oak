@@ -34,8 +34,7 @@ const Home = () => (
     </header>
     <section className="home-search">
       <form action="" className="home-search__form">
-        <label htmlFor="search">Recherche :</label>
-        <input className="home-search__input" type="text" name="search" id="search" />
+        <input className="home-search__input" type="text" name="search" id="search" placeholder="Recherchez un livre" />
         <button className="home-search__button" type="submit"><FaSearch className="home-search__icon" /></button>
       </form>
     </section>
