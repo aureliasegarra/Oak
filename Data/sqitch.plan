@@ -3,15 +3,15 @@
 
 createDomain_posint 2021-03-01T19:54:22Z Anthony <mrz1880@gmail.com> # create domain posint to set a constraint of positive integer
 createTable 2021-03-01T19:52:01Z Anthony <mrz1880@gmail.com> # create table: - user - badge - author - book - role - list - review - bookPosition - book_has_author - user_has_badge - rating - list_has_book
-seedTable_author 2021-03-01T20:31:39Z Anthony <mrz1880@gmail.com> # Seed the author table
-seedTable_badge 2021-03-01T20:31:58Z Anthony <mrz1880@gmail.com> # Seed the badge table
-seedTable_role 2021-03-01T20:32:24Z Anthony <mrz1880@gmail.com> # Seed the role table
-seedTable_user 2021-03-01T20:32:38Z Anthony <mrz1880@gmail.com> # Seed the user table
-seedTable_list 2021-03-01T20:32:46Z Anthony <mrz1880@gmail.com> # Seed the list table
-seedTable_book 2021-03-01T20:32:57Z Anthony <mrz1880@gmail.com> # Seed the book table
-seedTable_rating 2021-03-01T20:33:12Z Anthony <mrz1880@gmail.com> # Seed the rating table
-seedTable_review 2021-03-01T20:34:25Z Anthony <mrz1880@gmail.com> # Seed the review table
-seedTable_book_position 2021-03-01T20:35:32Z Anthony <mrz1880@gmail.com> # Seed the book_position table
-seedTable_list_has_book 2021-03-01T20:35:53Z Anthony <mrz1880@gmail.com> # Seed the list_has_book table
-seedTable_book_has_author 2021-03-01T20:36:19Z Anthony <mrz1880@gmail.com> # Seed the book_has_author table
-seedTable_user_has_badge 2021-03-01T20:36:41Z Anthony <mrz1880@gmail.com> # Seed the user_has_badge table
+seed/seedTable_author 2021-03-01T20:31:39Z Anthony <mrz1880@gmail.com> # Seed the author table
+seed/seedTable_badge 2021-03-01T20:31:58Z Anthony <mrz1880@gmail.com> # Seed the badge table
+seed/seedTable_role 2021-03-01T20:32:24Z Anthony <mrz1880@gmail.com> # Seed the role table
+seed/seedTable_user 2021-03-01T20:32:38Z Anthony <mrz1880@gmail.com> # Seed the user table
+seed/seedTable_list 2021-03-01T20:32:46Z Anthony <mrz1880@gmail.com> # Seed the list table
+seed/seedTable_book 2021-03-01T20:32:57Z Anthony <mrz1880@gmail.com> # Seed the book table
+seed/seedTable_rating 2021-03-01T20:33:12Z Anthony <mrz1880@gmail.com> # Seed the rating table
+seed/seedTable_review 2021-03-01T20:34:25Z Anthony <mrz1880@gmail.com> # Seed the review table
+seed/seedTable_book_position 2021-03-01T20:35:32Z Anthony <mrz1880@gmail.com> # Seed the book_position table
+seed/seedTable_list_has_book 2021-03-01T20:35:53Z Anthony <mrz1880@gmail.com> # Seed the list_has_book table
+seed/seedTable_book_has_author 2021-03-01T20:36:19Z Anthony <mrz1880@gmail.com> # Seed the book_has_author table
+seed/seedTable_user_has_badge 2021-03-01T20:36:41Z Anthony <mrz1880@gmail.com> # Seed the user_has_badge table
