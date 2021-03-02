@@ -2,6 +2,6 @@
 
 BEGIN;
 
--- XXX Add DDLs here.
+TRUNCATE user_has_badge;
 
 COMMIT;
