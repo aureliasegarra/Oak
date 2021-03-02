@@ -1,0 +1,46 @@
+UTILISATEUR: codeUtilisateur, email, pseudonyme, avatar, mot de passe
+:
+:
+:
+BADGE: codeBadge, label
+
+REDIGE, 1N UTILISATEUR, 11 COMMENTAIRE
+DESIGNE, 11 UTILISATEUR, 0N ROLE
+ATTRIBUE, 1N UTILISATEUR, 11 NOTE
+CONFIGURE, 1N UTILISATEUR, 11 ORDRE
+GAGNE, 0N UTILISATEUR, 0N BADGE
+CREE, 2N UTILISATEUR, 11 LISTE
+
+COMMENTAIRE: codeCommentaire, label, date et heure
+ROLE: codeRole, label
+:
+:
+:
+
+RECOIT, 0N LIVRE, 11 COMMENTAIRE
+:
+:
+:
+APPARTIENT, 0N LIVRE, 1N LISTE
+LISTE: codeListe, label, ordre, description
+
+LIVRE: codeLivre, titre, année de publication, nb. de pages, synopsis
+EVALUE, 0N LIVRE, 11 NOTE
+NOTE: codeNote, note
+:
+:
+:
+
+ECRIT, 1N AUTEUR, 1N LIVRE
+:
+RANGE, 1N LIVRE, 11 ORDRE
+ORDRE: codeOrdre, ordre
+:
+:
+
+AUTEUR: codeAuteur, nom complet
+:
+:
+:
+:
+:
