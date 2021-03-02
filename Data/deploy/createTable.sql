@@ -46,7 +46,7 @@ CREATE TABLE book (
 
 CREATE TABLE rating (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    rating text NOT NULL,
+    rating posint NOT NULL,
     "user_id" int NOT NULL REFERENCES "user"(id),
     book_id int NOT NULL REFERENCES book(id)
 );
@@ -80,8 +80,8 @@ CREATE TABLE book_has_author (
 
 CREATE TABLE user_has_badge (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    book_id int NOT NULL REFERENCES book(id),
-    author_id int NOT NULL REFERENCES author(id)
+    "user_id" int NOT NULL REFERENCES "user"(id),
+    badge_id int NOT NULL REFERENCES badge(id)
 );
 
 
