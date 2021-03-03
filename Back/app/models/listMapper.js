@@ -5,8 +5,11 @@ const db = require('../database');
 const listMapper = {
     getAllLists: async () => {
         try {
-            const lists = await db.query('SELECT * FROM list;');
-            return lists.rows.map(list => new List(list));
+            const {rows} = await db.query('SELECT * FROM list;');
+            if (!rows[0]) {
+                throw new Error('There is no list');
+            }
+            return rows.map(list => new List(list));
         } catch (error) {
             throw new Error(error);
         }
@@ -26,8 +29,11 @@ const listMapper = {
                             WHERE "user".id = $1
                             GROUP BY list.id;`
             const data = [userId];
-            const lists = await db.query(query,data);
-            return lists.rows.map(list => new List(list));
+            const { rows } = await db.query(query,data);
+            if (!rows[0]) {
+                throw new Error(`The list with for given user id ${id} was not found`);
+            }
+            return rows.map(list => new List(list));
         } catch (error) {
             throw new Error(error);
         }
@@ -39,6 +45,9 @@ const listMapper = {
                             WHERE id = $1;`
             const data = [id];
             const {rows} = await db.query(query,data);
+            if (!rows[0]) {
+                throw new Error(`The list with the given id ${id} was not found`);
+            }
             return new List(rows[0]);
         } catch (error) {
             throw new Error(error);
@@ -63,9 +72,10 @@ const listMapper = {
                             WHERE id = $1;`
             const data = [id];
             const {rows} = await db.query(query,data);
-            if (!rows[0]) {
-                throw new Error(`No post with the id ${id}`);
-            }
+            // if (!rows[0]) {
+            //     throw new Error(`No list with the id ${id}`);
+            // }
+            console.log(rows)
         } catch (error) {
             throw new Error(error);
         }
@@ -84,7 +94,7 @@ const listMapper = {
             const data = [label, description, position, id];
             const {rows} = await db.query(query,data);
             if (!rows[0]) {
-                throw new Error(`No post with the id ${id}`);
+                throw new Error(`The list with the given id ${id} was not found`);
             }
             return new List(rows[0]);
         } catch (error) {
