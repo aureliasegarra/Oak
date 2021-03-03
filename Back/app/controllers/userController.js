@@ -1,9 +1,22 @@
+const userMapper = require('../models/userMapper');
+
 const userController = {
   getAllUsers: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      const users = await userMapper.getAllUsers();
+      res.json(users);
+    } catch (error) {
+      console.log(error)
+    }
   },
   getUserById: async (req, res) => {
-    res.send('Hello world !');
+    const { id } = req.params;
+    try {
+      const user = await userMapper.getUserById(id);
+      res.json(user);
+    } catch (error) {
+      console.log(error)
+    }
   },
   addUser: async (req, res) => {
     res.send('Hello world !');
