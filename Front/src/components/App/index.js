@@ -8,6 +8,7 @@ import {
 
 import Menu from 'src/components/Menu';
 import Home from 'src/components/Home';
+import Footer from 'src/components/Footer';
 
 // == Import
 import './styles.scss';
@@ -21,6 +22,7 @@ const App = () => (
         <Home />
       </Route>
     </Switch>
+    <Footer />
   </div>
 );
 

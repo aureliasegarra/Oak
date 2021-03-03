@@ -20,8 +20,8 @@ const Menu = () => (
     <div className="menu__logo__container">
       <TiUserAdd className="menu__logo__user" />
       <BiLogIn className="menu__logo__user" />
-      <FaMapMarkerAlt className="menu__logo__user" />
       <FaSearch className="menu__logo__user" />
+      <FaMapMarkerAlt className="menu__logo__user" />
       <RiTeamFill className="menu__logo__user" />
       <FaRegCopyright className="menu__logo__user" />
     </div>

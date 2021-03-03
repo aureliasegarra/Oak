@@ -1,7 +1,8 @@
 @use 'src/styles/vars'; 
 
 .home-header {
-  margin-top: 15rem;
+  margin-top: 8rem;
+  text-align: center;
 }
 
 .home-header__logo {
@@ -11,18 +12,15 @@
 }
 
 .home-header__title {
-  font-family: Fredoka One;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 7rem;
   color: vars.$color-medium-black;
-  text-align: center;
 }
 
 .home-header__baseline {
   font-size: 2rem;
-  text-align: center;
 }
 
 .home-header__slogan {
-  text-align: center;
-  margin: 1rem;
+  margin: 2 * vars.$gutter;
 }

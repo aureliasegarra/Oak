@@ -2,32 +2,43 @@
 
 .home-search {
   text-align: center;
-  margin: 1rem;
+  margin-top: 2*vars.$gutter;
+  margin-bottom: 5*vars.$gutter;
   display: flex;
   justify-content: center;
 }
 
 .home-search__form {
   display: flex;
+  box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .home-search__input {
-  background-color: vars.$color-light-gray;
+  background-color: vars.$color-off-white;
   color: vars.$color-dark-gray;
-  font-size: 1rem;
+  font-size: 1.5rem;
   width: 500px;
-  padding: 1rem;
+  padding: vars.$gutter;
   border: none;
-  border-radius: 30px 0 0 30px;
+  border-radius: 20px 0 0 20px;
+
+  &::placeholder {
+    color: vars.$color-dark-gray;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 250px;
+  }
 }
 
 .home-search__button {
-  background-color: vars.$color-light-gray;
+  background-color: vars.$color-off-white;
   border: none;
-  border-radius: 0 30px 30px 0;
+  border-radius: 0 20px 20px 0;
   padding-right: 2rem;
 }
 
 .home-search__icon {
-  color: vars.$color-white;
+  font-size: 1.5rem;
 }

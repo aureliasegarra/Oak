@@ -2,7 +2,7 @@
 import React from 'react';
 
 // == Import
-import logo from './logo.svg';
+import logo from './logo.png';
 import './styles.scss';
 
 // == Composant
