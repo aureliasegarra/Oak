@@ -1,9 +1,22 @@
+const ratingMapper = require('../models/ratingMapper');
+
 const ratingController = {
   getAllRatings: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      const ratings = await ratingMapper.getAllRatings();
+      res.json(ratings);
+    } catch (error) {
+      console.log(error)
+    }
   },
   getRatingById: async (req, res) => {
-    res.send('Hello world !');
+    const { id } = req.params;
+    try {
+      const rating = await ratingMapper.getRatingById(id);
+      res.json(rating);
+    } catch (error) {
+      console.log(error)
+    }
   },
   addRating: async (req, res) => {
     res.send('Hello world !');
