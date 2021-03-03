@@ -1,9 +1,25 @@
+import { SET_INPUT_VALUE, GET_RESULTS } from 'src/actions/search';
+
 const initialState = {
-  results: [],
   inputValue: '',
+  results: [],
   searchQuery: '',
 };
 
 export default (state = initialState, action = {}) => {
-  return state;
+  switch (action.type) {
+    case SET_INPUT_VALUE:
+      return {
+        ...state,
+        inputValue: action.value,
+      };
+    case GET_RESULTS:
+      console.log('case', action.type);
+      return {
+        ...state,
+        results: state.results,
+      };
+    default:
+      return state;
+  }
 };
