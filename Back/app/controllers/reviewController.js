@@ -1,9 +1,22 @@
+const reviewMapper = require('../models/reviewMapper');
+
 const reviewController = {
   getAllReviews: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      const reviews = await reviewMapper.getAllReviews();
+      res.json(reviews);
+    } catch (error) {
+      console.log(error)
+    }
   },
   getReviewById: async (req, res) => {
-    res.send('Hello world !');
+    const { id } = req.params;
+    try {
+      const review = await reviewMapper.getReviewById(id);
+      res.json(review);
+    } catch (error) {
+      console.log(error)
+    }
   },
   addReview: async (req, res) => {
     res.send('Hello world !');
