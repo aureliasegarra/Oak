@@ -121,5 +121,9 @@ router.delete('/user/:id', userController.deleteUser);
 // Update user
 router.put('/user/:id', userController.updateUser);
 
+// 404
+router.use((req, res) => {
+    res.status(404).json('No such endpoint');
+    });
 
 module.exports = router;
