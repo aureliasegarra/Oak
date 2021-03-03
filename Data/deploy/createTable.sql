@@ -22,7 +22,7 @@ CREATE TABLE "role" (
 CREATE TABLE "user" (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     username text NOT NULL,
-    email text NOT NULL,
+    email text UNIQUE NOT NULL,
     "password" text NOT NULL,
     avatar posint NOT NULL default 0,
     role_id int NOT NULL REFERENCES role(id)
