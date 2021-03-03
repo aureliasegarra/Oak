@@ -1,9 +1,22 @@
+const bookMapper = require('../models/bookMapper');
+
 const bookController = {
   getAllBooks: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      const books = await bookMapper.getAllBooks();
+      res.json(books);
+    } catch (error) {
+      console.log(error)
+    }
   },
   getBookById: async (req, res) => {
-    res.send('Hello world !');
+    const { id } = req.params;
+    try {
+      const book = await bookMapper.getBookById(id);
+      res.json(book);
+    } catch (error) {
+      console.log(error)
+    }
   },
   addBook: async (req, res) => {
     res.send('Hello world !');
