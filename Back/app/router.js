@@ -23,7 +23,7 @@ router.post('/author/', authorController.addAuthor);
 // Delete author
 router.delete('/author/:id', authorController.deleteAuthor);
 // Update author
-router.put('/author/:id', authorController.updateAuthor);
+router.patch('/author/:id', authorController.updateAuthor);
 
 // BADGE ROUTES
 // Get all badges
@@ -35,7 +35,7 @@ router.post('/badge/', badgeController.addBadge);
 // Delete badge
 router.delete('/badge/:id', badgeController.deleteBadge);
 // Update badge
-router.put('/badge/:id', badgeController.updateBadge);
+router.patch('/badge/:id', badgeController.updateBadge);
 
 // BOOK ROUTES
 // Get all books
@@ -47,7 +47,7 @@ router.post('/book/', bookController.addBook);
 // Delete book
 router.delete('/book/:id', bookController.deleteBook);
 // Update book
-router.put('/book/:id', bookController.updateBook);
+router.patch('/book/:id', bookController.updateBook);
 
 // BOOKPOSITION ROUTES
 // Get all bookPositions
@@ -59,19 +59,21 @@ router.post('/bookPosition/', bookPositionController.addBookPosition);
 // Delete bookPosition
 router.delete('/bookPosition/:id', bookPositionController.deleteBookPosition);
 // Update bookPosition
-router.put('/bookPosition/:id', bookPositionController.updateBookPosition);
+router.patch('/bookPosition/:id', bookPositionController.updateBookPosition);
 
 // LIST ROUTES
 // Get all lists
 router.get('/lists', listController.getAllLists);
+// Get lists by userId
+router.get('/lists/user/:userId', listController.getListByUserId);
 // Get list by id
 router.get('/list/:id', listController.getListById);
 // Add list
 router.post('/list/', listController.addList);
-// Delete list
-router.delete('/list/:id', listController.deleteList);
+// Delete list by id
+router.delete('/list/:id', listController.deleteListById);
 // Update list
-router.put('/list/:id', listController.updateList);
+router.patch('/list/:id', listController.updateList);
 
 // RATING ROUTES
 // Get all ratings
@@ -83,7 +85,7 @@ router.post('/rating/', ratingController.addRating);
 // Delete rating
 router.delete('/rating/:id', ratingController.deleteRating);
 // Update rating
-router.put('/rating/:id', ratingController.updateRating);
+router.patch('/rating/:id', ratingController.updateRating);
 
 // REVIEW ROUTES
 // Get all reviews
@@ -95,7 +97,7 @@ router.post('/review/', reviewController.addReview);
 // Delete review
 router.delete('/review/:id', reviewController.deleteReview);
 // Update review
-router.put('/review/:id', reviewController.updateReview);
+router.patch('/review/:id', reviewController.updateReview);
 
 // ROLE ROUTES
 // Get all roles
@@ -107,7 +109,7 @@ router.post('/role/', roleController.addRole);
 // Delete role
 router.delete('/role/:id', roleController.deleteRole);
 // Update role
-router.put('/role/:id', roleController.updateRole);
+router.patch('/role/:id', roleController.updateRole);
 
 // USER ROUTES
 // Get all users
@@ -119,7 +121,7 @@ router.post('/user/', userController.addUser);
 // Delete user
 router.delete('/user/:id', userController.deleteUser);
 // Update user
-router.put('/user/:id', userController.updateUser);
+router.patch('/user/:id', userController.updateUser);
 
 // 404
 router.use((req, res) => {
