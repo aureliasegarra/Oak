@@ -12,7 +12,7 @@ import logo from './logo-glan.svg';
 
 // == Composant
 const Menu = () => (
-  <div className="menu">
+  <header className="menu">
     <div className="menu__logo">
       <img className="menu__logo__glan" src={logo} alt="illustration" />
       <h2 className="menu__logo__title">oak</h2>
@@ -25,7 +25,7 @@ const Menu = () => (
       <RiTeamFill className="menu__logo__user" />
       <FaRegCopyright className="menu__logo__user" />
     </div>
-  </div>
+  </header>
 );
 
 // == Export

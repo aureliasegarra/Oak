@@ -1,7 +1,6 @@
 // == Import npm
 import React from 'react';
 
-import Page from 'src/components/Page';
 import Header from './Header';
 import Search from './Search';
 import News from './News';
@@ -11,11 +10,11 @@ import './styles.scss';
 
 // == Composant
 const Home = () => (
-  <Page>
+  <main className="home-main">
     <Header />
     <Search />
     <News />
-  </Page>
+  </main>
 );
 
 // == Export
