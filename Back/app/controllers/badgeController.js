@@ -1,9 +1,22 @@
+const badgeMapper = require('../models/badgeMapper');
+
 const badgeController = {
   getAllBadges: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      const badges = await badgeMapper.getAllBadges();
+      res.json(badges);
+    } catch (error) {
+      console.log(error)
+    }
   },
   getBadgeById: async (req, res) => {
-    res.send('Hello world !');
+    const { id } = req.params;
+    try {
+      const badge = await badgeMapper.getBadgeById(id);
+      res.json(badge);
+    } catch (error) {
+      console.log(error)
+    }
   },
   addBadge: async (req, res) => {
     res.send('Hello world !');
