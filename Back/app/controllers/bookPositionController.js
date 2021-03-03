@@ -1,9 +1,22 @@
+const bookPositionMapper = require('../models/bookPositionMapper');
+
 const bookPositionController = {
   getAllBookPositions: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      const bookPositions = await bookPositionMapper.getAllBookPositions();
+      res.json(bookPositions);
+    } catch (error) {
+      console.log(error)
+    }
   },
   getBookPositionById: async (req, res) => {
-    res.send('Hello world !');
+    const { id } = req.params;
+    try {
+      const bookPosition = await bookPositionMapper.getBookPositionById(id);
+      res.json(bookPosition);
+    } catch (error) {
+      console.log(error)
+    }
   },
   addBookPosition: async (req, res) => {
     res.send('Hello world !');
