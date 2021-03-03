@@ -22,12 +22,9 @@ const Home = () => {
   const fetchResults = async () => {
     try {
       const response = await axios.get(baseUrl);
-      const items = response.data.items;
-      console.log(response);
-      setResults([...results, ...items]);
-    }
-    catch (error) {
-      console.log('error from fetchResults', error);
+      console.log('fetch', response);
+    } catch (error) {
+      console.log('error de fetch', error);
     }
   };
 

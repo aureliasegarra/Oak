@@ -1,6 +1,5 @@
 // == Import npm
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -13,7 +12,8 @@ const Search = ({ inputValue, onChangeInputValue, onSubmitForm }) => {
     onChangeInputValue(event.target.value);
   };
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
     onSubmitForm();
   };
 
