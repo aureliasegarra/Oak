@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Page from 'src/components/Page';
 import Header from './Header';
-import Search from './Search';
+import Search from 'src/containers/Search';
 import News from './News';
 import Results from './Results';
 
