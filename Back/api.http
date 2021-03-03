@@ -34,7 +34,32 @@ GET {{baseUrl}}/bookPosition/1
 ### Get all lists
 GET {{baseUrl}}/lists
 ### Get list by id
-GET {{baseUrl}}/list/1
+GET {{baseUrl}}/list/23
+### Get lists by UserId
+GET {{baseUrl}}/lists/user/1
+### Delete list by id
+DELETE {{baseUrl}}/list/25
+### Add List
+POST {{baseUrl}}/list
+Content-Type: application/json
+
+{
+    "label": "Label de ma liste",
+    "position": 3,
+    "description": "Description de ma liste",
+    "user_id": 1
+  }
+### Update list by id
+PATCH {{baseUrl}}/list/24
+Content-Type: application/json
+
+{
+    "id": 24,
+    "label": "Label de ma liste",
+    "position": 3,
+    "description": "Description de ma liste",
+    "user_id": 1
+}
 
 
 // RATING ROUTES
