@@ -1,0 +1,30 @@
+@use 'src/styles/vars'; 
+
+.home-news {
+  padding: 2rem;
+  background-color: vars.$color-off-white;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 20px;
+
+  &__title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  &__underline {
+    margin: auto;
+    display: block;
+  }
+}
+
+.home-bookselection {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-bookselection__book {
+  width: 150px;
+  height: auto;
+}

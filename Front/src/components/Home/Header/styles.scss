@@ -1,0 +1,28 @@
+@use 'src/styles/vars'; 
+
+.home-header {
+  margin-top: 15rem;
+}
+
+.home-header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-header__title {
+  font-family: Fredoka One;
+  font-size: 7rem;
+  color: vars.$color-medium-black;
+  text-align: center;
+}
+
+.home-header__baseline {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.home-header__slogan {
+  text-align: center;
+  margin: 1rem;
+}
