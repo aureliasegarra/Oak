@@ -1,3 +1,4 @@
+const List = require('../models/list');
 const listMapper = require('../models/listMapper');
 
 const listController = {
@@ -5,6 +6,15 @@ const listController = {
     try {
       const lists = await listMapper.getAllLists();
       res.json(lists);
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  getListByUserId: async (req, res) => {
+    const { userId } = req.params;
+    try {
+      const list = await listMapper.getListsByUserId(userId);
+      res.json(list);
     } catch (error) {
       console.log(error)
     }
@@ -19,13 +29,32 @@ const listController = {
     }
   },
   addList: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      const list = new List(req.body);
+      await listMapper.addList(list);
+      res.json(list)
+    } catch (error) {
+      res.status(403).json(err.message);
+      console.log(error);
+    }
   },
-  deleteList: async (req, res) => {
-    res.send('Hello world !');
+  deleteListById: async (req, res) => {
+    const { id } = req.params;
+    try {
+      await listMapper.deleteListById(id);
+      res.json('OK');
+    } catch (error) {
+      res.status(404).json(error.message);
+    }
   },
   updateList: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      const list = new List(req.body);
+      const listUpdated = await listMapper.updateList(list);
+      res.json(listUpdated);
+    } catch (error) {
+      res.status(404).json(error.message);
+    }
   },
 };
 
