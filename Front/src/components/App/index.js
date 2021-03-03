@@ -8,6 +8,7 @@ import {
 
 import Menu from 'src/components/Menu';
 import Home from 'src/components/Home';
+import UserProfile from 'src/containers/UserProfile';
 import Footer from 'src/components/Footer';
 
 // == Import
@@ -20,6 +21,9 @@ const App = () => (
     <Switch>
       <Route path="/" exact>
         <Home />
+      </Route>
+      <Route path="/profil/:pseudo/:id" exact>
+        <UserProfile />
       </Route>
     </Switch>
     <Footer />
