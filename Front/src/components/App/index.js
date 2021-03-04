@@ -25,6 +25,9 @@ const App = () => (
       <Route path="/profil/:pseudo/:id" exact>
         <UserProfile />
       </Route>
+      <Route path="/login" exact>
+        <Home />
+      </Route>
     </Switch>
     <Footer />
   </div>

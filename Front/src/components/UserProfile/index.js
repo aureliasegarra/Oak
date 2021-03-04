@@ -2,6 +2,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import {
+  NavLink,
+} from 'react-router-dom';
+
 // == Import
 import './styles.scss';
 
@@ -14,43 +18,51 @@ const UserProfile = ({
   }, []);
 
   return (
-    <main className="userprofile-main">
-      <div className="userprofile-infos">
-        <p className="userprofile-infos__avatar">{avatar}</p>
-        <h1 className="userprofile-infos__pseudo">{pseudo}</h1>
-        <div>
-          {isLogged && (
-          <p>Vous êtes loggé</p>
-          )}
+    <>
+      {isLogged && (
+      <main className="userprofile-main">
+        <div className="userprofile-infos">
+          <p className="userprofile-infos__avatar">{avatar}</p>
+          <h1 className="userprofile-infos__pseudo">{pseudo}</h1>
         </div>
-        <div>
-          {!isLogged && (
-          <p>Veuillez vous connecter</p>
-          )}
+        <div className="userprofile-lists-container">
+          {lists.map((list) => (
+            <div className="userprofile-list">
+              <p className="userprofile-list__title">{list.name}</p>
+              {list.content.map((book) => (
+                <div className="userprofile-list__book">{book.booktitle}</div>
+              ))}
+            </div>
+          ))}
         </div>
-      </div>
-      <div className="userprofile-lists-container">
-        {lists.map((list) => (
-          <div className="userprofile-list">
-            <p className="userprofile-list__title">{list.name}</p>
-            {list.content.map((book) => (
-              <div className="userprofile-list__book">{book.booktitle}</div>
-            ))}
-          </div>
-        ))}
-      </div>
-    </main>
+      </main>
+      )}
+      {!isLogged && (
+      <>
+        <p>Vous devez être connecté pour accéder à votre profil</p>
+        <NavLink to="/login">
+          <button type="button">
+            Se connecter
+          </button>
+        </NavLink>
+      </>
+      )}
+    </>
   );
 };
 
 UserProfile.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   pseudo: PropTypes.string.isRequired,
+  avatar: PropTypes.number,
   lists: PropTypes.array,
+  fetchUserInfos: PropTypes.func,
 };
 
 UserProfile.defaultProps = {
+  avatar: 0,
   lists: [],
+  fetchUserInfos: () => {},
 };
 
 // == Export
