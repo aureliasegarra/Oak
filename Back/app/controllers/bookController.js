@@ -6,7 +6,7 @@ const bookController = {
       const books = await bookMapper.getAllBooks();
       res.json(books);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   getBookById: async (req, res) => {
@@ -15,7 +15,7 @@ const bookController = {
       const book = await bookMapper.getBookById(id);
       res.json(book);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   addBook: async (req, res) => {

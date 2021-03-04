@@ -1,12 +1,13 @@
 class Role {
-    id;
-    role;
+  id;
 
-    constructor(data) {
-        for (const prop in data) {
-            this[prop] = data[prop];
-        }
+  role;
+
+  constructor(data) {
+    for (const prop in data) {
+      this[prop] = data[prop];
     }
+  }
 }
 
 module.exports = Role;

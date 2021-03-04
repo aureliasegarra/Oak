@@ -12,7 +12,6 @@ const reviewController = require('./controllers/reviewController');
 const roleController = require('./controllers/roleController');
 const userController = require('./controllers/userController');
 
-
 // AUTHOR ROUTES
 // Get all authors
 router.get('/authors', authorController.getAllAuthors);
@@ -53,13 +52,22 @@ router.patch('/book/:id(\\d+)', bookController.updateBook);
 // Get all bookPositions
 router.get('/bookPositions', bookPositionController.getAllBookPositions);
 // Get bookPosition by id
-router.get('/bookPosition/:id(\\d+)', bookPositionController.getBookPositionById);
+router.get(
+  '/bookPosition/:id(\\d+)',
+  bookPositionController.getBookPositionById
+);
 // Add bookPosition
 router.post('/bookPosition/', bookPositionController.addBookPosition);
 // Delete bookPosition
-router.delete('/bookPosition/:id(\\d+)', bookPositionController.deleteBookPosition);
+router.delete(
+  '/bookPosition/:id(\\d+)',
+  bookPositionController.deleteBookPosition
+);
 // Update bookPosition
-router.patch('/bookPosition/:id(\\d+)', bookPositionController.updateBookPosition);
+router.patch(
+  '/bookPosition/:id(\\d+)',
+  bookPositionController.updateBookPosition
+);
 
 // LIST ROUTES
 // Get all lists
@@ -125,7 +133,7 @@ router.patch('/user/:id(\\d+)', userController.updateUser);
 
 // 404
 router.use((req, res) => {
-    res.status(404).json('No such endpoint');
-    });
+  res.status(404).json('No such endpoint');
+});
 
 module.exports = router;

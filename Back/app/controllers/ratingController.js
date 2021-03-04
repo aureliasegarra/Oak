@@ -6,7 +6,7 @@ const ratingController = {
       const ratings = await ratingMapper.getAllRatings();
       res.json(ratings);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   getRatingById: async (req, res) => {
@@ -15,7 +15,7 @@ const ratingController = {
       const rating = await ratingMapper.getRatingById(id);
       res.json(rating);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   addRating: async (req, res) => {

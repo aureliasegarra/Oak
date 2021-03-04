@@ -6,7 +6,7 @@ const reviewController = {
       const reviews = await reviewMapper.getAllReviews();
       res.json(reviews);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   getReviewById: async (req, res) => {
@@ -15,7 +15,7 @@ const reviewController = {
       const review = await reviewMapper.getReviewById(id);
       res.json(review);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   addReview: async (req, res) => {

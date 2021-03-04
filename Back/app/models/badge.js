@@ -1,12 +1,13 @@
 class Badge {
-    id;
-    label;
+  id;
 
-    constructor(data) {
-        for (const prop in data) {
-            this[prop] = data[prop];
-        }
+  label;
+
+  constructor(data) {
+    for (const prop in data) {
+      this[prop] = data[prop];
     }
+  }
 }
 
 module.exports = Badge;

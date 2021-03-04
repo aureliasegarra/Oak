@@ -32,7 +32,7 @@ const listController = {
     try {
       const list = new List(req.body);
       await listMapper.addList(list);
-      res.status(201).json(list)
+      res.status(201).json(list);
     } catch (error) {
       res.status(403).json(err.message);
       console.log(error);
