@@ -8,6 +8,7 @@ import {
 
 import Menu from 'src/components/Menu';
 import Home from 'src/components/Home';
+import Login from 'src/components/Login';
 
 // == Import
 import './styles.scss';
@@ -19,6 +20,9 @@ const App = () => (
     <Switch>
       <Route path="/" exact>
         <Home />
+      </Route>
+      <Route path="/Login" exact>
+        <Login />
       </Route>
     </Switch>
   </div>

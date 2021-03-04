@@ -3,7 +3,7 @@ import './style.scss';
 
 const Login = () => (
   <div className="login">
-    <button type="button" className="login__button">+</button>
+    <h2 className="login__title">Se connecter</h2>
     <form className="login__form">
       <input
         type="email"
