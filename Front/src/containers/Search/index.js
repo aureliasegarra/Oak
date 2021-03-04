@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Search from 'src/components/Home/Search';
-import { setInputValue, getResults } from 'src/actions/search';
+import { setInputValue, fetchData } from 'src/actions/search';
 
 const mapStateToProps = (state) => ({
-  inputValue: state.inputValue,
+  inputValue: state.search.inputValue,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -12,9 +12,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   onSubmitForm: () => {
-    console.log('je veux obtenir les resultats');
-    const action = getResults();
-    console.log('action', action);
+    const action = fetchData();
     dispatch(action);
   },
 });

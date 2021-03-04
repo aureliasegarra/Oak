@@ -1,4 +1,4 @@
-import { SET_INPUT_VALUE, GET_RESULTS } from 'src/actions/search';
+import { SET_INPUT_VALUE, SEARCH_QUERY, SAVE_DATA } from 'src/actions/search';
 
 const initialState = {
   inputValue: '',
@@ -13,11 +13,16 @@ export default (state = initialState, action = {}) => {
         ...state,
         inputValue: action.value,
       };
-    case GET_RESULTS:
-      console.log('case', action.type);
+    case SEARCH_QUERY:
       return {
         ...state,
-        results: state.results,
+        inputValue: action.value,
+      };
+    case SAVE_DATA:
+      console.log('case', SAVE_DATA);
+      return {
+        ...state,
+        results: action.results,
       };
     default:
       return state;

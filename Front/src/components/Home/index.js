@@ -23,7 +23,8 @@ const Home = () => {
     try {
       const response = await axios.get(baseUrl);
       console.log('fetch', response);
-    } catch (error) {
+    }
+    catch (error) {
       console.log('error de fetch', error);
     }
   };
