@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Page from 'src/components/Page';
-import Header from './Header';
 import Search from 'src/containers/Search';
+import Results from 'src/containers/Results';
+import Header from './Header';
 import News from './News';
-import Results from './Results';
 
 // == Import
 import './styles.scss';

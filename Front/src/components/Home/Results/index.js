@@ -1,24 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card';
+import Book from './Book';
 
 const Results = ({ results }) => (
   <div>
-    {results && (
-      <div className="search-results">
-        {results.map((result) => (
-          <Card key={result.id} {...result} />
-        ))}
-      </div>
-    )}
+    {results.map((result) => (
+      <Book key={result.id} {...result} />
+    ))}
+    <p>Hello je suis tes résultats</p>
   </div>
 );
-
 
 Results.propTypes = {
   results: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };

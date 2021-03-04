@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { FETCH_DATA, saveData } from 'src/actions/search';
 
-
 const search = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_DATA: {
@@ -11,8 +10,8 @@ const search = (store) => (next) => (action) => {
       const fetchData = async () => {
         try {
           const response = await axios.get(baseUrl);
-          console.log('response', response.data);
-          store.dispatch(saveData(response.data));
+          console.log('response', response.data.items);
+          store.dispatch(saveData(response.data.items));
         }
         catch (error) {
           console.log('error', error);

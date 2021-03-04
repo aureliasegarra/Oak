@@ -19,7 +19,6 @@ export default (state = initialState, action = {}) => {
         inputValue: action.value,
       };
     case SAVE_DATA:
-      console.log('case', SAVE_DATA);
       return {
         ...state,
         results: action.results,
