@@ -6,7 +6,7 @@ import {
   Route,
 } from 'react-router-dom';
 
-import Menu from 'src/components/Menu';
+import Menu from 'src/containers/Menu';
 import Home from 'src/components/Home';
 import UserProfile from 'src/containers/UserProfile';
 import Footer from 'src/components/Footer';
@@ -26,6 +26,9 @@ const App = () => (
         <UserProfile />
       </Route>
       <Route path="/login" exact>
+        <Home />
+      </Route>
+      <Route path="/search" exact>
         <Home />
       </Route>
     </Switch>
