@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Book from './Book';
 
+import './styles.scss';
+
 const Results = ({ results }) => (
-  <div>
+  <div className="results-box">
     {results.map((result) => (
       <Book key={result.id} {...result} />
     ))}
-    <p>Hello je suis tes résultats</p>
   </div>
 );
 
