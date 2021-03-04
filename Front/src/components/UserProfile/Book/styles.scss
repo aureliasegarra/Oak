@@ -1,0 +1,10 @@
+@use 'src/styles/vars'; 
+
+.userprofile-list__bookcard {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: vars.$color-light-gray;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,13 +1,16 @@
 const initialState = {
+  id: 1,
   email: 'npellan@gmail.com',
   password: '',
   avatar: '1',
   isLogged: true,
   loading: false,
   pseudo: 'Nicolas',
+  badge: 'Grand lecteur',
   token: null,
   lists: [
     {
+      id: 1,
       name: 'A lire',
       content: [
         {
@@ -16,6 +19,7 @@ const initialState = {
       ],
     },
     {
+      id: 2,
       name: 'Lu',
       content: [
         {
@@ -27,6 +31,7 @@ const initialState = {
       ],
     },
     {
+      id: 3,
       name: 'Cadeau Malo',
       content: [
         {
@@ -34,6 +39,33 @@ const initialState = {
         },
         {
           booktitle: 'Tchoupi le mignon',
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: 'A lire',
+      content: [
+        {
+          booktitle: 'Le Petit Prince',
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: 'A lire',
+      content: [
+        {
+          booktitle: 'Le Petit Prince',
+        },
+      ],
+    },
+    {
+      id: 6,
+      name: 'A lire',
+      content: [
+        {
+          booktitle: 'Le Petit Prince',
         },
       ],
     },

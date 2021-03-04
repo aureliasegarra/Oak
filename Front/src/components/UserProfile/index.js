@@ -1,17 +1,19 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-
 import {
   NavLink,
 } from 'react-router-dom';
+
+import UserInfos from 'src/containers/UserInfos';
+import List from './List';
 
 // == Import
 import './styles.scss';
 
 // == Composant
 const UserProfile = ({
-  isLogged, pseudo, avatar, lists, fetchUserInfos,
+  isLogged, pseudo, email, avatar, badge, lists, fetchUserInfos,
 }) => {
   useEffect(() => {
     fetchUserInfos();
@@ -21,18 +23,10 @@ const UserProfile = ({
     <>
       {isLogged && (
       <main className="userprofile-main">
-        <div className="userprofile-infos">
-          <p className="userprofile-infos__avatar">{avatar}</p>
-          <h1 className="userprofile-infos__pseudo">{pseudo}</h1>
-        </div>
+        <UserInfos />
         <div className="userprofile-lists-container">
           {lists.map((list) => (
-            <div className="userprofile-list">
-              <p className="userprofile-list__title">{list.name}</p>
-              {list.content.map((book) => (
-                <div className="userprofile-list__book">{book.booktitle}</div>
-              ))}
-            </div>
+            <List list={list} />
           ))}
         </div>
       </main>
@@ -54,14 +48,17 @@ const UserProfile = ({
 UserProfile.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   pseudo: PropTypes.string.isRequired,
-  avatar: PropTypes.number,
+  email: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
   lists: PropTypes.array,
+  badge: PropTypes.string,
   fetchUserInfos: PropTypes.func,
 };
 
 UserProfile.defaultProps = {
-  avatar: 0,
+  avatar: '0',
   lists: [],
+  badge: 'Vous n\'avez pas encore reçu de badge',
   fetchUserInfos: () => {},
 };
 
