@@ -17,7 +17,7 @@ const AddList = ({ openModal, toggleAddListModal }) => {
 
   return (
     <div className="userprofile-addlist">
-      <RiPlayListAddLine className="userprofile-addlist__button" onClick={handleAddListModal}/>
+      <RiPlayListAddLine className="userprofile-addlist__button" onClick={handleAddListModal} />
       <p className="userprofile-addlist__text">Ajouter une liste</p>
       {openModal && (
         <AddListModal />

@@ -11,8 +11,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(onAddListInputValueChange());
   },
   createList: () => {
-    dispatch(createList())
-  }
+    dispatch(createList());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddListModal);
