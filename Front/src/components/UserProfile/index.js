@@ -5,8 +5,11 @@ import {
   NavLink,
 } from 'react-router-dom';
 
+import {RiPlayListAddLine} from 'react-icons/ri';
+
 import UserInfos from 'src/containers/UserInfos';
 import List from './List';
+import AddList from 'src/containers/AddList';
 
 // == Import
 import './styles.scss';
@@ -24,6 +27,7 @@ const UserProfile = ({
       {isLogged && (
       <main className="userprofile-main">
         <UserInfos />
+        <AddList />
         <div className="userprofile-lists-container">
           {lists.map((list) => (
             <List list={list} />
