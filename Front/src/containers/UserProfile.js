@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import UserProfile from 'src/components/UserProfile';
+import { fetchUserInfos } from '../actions/userProfile';
 
 const mapStateToProps = (state) => ({
   isLogged: state.user.isLogged,
@@ -9,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+  fetchUserInfos: () => dispatch(fetchUserInfos()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
