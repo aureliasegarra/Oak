@@ -1,5 +1,5 @@
 import React from 'react';
-import Field from 'src/components/Login/Field';
+import Field from 'src/containers/Field';
 import './style.scss';
 
 const Login = () => (

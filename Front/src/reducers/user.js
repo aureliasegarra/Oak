@@ -1,9 +1,7 @@
 const initialState = {
-  user: {
-    email: 'marina@oak.fr',
-    password: 'oak',
-    username: 'marina',
-  },
+  email: 'marina@oak.fr',
+  password: 'oak',
+  username: 'marina',
 };
 
 export default (state = initialState, action = {}) => {
