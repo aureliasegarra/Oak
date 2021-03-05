@@ -6,7 +6,7 @@ const bookController = {
       const books = await bookMapper.getAllBooks();
       res.json(books);
     } catch (error) {
-      console.log(error);
+      res.status(404).json(error.message);
     }
   },
   getBookById: async (req, res) => {
@@ -15,14 +15,20 @@ const bookController = {
       const book = await bookMapper.getBookById(id);
       res.json(book);
     } catch (error) {
-      console.log(error);
+      res.status(404).json(error.message);
     }
   },
   addBook: async (req, res) => {
     res.send('Hello world !');
   },
   deleteBook: async (req, res) => {
-    res.send('Hello world !');
+    const { id } = req.params;
+    try {
+      await bookMapper.deleteListById(id);
+      res.json('OK');
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
   },
   updateBook: async (req, res) => {
     res.send('Hello world !');
