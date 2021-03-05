@@ -21,10 +21,10 @@ const bookController = {
   addBook: async (req, res) => {
     res.send('Hello world !');
   },
-  deleteBook: async (req, res) => {
+  deleteBookById: async (req, res) => {
     const { id } = req.params;
     try {
-      await bookMapper.deleteListById(id);
+      await bookMapper.deleteBookById(id);
       res.json('OK');
     } catch (error) {
       res.status(500).json(error.message);

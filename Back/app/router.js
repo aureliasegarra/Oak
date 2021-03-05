@@ -44,7 +44,7 @@ router.get('/book/:id(\\d+)', bookController.getBookById);
 // Add book
 router.post('/book/', bookController.addBook);
 // Delete book
-router.delete('/book/:id(\\d+)', bookController.deleteBook);
+router.delete('/book/:id(\\d+)', bookController.deleteBookById);
 // Update book
 router.patch('/book/:id(\\d+)', bookController.updateBook);
 
