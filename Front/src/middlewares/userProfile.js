@@ -6,6 +6,7 @@ import {
   fetchUserInfos,
   CREATE_LIST,
   DELETE_LIST,
+  DELETE_BOOK,
 } from 'src/actions/userProfile';
 
 import axios from 'src/api';
@@ -34,6 +35,12 @@ export default (store) => (next) => (action) => {
       return next(action);
     case DELETE_LIST:
       axios.delete(`/list/${action.listId}`)
+        .finally(() => {
+          store.dispatch(fetchUserInfos());
+        });
+      return next(action);
+    case DELETE_BOOK:
+      axios.delete(`/book/${action.bookId}`)
         .finally(() => {
           store.dispatch(fetchUserInfos());
         });

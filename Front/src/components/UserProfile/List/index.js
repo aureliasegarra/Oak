@@ -7,7 +7,7 @@ import './styles.scss';
 
 import { TiPencil, TiDelete } from 'react-icons/ti';
 
-import Book from '../Book';
+import Book from 'src/containers/Book';
 
 // == Composant
 const List = ({

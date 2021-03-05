@@ -36,3 +36,10 @@ export const deleteList = (listId) => ({
   type: DELETE_LIST,
   listId,
 });
+
+export const DELETE_BOOK = 'DELETE_BOOK';
+
+export const deleteBook = (bookId) => ({
+  type: DELETE_BOOK,
+  bookId,
+});
