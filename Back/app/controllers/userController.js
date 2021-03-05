@@ -15,7 +15,7 @@ const userController = {
       const user = await userMapper.getUserById(id);
       res.json(user);
     } catch (error) {
-      console.log(error);
+      res.status(404).json(error.message);
     }
   },
   addUser: async (req, res) => {
