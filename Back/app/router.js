@@ -72,8 +72,6 @@ router.patch(
 // LIST ROUTES
 // Get all lists
 router.get('/lists', listController.getAllLists);
-// Get lists by userId
-router.get('/lists/user/:userId', listController.getListByUserId);
 // Get list by id
 router.get('/list/:id(\\d+)', listController.getListById);
 // Add list
