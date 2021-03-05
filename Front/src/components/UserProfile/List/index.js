@@ -11,27 +11,33 @@ import Book from '../Book';
 
 // == Composant
 const List = ({
-  list,
+  label, books,
 }) => (
   <div className="userprofile-list">
     <div className="userprofile-list__header">
-      <h2 className="userprofile-list__title">{list.label}</h2>
+      <h2 className="userprofile-list__title">{label}</h2>
       <div>
         <TiPencil />
         <TiDelete />
       </div>
     </div>
-    {list.books.map((book) => (
+    {books.map((book) => (
       <Book
         key={book.id}
-        book={book}
+        id={book.id}
+        {...book}
       />
     ))}
   </div>
 );
 
 List.propTypes = {
-  list: PropTypes.object.isRequired,
+  label: PropTypes.string.isRequired,
+  books: PropTypes.array,
+};
+
+List.defaultProps = {
+  books: [],
 };
 
 // == Export

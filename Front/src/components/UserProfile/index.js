@@ -33,7 +33,8 @@ const UserProfile = ({
           {lists.map((list) => (
             <List
               key={list.id}
-              list={list}
+              id={list.id}
+              {...list}
             />
           ))}
         </div>

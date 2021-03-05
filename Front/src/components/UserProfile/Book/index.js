@@ -9,16 +9,16 @@ import { TiDelete } from 'react-icons/ti';
 
 // == Composant
 const Book = ({
-  book,
+  title,
 }) => (
   <div className="userprofile-list__bookcard">
-    <p>{book.title}</p>
+    <p>{title}</p>
     <TiDelete />
   </div>
 );
 
 Book.propTypes = {
-  book: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 // == Export
