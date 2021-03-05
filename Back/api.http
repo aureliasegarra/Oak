@@ -21,6 +21,8 @@ GET {{baseUrl}}/badge/1
 GET {{baseUrl}}/books
 ### Get book by id
 GET {{baseUrl}}/book/1
+### Delete book by id
+DELETE {{baseUrl}}/book/25
 
 
 // BOOKPOSITION ROUTES
