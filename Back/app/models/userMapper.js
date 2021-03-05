@@ -43,6 +43,7 @@ const userMapper = {
         );`;
       const lists = await db.query(queryLists, data);
       user.lists = lists.rows;
+
       const queryBooks = `SELECT
       book.id,
       list_has_book.list_id,
@@ -55,9 +56,18 @@ const userMapper = {
       JOIN list ON list.id = list_has_book.list_id
       WHERE list.user_id = $1
       GROUP BY book.id,list_has_book.list_id;`;
-      const books = await db.query(queryBooks, data);
-
-      return books.rows;
+      const booksRows = await db.query(queryBooks, data);
+      const books = booksRows.rows;
+      user.lists.forEach((list) => {
+        // On crée un table vide books sur chaque liste qui contiendra les livres de la liste
+        list.books = [];
+        books.forEach((book) => {
+          if (book.list_id === list.id) {
+            list.books.push(book);
+          }
+        });
+      });
+      return user;
     } catch (error) {
       console.log(error);
     }
