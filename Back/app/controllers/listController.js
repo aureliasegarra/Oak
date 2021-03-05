@@ -34,7 +34,7 @@ const listController = {
       await listMapper.addList(list);
       res.status(201).json(list);
     } catch (error) {
-      res.status(403).json(err.message);
+      res.status(403).json(error.message);
       console.log(error);
     }
   },
