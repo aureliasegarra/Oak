@@ -38,12 +38,15 @@ const List = ({
 };
 
 List.propTypes = {
+  id: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
   books: PropTypes.array,
+  deleteList: PropTypes.func,
 };
 
 List.defaultProps = {
   books: [],
+  deleteList: () => {},
 };
 
 // == Export

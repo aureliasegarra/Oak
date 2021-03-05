@@ -17,7 +17,6 @@ export default (store) => (next) => (action) => {
     case FETCH_USER_INFOS:
       axios.get(`/user/${id}`)
         .then((result) => {
-          console.log(result.data);
           store.dispatch(setUserInfos(result.data));
         });
       return next(action);
@@ -28,19 +27,13 @@ export default (store) => (next) => (action) => {
         user_id: id,
       })
         .then((result) => {
-          console.log(result.data);
         })
         .finally(() => {
           store.dispatch(fetchUserInfos());
         });
       return next(action);
     case DELETE_LIST:
-      axios.delete(`/list/${action.listId}`, {
-
-      })
-        .then((result) => {
-          console.log(result.data);
-        })
+      axios.delete(`/list/${action.listId}`)
         .finally(() => {
           store.dispatch(fetchUserInfos());
         });
