@@ -89,7 +89,7 @@ router.get('/rating/:id(\\d+)', ratingController.getRatingById);
 // Add rating
 router.post('/rating/', ratingController.addRating);
 // Delete rating
-router.delete('/rating/:id(\\d+)', ratingController.deleteRating);
+router.delete('/rating/:id(\\d+)', ratingController.deleteRatingById);
 // Update rating
 router.patch('/rating/:id(\\d+)', ratingController.updateRating);
 
