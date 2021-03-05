@@ -4,6 +4,7 @@ import Home from 'src/components/Home';
 const mapStateToProps = (state) => ({
   loading: state.search.loading,
   results: state.search.results,
+  inputValue: state.search.inputValue,
 });
 
 const mapDispatchToProps = (dispatch) => ({});

@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 
 import Page from 'src/components/Page';
 import Search from 'src/containers/Search';
-import Results from 'src/containers/Results';
 import Header from './Header';
 import News from './News';
 import Loading from './Loading';
@@ -51,6 +50,7 @@ const Home = ({ fetchResults, loading, results }) => {
 Home.propTypes = {
   fetchResults: PropTypes.func.isRequired,
   loading: PropTypes.bool,
+  results: PropTypes.array.isRequired,
 };
 
 Home.defaultProps = {
