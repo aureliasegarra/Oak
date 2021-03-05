@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { FETCH_DATA, saveData } from 'src/actions/search';
+import { FETCH_DATA, saveData, isLoading } from 'src/actions/search';
 
 const search = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_DATA: {
+      store.dispatch(isLoading(true));
       console.log('case', FETCH_DATA);
       const state = store.getState();
       const baseUrl = `https://www.googleapis.com/books/v1/volumes?q=${state.search.inputValue}`;
@@ -15,6 +16,9 @@ const search = (store) => (next) => (action) => {
         }
         catch (error) {
           console.log('error', error);
+        }
+        finally {
+          store.dispatch(isLoading(false));
         }
       };
       fetchData();

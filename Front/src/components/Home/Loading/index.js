@@ -6,7 +6,7 @@ import './styles.scss';
 // == Composant
 const Loading = () => (
   <div>
-    <p>Loading...</p>
+    <p className="loading-text">Loading...</p>
   </div>
 );
 

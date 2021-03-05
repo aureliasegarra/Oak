@@ -1,9 +1,15 @@
-import { SET_INPUT_VALUE, SEARCH_QUERY, SAVE_DATA } from 'src/actions/search';
+import {
+  SET_INPUT_VALUE,
+  SEARCH_QUERY,
+  SAVE_DATA,
+  IS_LOADING,
+} from 'src/actions/search';
 
 const initialState = {
   inputValue: '',
   results: [],
   searchQuery: '',
+  loading: false,
 };
 
 export default (state = initialState, action = {}) => {
@@ -22,6 +28,11 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         results: action.results,
+      };
+    case IS_LOADING:
+      return {
+        ...state,
+        loading: action.status,
       };
     default:
       return state;

@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import Page from 'src/components/Page';
 import Search from 'src/containers/Search';
@@ -13,8 +14,7 @@ import Loading from './Loading';
 import './styles.scss';
 
 // == Composant
-const Home = ({ fetchResults, loading }) => {
-  const [results, setResults] = useState([]);
+const Home = ({ fetchResults, loading, results }) => {
   const [inputValue, setInputValue] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -40,7 +40,9 @@ const Home = ({ fetchResults, loading }) => {
         onChangeInputValue={setInputValue}
         onSubmitForm={submitForm}
       />
-      <Results results={results} />
+      {results.length > 0 && (
+        <Redirect to="/results" />
+      )}
       <News />
     </Page>
   );
