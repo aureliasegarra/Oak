@@ -101,7 +101,7 @@ router.get('/review/:id(\\d+)', reviewController.getReviewById);
 // Add review
 router.post('/review/', reviewController.addReview);
 // Delete review
-router.delete('/review/:id(\\d+)', reviewController.deleteReview);
+router.delete('/review/:id(\\d+)', reviewController.deleteReviewById);
 // Update review
 router.patch('/review/:id(\\d+)', reviewController.updateReview);
 
