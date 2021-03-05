@@ -44,7 +44,7 @@ const bookMapper = {
   deleteBookById: async (id) => {
     try {
       const query = ` DELETE FROM book
-                            WHERE id = $1 CASCADE;`;
+                            WHERE id = $1;`;
       const data = [id];
       await db.query(query, data);
     } catch (error) {
