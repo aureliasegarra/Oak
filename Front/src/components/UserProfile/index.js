@@ -1,6 +1,5 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   NavLink,
@@ -17,12 +16,11 @@ import './styles.scss';
 const UserProfile = ({
   isLogged, lists, fetchUserInfos,
 }) => {
-  const dispatch = useDispatch();
   /**
    * Fetchs user data when the component renders
    */
   useEffect(() => {
-    dispatch(fetchUserInfos());
+    fetchUserInfos();
   }, []);
 
   return (

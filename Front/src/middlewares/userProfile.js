@@ -3,6 +3,7 @@
 import {
   FETCH_USER_INFOS,
   setUserInfos,
+  fetchUserInfos,
   CREATE_LIST,
 } from 'src/actions/userProfile';
 
@@ -27,6 +28,9 @@ export default (store) => (next) => (action) => {
       })
         .then((result) => {
           console.log(result.data);
+        })
+        .finally(() => {
+          store.dispatch(fetchUserInfos());
         });
       return next(action);
     default:
