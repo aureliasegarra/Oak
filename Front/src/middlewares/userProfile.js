@@ -5,6 +5,7 @@ import {
   setUserInfos,
   fetchUserInfos,
   CREATE_LIST,
+  DELETE_LIST,
 } from 'src/actions/userProfile';
 
 import axios from 'src/api';
@@ -25,6 +26,17 @@ export default (store) => (next) => (action) => {
         label: addListInputValue,
         description: 'Description de ma liste',
         user_id: id,
+      })
+        .then((result) => {
+          console.log(result.data);
+        })
+        .finally(() => {
+          store.dispatch(fetchUserInfos());
+        });
+      return next(action);
+    case DELETE_LIST:
+      axios.delete(`/list/${action.listId}`, {
+
       })
         .then((result) => {
           console.log(result.data);

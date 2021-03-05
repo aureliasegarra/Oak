@@ -7,7 +7,7 @@ import {
 
 import UserInfos from 'src/containers/UserInfos';
 import AddList from 'src/containers/AddList';
-import List from './List';
+import List from 'src/containers/List';
 
 // == Import
 import './styles.scss';

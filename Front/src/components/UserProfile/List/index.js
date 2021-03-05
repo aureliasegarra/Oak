@@ -11,25 +11,31 @@ import Book from '../Book';
 
 // == Composant
 const List = ({
-  label, books,
-}) => (
-  <div className="userprofile-list">
-    <div className="userprofile-list__header">
-      <h2 className="userprofile-list__title">{label}</h2>
-      <div>
-        <TiPencil />
-        <TiDelete />
+  label, books, id, deleteList,
+}) => {
+  const handleDeleteList = () => {
+    deleteList(id);
+  };
+
+  return (
+    <div className="userprofile-list">
+      <div className="userprofile-list__header">
+        <h2 className="userprofile-list__title">{label}</h2>
+        <div>
+          <TiPencil />
+          <TiDelete onClick={handleDeleteList} />
+        </div>
       </div>
+      {books.map((book) => (
+        <Book
+          key={book.id}
+          id={book.id}
+          {...book}
+        />
+      ))}
     </div>
-    {books.map((book) => (
-      <Book
-        key={book.id}
-        id={book.id}
-        {...book}
-      />
-    ))}
-  </div>
-);
+  );
+};
 
 List.propTypes = {
   label: PropTypes.string.isRequired,

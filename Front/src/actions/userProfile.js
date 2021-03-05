@@ -29,3 +29,10 @@ export const CREATE_LIST = 'CREATE_LIST';
 export const createList = () => ({
   type: CREATE_LIST,
 });
+
+export const DELETE_LIST = 'DELETE_LIST';
+
+export const deleteList = (listId) => ({
+  type: DELETE_LIST,
+  listId,
+});
