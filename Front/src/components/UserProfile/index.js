@@ -31,7 +31,10 @@ const UserProfile = ({
         <AddList />
         <div className="userprofile-lists-container">
           {lists.map((list) => (
-            <List list={list} />
+            <List
+              key={list.id}
+              list={list}
+            />
           ))}
         </div>
       </main>

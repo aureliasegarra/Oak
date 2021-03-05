@@ -15,14 +15,17 @@ const List = ({
 }) => (
   <div className="userprofile-list">
     <div className="userprofile-list__header">
-      <h2 className="userprofile-list__title">{list.name}</h2>
+      <h2 className="userprofile-list__title">{list.label}</h2>
       <div>
         <TiPencil />
         <TiDelete />
       </div>
     </div>
-    {list.content.map((book) => (
-      <Book book={book} />
+    {list.books.map((book) => (
+      <Book
+        key={book.id}
+        book={book}
+      />
     ))}
   </div>
 );

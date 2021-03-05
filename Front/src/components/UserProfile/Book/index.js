@@ -12,7 +12,7 @@ const Book = ({
   book,
 }) => (
   <div className="userprofile-list__bookcard">
-    <p>{book.booktitle}</p>
+    <p>{book.title}</p>
     <TiDelete />
   </div>
 );

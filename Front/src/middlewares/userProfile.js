@@ -15,7 +15,6 @@ export default (store) => (next) => (action) => {
     case FETCH_USER_INFOS:
       axios.get('/user/1')
         .then((result) => {
-          console.log(result.data);
           store.dispatch(setUserInfos(result.data));
         });
       return next(action);
