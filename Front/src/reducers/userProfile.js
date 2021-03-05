@@ -2,7 +2,7 @@ import { TOGGLE_ADD_LIST_MODAL, ON_ADD_LIST_INPUT_VALUE_CHANGE } from 'src/actio
 
 const initialState = {
   openModal: false,
-  addListInputValue: 'test',
+  addListInputValue: '',
 };
 
 export default (state = initialState, action = {}) => {

@@ -5,18 +5,16 @@ import {
   NavLink,
 } from 'react-router-dom';
 
-import {RiPlayListAddLine} from 'react-icons/ri';
-
 import UserInfos from 'src/containers/UserInfos';
-import List from './List';
 import AddList from 'src/containers/AddList';
+import List from './List';
 
 // == Import
 import './styles.scss';
 
 // == Composant
 const UserProfile = ({
-  isLogged, pseudo, email, avatar, badge, lists, fetchUserInfos,
+  isLogged, lists, fetchUserInfos,
 }) => {
   useEffect(() => {
     fetchUserInfos();
@@ -51,18 +49,12 @@ const UserProfile = ({
 
 UserProfile.propTypes = {
   isLogged: PropTypes.bool.isRequired,
-  pseudo: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  avatar: PropTypes.string,
   lists: PropTypes.array,
-  badge: PropTypes.string,
   fetchUserInfos: PropTypes.func,
 };
 
 UserProfile.defaultProps = {
-  avatar: '0',
   lists: [],
-  badge: 'Vous n\'avez pas encore reçu de badge',
   fetchUserInfos: () => {},
 };
 
