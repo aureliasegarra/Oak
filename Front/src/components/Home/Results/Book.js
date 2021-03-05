@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import bookDefaultImg from './bookDefaultImg.png';
 
 const Book = ({ volumeInfo }) => (
   <article className="book-card">
-    <img className="book-card__image" src={volumeInfo.imageLinks.thumbnail} alt="illustration" />
+    <img src={volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail : bookDefaultImg} alt="illustration" />
     <div>
       <h2 className="book-card__title">{volumeInfo.title}</h2>
       <h3>{volumeInfo.authors}</h3>

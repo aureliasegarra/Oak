@@ -1,33 +1,22 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import Page from 'src/components/Page';
 import Search from 'src/containers/Search';
 import Results from 'src/containers/Results';
 import Header from './Header';
 import News from './News';
+import Loading from './Loading';
 
 // == Import
 import './styles.scss';
 
 // == Composant
-const Home = () => {
+const Home = ({ fetchResults, loading }) => {
   const [results, setResults] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
-
-  const baseUrl = `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}`;
-
-  const fetchResults = async () => {
-    try {
-      const response = await axios.get(baseUrl);
-      console.log('fetch', response);
-    }
-    catch (error) {
-      console.log('error de fetch', error);
-    }
-  };
 
   const submitForm = () => {
     setSearchQuery(inputValue);
@@ -38,6 +27,10 @@ const Home = () => {
       fetchResults();
     }
   }, [searchQuery]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <Page>
@@ -53,5 +46,13 @@ const Home = () => {
   );
 };
 
+Home.propTypes = {
+  fetchResults: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
+};
+
+Home.defaultProps = {
+  loading: false,
+};
 // == Export
 export default Home;
