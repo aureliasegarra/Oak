@@ -33,7 +33,7 @@ CREATE TABLE list (
     label text NOT NULL,
     "description" text NOT NULL,
     position posint NOT NULL default 0,
-    "user_id" int NOT NULL REFERENCES "user"(id)
+    "user_id" int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE
 );
 
 CREATE TABLE book (
@@ -47,7 +47,7 @@ CREATE TABLE book (
 CREATE TABLE rating (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     rating posint NOT NULL,
-    "user_id" int NOT NULL REFERENCES "user"(id),
+    "user_id" int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
     book_id int NOT NULL REFERENCES book(id) ON DELETE CASCADE
 );
 
@@ -55,14 +55,14 @@ CREATE TABLE review (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     label text NOT NULL,
     publish_time timestamptz NOT NULL default now(),
-    "user_id" int NOT NULL REFERENCES "user"(id),
+    "user_id" int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
     book_id int NOT NULL REFERENCES book(id) ON DELETE CASCADE
 );
 
 CREATE TABLE book_position (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     position posint NOT NULL default 0,
-    "user_id" int NOT NULL REFERENCES "user"(id),
+    "user_id" int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
     book_id int NOT NULL REFERENCES book(id) ON DELETE CASCADE
 );
 
@@ -80,7 +80,7 @@ CREATE TABLE book_has_author (
 
 CREATE TABLE user_has_badge (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "user_id" int NOT NULL REFERENCES "user"(id),
+    "user_id" int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
     badge_id int NOT NULL REFERENCES badge(id)
 );
 
