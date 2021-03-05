@@ -11,14 +11,25 @@ import { RiPlayListAddLine } from 'react-icons/ri';
 const AddList = ({
   openModal, toggleAddListModal, addListInputValue, onAddListInputValueChange, createList,
 }) => {
+  /**
+   * Opens the modal to add a list when button is clicked
+   */
   const openAddListModal = () => {
     toggleAddListModal();
   };
 
+  /**
+   * Controls the value of the add list input
+   * @param {*} event
+   */
   const handleAddListInputValueChange = (event) => {
     onAddListInputValueChange(event.target.value);
   };
 
+  /**
+   * Create a list in Heroku Api when the add list form is submitted
+   * @param {*} event
+   */
   const addList = (event) => {
     event.preventDefault();
     createList();
