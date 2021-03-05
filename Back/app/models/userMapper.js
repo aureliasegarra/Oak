@@ -64,6 +64,7 @@ const userMapper = {
         books.forEach((book) => {
           // we remove duplicate in authors array
           const cleanAuthors = [...new Set(book.authors)];
+          // then we erase our array with our new array without duplicate authors
           book.authors = cleanAuthors;
           // we check if the id from the list object is the same as the id from the book object
           if (book.list_id === list.id) {
