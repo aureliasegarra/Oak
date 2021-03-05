@@ -7,14 +7,14 @@ import './styles.scss';
 
 // == Composant
 const UserInfos = ({
-  pseudo, email, avatar, badge,
+  username, email, avatar, badge,
 }) => (
   <div className="userprofile-infos">
     <div className="userprofile-infos__avatar">
       <p>{avatar}</p>
     </div>
     <div className="userprofile-infos__details">
-      <h1 className="userprofile-infos__pseudo">{pseudo}</h1>
+      <h1 className="userprofile-infos__username">{username}</h1>
       <p className="userprofile-infos__email">{email}</p>
     </div>
     <div className="userprofile-infos__badges">
@@ -24,7 +24,7 @@ const UserInfos = ({
 );
 
 UserInfos.propTypes = {
-  pseudo: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   avatar: PropTypes.string,
   badge: PropTypes.string,

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import UserInfos from 'src/components/UserProfile/UserInfos';
 
 const mapStateToProps = (state) => ({
-  pseudo: state.user.pseudo,
+  username: state.user.username,
   email: state.user.email,
   badge: state.user.badge,
   avatar: state.user.avatar,

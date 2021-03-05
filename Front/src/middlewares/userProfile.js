@@ -13,8 +13,9 @@ export default (store) => (next) => (action) => {
 
   switch (action.type) {
     case FETCH_USER_INFOS:
-      axios.get('/user/1')
+      axios.get(`/user/${id}`)
         .then((result) => {
+          console.log(result.data);
           store.dispatch(setUserInfos(result.data));
         });
       return next(action);

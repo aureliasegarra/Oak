@@ -3,7 +3,7 @@ import Menu from 'src/components/Menu';
 
 const mapStateToProps = (state) => ({
   isLogged: state.user.isLogged,
-  pseudo: state.user.pseudo,
+  username: state.user.username,
   id: state.user.id,
 });
 

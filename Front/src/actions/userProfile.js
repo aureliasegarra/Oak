@@ -6,9 +6,9 @@ export const fetchUserInfos = () => ({
 
 export const SET_USER_INFOS = 'SET_USER_INFOS';
 
-export const setUserInfos = (user) => ({
+export const setUserInfos = (userInfos) => ({
   type: SET_USER_INFOS,
-  user,
+  userInfos,
 });
 
 export const TOGGLE_ADD_LIST_MODAL = 'TOGGLE_ADD_LIST_MODAL';

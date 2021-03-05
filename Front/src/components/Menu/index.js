@@ -13,8 +13,8 @@ import './styles.scss';
 import logo from './logo-glan.svg';
 
 // == Composant
-const Menu = ({ isLogged, pseudo, id }) => {
-  const profileURL = `/profil/${pseudo}/${id}`;
+const Menu = ({ isLogged, username, id }) => {
+  const profileURL = `/profil/${username}/${id}`;
 
   return (
     <header className="menu">
@@ -57,7 +57,7 @@ const Menu = ({ isLogged, pseudo, id }) => {
 
 Menu.propTypes = {
   isLogged: PropTypes.bool.isRequired,
-  pseudo: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
 };
 

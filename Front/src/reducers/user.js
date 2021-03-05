@@ -1,111 +1,26 @@
+import { SET_USER_INFOS } from 'src/actions/userProfile';
+
 const initialState = {
+  isLogged: true,
   id: 1,
-  email: 'npellan@gmail.com',
+  email: 'aurelia@oak.fr',
   password: '',
   avatar: '1',
-  isLogged: true,
   loading: false,
-  pseudo: 'Nicolas',
-  badge: 'Grand lecteur',
+  username: 'aurelia',
+  badges: [],
   token: null,
-  lists: [
-    {
-      id: 1,
-      label: 'Lus',
-      position: 0,
-      description: "Les livres que j'ai lu",
-      books: [
-        {
-          id: 1,
-          position: 1,
-          title: 'Le Petite Prince',
-          year: '1943',
-          page: 93,
-          synopsis: "Le narrateur est un aviateur qui, à la suite d'une panne de moteur, a dû se poser en catastrophe dans le désert du Sahara et tente seul de réparer son avion (Antoine de Saint-Exupéry se met en scène lui-même dans son œuvre). ... Jour après jour, le petit prince raconte son histoire au narrateur.",
-        },
-        {
-          id: 2,
-          position: 2,
-          title: 'La Petite Poule Qui Voulait Voir La Mer',
-          year: '2000',
-          page: null,
-          synopsis: "Pondre, toujours pondre! Il n'y a pas que ça dans la vie! Moi, je veux voir la mer!\" s'écrie Carméla, la petite poule blanche. Son père, le coq, n'a jamais rien entendu d'aussi fou. \"File au nid\", ordonne-t-il à la poulette. Mais Carméla n'arrive pas à s'endormir.",
-        },
-        {
-          id: 3,
-          position: 3,
-          title: "Qu'y a-t-il dans ta couche ?",
-          year: '2009',
-          page: 25,
-          synopsis: "Bébé Souris est terriblement curieuse. Elle veut toujours tout savoir, mème ce qu'il y a dans la couche de ses amis ! Mais toi, bébé Souris, où as-tu fait ta crotte ?",
-        },
-        {
-          id: 4,
-          position: 4,
-          title: 'Le Royaume de Kensuké',
-          year: '1999',
-          page: 161,
-          synopsis: "Le 10 septembre 1987, Michael embarque avec ses parents et leur chienne, Stella, sur un voilier pour faire le tour du monde. Ils s'arrêtent, parfois, pour de fabuleuses escales, Afrique, Amérique, Australie, jusqu'au jour où survient un terrible accident. Le jeune garçon se retrouve échoué, avec sa chienne, sur un île déserte perdue au milieu du Pacifique. Va-t-il pouvoir survivre, affamé, menacé par toutes sortes de dangers ? Reverra-t-il jamais ses parents ?",
-        },
-        {
-          id: 5,
-          position: 5,
-          title: "L'Ickabog",
-          year: '2020',
-          page: 391,
-          synopsis: 'Haut comme deux chevaux. Des boules de feu étincelantes à la place des yeux. De longues griffes acérées telles des lames. L’Ickabog arrive... ',
-        },
-      ],
-    },
-    {
-      id: 2,
-      label: 'A lire',
-      position: 1,
-      description: 'Les livres que je veux lire',
-      books: [
-        {
-          id: 6,
-          position: 6,
-          title: "Je t'aimerai toujours, quoi qu'il arrive... ",
-          year: '2018',
-          page: 28,
-          synopsis: "Petit Renard est inquiet car il craint de ne plus être aimé de sa maman s'il fait trop de bêtises. Mais sa maman lui explique que leur amour durera toujours. quoi qu'il arrive !",
-        },
-        {
-          id: 7,
-          position: 7,
-          title: 'Mes petites émotions',
-          year: '2018',
-          page: 16,
-          synopsis: 'Ce livre cartonné propose des petites scènes du quotidien pour aider les tout-petits à nommer leurs émotions',
-        },
-        {
-          id: 8,
-          position: 8,
-          title: 'Mon amour',
-          year: '2015',
-          page: 48,
-          synopsis: '" Dis, maman, est-ce que tu m’aimeras toute la vie ? demande Archibald, un soir avant de s’endormir. - Hum, eh bien, je vais te dire un secret…, répond sa maman. Ainsi commence le tendre inventaire des moments de vies partagés entre une mère et son enfant, où tout devient prétexte à s’aimer. Sur chaque double page, Astrid Desbordes a choisi d’opposer en vis-à-vis des situations contraires, qui jouent avec aisance sur les registres du quotidien',
-        },
-        {
-          id: 9,
-          position: 9,
-          title: "T'choupi va sur le pot",
-          year: '2017',
-          page: 161,
-          synopsis: "Dans cette histoire, T'choupi a très envie de faire pipi, et cette fois papa lui propose d'aller sur le pot...",
-        },
-        {
-          id: 10,
-          position: 10,
-          title: "L'enfant, la taupe, le renard et le cheval",
-          year: '2019',
-          page: 128,
-          synopsis: "Cette fable universelle et bienfaisante s'adresse à toutes les générations. Elle raconte une histoire d'amitié entre un enfant, une taupe gourmande et pleine de vie, un renard que les épreuves ont rendu méfiant et un cheval sage et serein. Tous les quatre explorent le vaste monde. Ils se posent des questions. Ils traversent des tempêtes. Ils apprennent à s'aimer. Cette ode à l'innocence et à la bienveillance transmet des leçons de vie qui ont touché le cœur de plus d'un million de lecteurs.",
-        },
-      ],
-    },
-  ],
+  lists: [],
 };
 
-export default (state = initialState, action = {}) => state;
+export default (state = initialState, action = {}) => {
+  switch (action.type) {
+    case SET_USER_INFOS:
+      return {
+        ...state,
+        lists: action.userInfos.lists,
+      };
+    default:
+      return state;
+  }
+};
