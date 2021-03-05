@@ -1,11 +1,21 @@
+import { CHANGE_INPUT_VALUE } from 'src/actions';
+
 const initialState = {
-  email: 'marina@oak.fr',
-  password: 'oak',
-  username: 'marina',
+  email: '',
+  password: '',
+  username: '',
 };
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
+    case CHANGE_INPUT_VALUE:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          [action.name]: action.value,
+        },
+      };
     default:
       return state;
   }
