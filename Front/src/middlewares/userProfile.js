@@ -11,38 +11,51 @@ import {
 
 import axios from 'src/api/herokuAPI';
 
-export default (store) => (next) => (action) => {
+export default (store) => (next) => async (action) => {
   const { user: { id }, userProfile: { addListInputValue } } = store.getState();
 
   switch (action.type) {
-    case FETCH_USER_INFOS:
-      axios.get(`/user/${id}`)
-        .then((result) => {
-          store.dispatch(setUserInfos(result.data));
-        });
-      return next(action);
+    case FETCH_USER_INFOS: {
+      try {
+        const result = await axios.get(`/user/${id}`);
+        store.dispatch(setUserInfos(result.data));
+      }
+      catch (error) {
+        console.log(error);
+      }
+      break;
+    }
     case CREATE_LIST:
-      axios.post('/list', {
-        label: addListInputValue,
-        description: 'Description de ma liste',
-        user_id: id,
-      })
-        .finally(() => {
-          store.dispatch(fetchUserInfos());
+      try {
+        await axios.post('/list', {
+          label: addListInputValue,
+          description: 'Description de ma liste',
+          user_id: id,
         });
-      return next(action);
+        store.dispatch(fetchUserInfos());
+      }
+      catch (error) {
+        console.log(error);
+      }
+      break;
     case DELETE_LIST:
-      axios.delete(`/list/${action.listId}`)
-        .finally(() => {
-          store.dispatch(fetchUserInfos());
-        });
-      return next(action);
+      try {
+        await axios.delete(`/list/${action.listId}`);
+        store.dispatch(fetchUserInfos());
+      }
+      catch (error) {
+        console.log(error);
+      }
+      break;
     case DELETE_BOOK:
-      axios.delete(`/book/${action.bookId}`)
-        .finally(() => {
-          store.dispatch(fetchUserInfos());
-        });
-      return next(action);
+      try {
+        await axios.delete(`/book/${action.bookId}`);
+        store.dispatch(fetchUserInfos());
+      }
+      catch (error) {
+        console.log(error);
+      }
+      break;
     default:
       return next(action);
   }
