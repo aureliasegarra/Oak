@@ -5,9 +5,9 @@ import {
   NavLink,
 } from 'react-router-dom';
 
-import UserInfos from 'src/containers/UserInfos';
-import AddList from 'src/containers/AddList';
-import List from 'src/containers/List';
+import UserInfos from 'src/containers/UserProfile/UserInfos';
+import AddList from 'src/containers/UserProfile/AddList';
+import List from 'src/containers/UserProfile/List';
 
 // == Import
 import './styles.scss';
