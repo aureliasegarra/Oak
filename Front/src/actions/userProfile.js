@@ -19,7 +19,7 @@ export const toggleAddListModal = () => ({
 
 export const SET_NEW_LIST_NAME = 'SET_NEW_LIST_NAME';
 
-export const setNewListName = (addListInputValue) => ({
+export const setAddListValue = (addListInputValue) => ({
   type: SET_NEW_LIST_NAME,
   addListInputValue,
 });
