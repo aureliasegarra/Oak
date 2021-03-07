@@ -5,13 +5,15 @@ import PropTypes from 'prop-types';
 // == Import
 import './styles.scss';
 
+import { getAvatar } from 'src/selectors';
+
 // == Composant
 const UserInfos = ({
   username, email, avatar, badge,
 }) => (
   <div className="userprofile-infos">
     <div className="userprofile-infos__avatar">
-      <p>{avatar}</p>
+      <img src={getAvatar(avatar)} alt="Avatar" />
     </div>
     <div className="userprofile-infos__details">
       <h1 className="userprofile-infos__username">{username}</h1>
@@ -26,12 +28,12 @@ const UserInfos = ({
 UserInfos.propTypes = {
   username: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  avatar: PropTypes.string,
+  avatar: PropTypes.number,
   badge: PropTypes.string,
 };
 
 UserInfos.defaultProps = {
-  avatar: '0',
+  avatar: 1,
   badge: 'Vous n\'avez pas encore reçu de badge',
 };
 

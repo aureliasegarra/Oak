@@ -5,7 +5,7 @@ const initialState = {
   id: 1,
   email: 'aurelia@oak.fr',
   password: '',
-  avatar: '1',
+  avatar: 1,
   loading: false,
   username: 'aurelia',
   badges: [],
