@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 import AddList from 'src/components/UserProfile/AddList';
-import { toggleAddListModal, onAddListInputValueChange, createList } from 'src/actions/userProfile';
+import { toggleAddListModal, setNewListName, createList } from 'src/actions/userProfile';
 
 const mapStateToProps = (state) => ({
-  openModal: state.userProfile.openModal,
+  isModalOpen: state.userProfile.isModalOpen,
   addListInputValue: state.userProfile.addListInputValue,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   toggleAddListModal: () => dispatch(toggleAddListModal()),
-  onAddListInputValueChange: (addListInputValue) => {
-    dispatch(onAddListInputValueChange(addListInputValue));
+  setNewListName: (addListInputValue) => {
+    dispatch(setNewListName(addListInputValue));
   },
   createList: () => dispatch(createList()),
 });

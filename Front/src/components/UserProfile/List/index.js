@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // == Import
 import './styles.scss';
 
-import { TiPencil, TiDelete } from 'react-icons/ti';
+import { TiPencil as ChangeListNameIcon, TiDelete as DeleteListIcon } from 'react-icons/ti';
 
 import Book from 'src/containers/UserProfile/Book';
 
@@ -22,8 +22,8 @@ const List = ({
       <div className="userprofile-list__header">
         <h2 className="userprofile-list__title">{label}</h2>
         <div>
-          <TiPencil />
-          <TiDelete onClick={handleDeleteList} />
+          <ChangeListNameIcon />
+          <DeleteListIcon onClick={handleDeleteList} />
         </div>
       </div>
       {books.map((book) => (

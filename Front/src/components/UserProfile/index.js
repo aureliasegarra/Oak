@@ -16,9 +16,6 @@ import './styles.scss';
 const UserProfile = ({
   isLogged, lists, fetchUserInfos,
 }) => {
-  /**
-   * Fetchs user data when the component renders
-   */
   useEffect(() => {
     fetchUserInfos();
   }, []);

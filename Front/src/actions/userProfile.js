@@ -17,10 +17,10 @@ export const toggleAddListModal = () => ({
   type: TOGGLE_ADD_LIST_MODAL,
 });
 
-export const ON_ADD_LIST_INPUT_VALUE_CHANGE = 'ON_ADD_LIST_INPUT_VALUE_CHANGE';
+export const SET_NEW_LIST_NAME = 'SET_NEW_LIST_NAME';
 
-export const onAddListInputValueChange = (addListInputValue) => ({
-  type: ON_ADD_LIST_INPUT_VALUE_CHANGE,
+export const setNewListName = (addListInputValue) => ({
+  type: SET_NEW_LIST_NAME,
   addListInputValue,
 });
 

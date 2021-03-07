@@ -1,7 +1,7 @@
-import { TOGGLE_ADD_LIST_MODAL, ON_ADD_LIST_INPUT_VALUE_CHANGE } from 'src/actions/userProfile';
+import { TOGGLE_ADD_LIST_MODAL, SET_NEW_LIST_NAME } from 'src/actions/userProfile';
 
 const initialState = {
-  openModal: false,
+  isModalOpen: false,
   addListInputValue: '',
 };
 
@@ -10,9 +10,9 @@ export default (state = initialState, action = {}) => {
     case TOGGLE_ADD_LIST_MODAL:
       return {
         ...state,
-        openModal: !state.openModal,
+        isModalOpen: !state.isModalOpen,
       };
-    case ON_ADD_LIST_INPUT_VALUE_CHANGE:
+    case SET_NEW_LIST_NAME:
       return {
         ...state,
         addListInputValue: action.addListInputValue,

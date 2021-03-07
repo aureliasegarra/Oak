@@ -5,31 +5,21 @@ import PropTypes from 'prop-types';
 // == Import
 import './styles.scss';
 
-import { RiPlayListAddLine } from 'react-icons/ri';
+import { RiPlayListAddLine as AddListIcon } from 'react-icons/ri';
+import { TiDelete as CloseModalIcon } from 'react-icons/ti';
 
 // == Composant
 const AddList = ({
-  openModal, toggleAddListModal, addListInputValue, onAddListInputValueChange, createList,
+  isModalOpen, toggleAddListModal, addListInputValue, setNewListName, createList,
 }) => {
-  /**
-   * Opens the modal to add a list when button is clicked
-   */
-  const openAddListModal = () => {
+  const handleClick = () => {
     toggleAddListModal();
   };
 
-  /**
-   * Controls the value of the add list input
-   * @param {*} event
-   */
-  const handleAddListInputValueChange = (event) => {
-    onAddListInputValueChange(event.target.value);
+  const handleChange = (event) => {
+    setNewListName(event.target.value);
   };
 
-  /**
-   * Create a list in Heroku Api when the add list form is submitted
-   * @param {*} event
-   */
   const addList = (event) => {
     event.preventDefault();
     createList();
@@ -38,11 +28,12 @@ const AddList = ({
 
   return (
     <div className="userprofile-addlist">
-      <RiPlayListAddLine className="userprofile-addlist__button" onClick={openAddListModal} />
+      <AddListIcon className="userprofile-addlist__button" onClick={handleClick} />
       <p className="userprofile-addlist__text">Ajouter une liste</p>
-      {openModal && (
+      {isModalOpen && (
         <div className="userprofile-addlistmodal">
           <div className="userprofile-addlistmodalcontent">
+            <CloseModalIcon className="userprofile-addlist__button" onClick={handleClick} />
             <form onSubmit={addList}>
               <label htmlFor="list-label">Nommez votre liste</label>
               <input
@@ -50,7 +41,7 @@ const AddList = ({
                 id="list-label"
                 name="list-label"
                 value={addListInputValue}
-                onChange={handleAddListInputValueChange}
+                onChange={handleChange}
                 placeholder="Nommez votre liste"
               />
               <button type="submit">Créez ma liste</button>
@@ -63,18 +54,18 @@ const AddList = ({
 };
 
 AddList.propTypes = {
-  openModal: PropTypes.bool,
+  isModalOpen: PropTypes.bool,
   toggleAddListModal: PropTypes.func,
   addListInputValue: PropTypes.string,
-  onAddListInputValueChange: PropTypes.func,
+  setNewListName: PropTypes.func,
   createList: PropTypes.func,
 };
 
 AddList.defaultProps = {
-  openModal: false,
+  isModalOpen: false,
   addListInputValue: '',
   toggleAddListModal: () => {},
-  onAddListInputValueChange: () => {},
+  setNewListName: () => {},
   createList: () => {},
 };
 

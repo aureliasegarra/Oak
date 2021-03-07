@@ -5,20 +5,20 @@ import PropTypes from 'prop-types';
 // == Import
 import './styles.scss';
 
-import { TiDelete } from 'react-icons/ti';
+import { TiDelete as DeleteBookIcon } from 'react-icons/ti';
 
 // == Composant
 const Book = ({
   title, id, deleteBook,
 }) => {
-  const handleDeleteBook = () => {
+  const handleClick = () => {
     deleteBook(id);
   };
 
   return (
     <div className="userprofile-list__bookcard">
       <p>{title}</p>
-      <TiDelete onClick={handleDeleteBook} />
+      <DeleteBookIcon onClick={handleClick} />
     </div>
   );
 };

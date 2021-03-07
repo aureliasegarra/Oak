@@ -9,7 +9,7 @@ import {
   DELETE_BOOK,
 } from 'src/actions/userProfile';
 
-import axios from 'src/api';
+import axios from 'src/api/herokuAPI';
 
 export default (store) => (next) => (action) => {
   const { user: { id }, userProfile: { addListInputValue } } = store.getState();
@@ -27,8 +27,6 @@ export default (store) => (next) => (action) => {
         description: 'Description de ma liste',
         user_id: id,
       })
-        .then((result) => {
-        })
         .finally(() => {
           store.dispatch(fetchUserInfos());
         });
