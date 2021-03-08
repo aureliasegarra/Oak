@@ -11,6 +11,13 @@ const ratingController = require('./controllers/ratingController');
 const reviewController = require('./controllers/reviewController');
 const roleController = require('./controllers/roleController');
 const userController = require('./controllers/userController');
+const authController = require('./controllers/authController');
+
+// AUTHENTICATION ROUTES
+// Register new user
+router.post('/register/', authController.register);
+// Login user
+router.post('/login/', authController.login);
 
 // AUTHOR ROUTES
 // Get all authors
