@@ -33,9 +33,13 @@ Field.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  inputValue: PropTypes.string.isRequired,
+  inputValue: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   onChangeInputValue: PropTypes.func.isRequired,
+};
+
+Field.defaultProps = {
+  inputValue: '',
 };
 
 export default Field;

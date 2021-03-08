@@ -1,9 +1,11 @@
 import { CHANGE_INPUT_VALUE } from 'src/actions';
 
 const initialState = {
-  email: '',
-  password: '',
-  username: '',
+  register_email: '',
+  register_password: '',
+  login_email: '',
+  login_password: '',
+  register_username: '',
 };
 
 export default (state = initialState, action = {}) => {

@@ -15,13 +15,13 @@ const Login = ({ login }) => {
         <Field
           type="email"
           label="Email"
-          name="email"
+          name="login_email"
           placeholder="monadresse@email.fr"
         />
         <Field
           type="password"
           label="Mot de passe"
-          name="password"
+          name="login_password"
           placeholder="*******"
         />
         <button type="submit" className="login__submit">Connexion</button>

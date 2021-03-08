@@ -9,6 +9,7 @@ import {
 import Menu from 'src/components/Menu';
 import Home from 'src/components/Home';
 import Login from 'src/containers/Login';
+import Register from 'src/containers/Register';
 
 // == Import
 import './styles.scss';
@@ -22,6 +23,7 @@ const App = () => (
         <Home />
       </Route>
       <Route path="/Login" exact>
+        <Register />
         <Login />
       </Route>
     </Switch>

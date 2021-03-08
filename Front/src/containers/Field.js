@@ -3,7 +3,7 @@ import Field from 'src/components/Field';
 import { changeInputValue } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  inputValue: state.user[ownProps.name],
+  inputValue: state.auth[ownProps.name],
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
