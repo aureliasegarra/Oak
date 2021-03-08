@@ -4,6 +4,26 @@
 @path=api
 @baseUrl = {{protocol}}://{{domainname}}:{{port}}/{{path}}
 
+// AUTHENTICATION ROUTES
+### Register new user
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+    "username": "monusername",
+    "email": "monemail@monemail.fr",
+    "password": "monpassword",
+    "avatar": 1
+  }
+### Login user
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "email": "monemail@monemail.fr",
+    "password": "monpassword"
+  }
+
 // AUTHOR ROUTES
 ### Get all authors
 GET {{baseUrl}}/authors
