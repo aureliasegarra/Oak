@@ -13,7 +13,7 @@ import axios from 'src/api/herokuAPI';
 import { MODIFY_LIST_NAME } from '../actions/userProfile';
 
 export default (store) => (next) => async (action) => {
-  const { user: { id }, userProfile: { addListInputValue } } = store.getState();
+  const { user: { id } } = store.getState();
 
   switch (action.type) {
     case FETCH_USER_INFOS: {
@@ -28,8 +28,9 @@ export default (store) => (next) => async (action) => {
     }
     case CREATE_LIST:
       try {
+        console.log(action);
         await axios.post('/list', {
-          label: addListInputValue,
+          label: action.newListName,
           description: 'Description de ma liste',
           user_id: id,
         });

@@ -11,23 +11,11 @@ export const setUserInfos = (userInfos) => ({
   userInfos,
 });
 
-export const TOGGLE_ADD_LIST_MODAL = 'TOGGLE_ADD_LIST_MODAL';
-
-export const toggleAddListModal = () => ({
-  type: TOGGLE_ADD_LIST_MODAL,
-});
-
-export const SET_NEW_LIST_NAME = 'SET_NEW_LIST_NAME';
-
-export const setNewListName = (addListInputValue) => ({
-  type: SET_NEW_LIST_NAME,
-  addListInputValue,
-});
-
 export const CREATE_LIST = 'CREATE_LIST';
 
-export const createList = () => ({
+export const createList = (newListName) => ({
   type: CREATE_LIST,
+  newListName,
 });
 
 export const MODIFY_LIST_NAME = 'MODIFY_LIST_NAME';

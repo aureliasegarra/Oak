@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -10,10 +10,13 @@ import { TiDelete as CloseModalIcon } from 'react-icons/ti';
 
 // == Composant
 const AddList = ({
-  isModalOpen, toggleAddListModal, addListInputValue, setNewListName, createList,
+  createList,
 }) => {
-  const handleClick = () => {
-    toggleAddListModal();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newListName, setNewListName] = useState('');
+
+  const handleModalClick = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   const handleChange = (event) => {
@@ -22,25 +25,25 @@ const AddList = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createList();
-    toggleAddListModal();
+    createList(newListName);
+    setIsModalOpen(false);
   };
 
   return (
     <div className="userprofile-addlist">
-      <AddListIcon className="userprofile-addlist__button" onClick={handleClick} />
+      <AddListIcon className="userprofile-addlist__button" onClick={handleModalClick} />
       <p className="userprofile-addlist__text">Ajouter une liste</p>
       {isModalOpen && (
         <div className="userprofile-addlistmodal">
           <div className="userprofile-addlistmodalcontent">
-            <CloseModalIcon className="userprofile-addlist__button" onClick={handleClick} />
+            <CloseModalIcon className="userprofile-addlist__button" onClick={handleModalClick} />
             <form onSubmit={handleSubmit}>
               <label htmlFor="list-label">Nommez votre liste</label>
               <input
                 type="text"
                 id="list-label"
                 name="list-label"
-                value={addListInputValue}
+                value={newListName}
                 onChange={handleChange}
                 placeholder="Nommez votre liste"
               />
@@ -54,18 +57,10 @@ const AddList = ({
 };
 
 AddList.propTypes = {
-  isModalOpen: PropTypes.bool,
-  toggleAddListModal: PropTypes.func,
-  addListInputValue: PropTypes.string,
-  setNewListName: PropTypes.func,
   createList: PropTypes.func,
 };
 
 AddList.defaultProps = {
-  isModalOpen: false,
-  addListInputValue: '',
-  toggleAddListModal: () => {},
-  setNewListName: () => {},
   createList: () => {},
 };
 
