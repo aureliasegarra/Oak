@@ -10,12 +10,14 @@ import Menu from 'src/components/Menu';
 import Home from 'src/containers/Home';
 import Results from 'src/containers/Results';
 import Search from 'src/containers/Search';
+import BookDetails from 'src/containers/BookDetails';
+import Error from 'src/components/Home/Error';
 
 // == Import
 import './styles.scss';
 
 // == Composant
-const App = ({ results }) => (
+const App = () => (
 
   <div className="app">
     <Menu />
@@ -23,9 +25,15 @@ const App = ({ results }) => (
       <Route path="/" exact>
         <Home />
       </Route>
-      <Route path="/results">
+      <Route path="/results" exact>
         <Search />
-        <Results results={results} />
+        <Results />
+      </Route>
+      <Route path="/result/:id" exact>
+        <BookDetails />
+      </Route>
+      <Route>
+        <Error />
       </Route>
     </Switch>
   </div>

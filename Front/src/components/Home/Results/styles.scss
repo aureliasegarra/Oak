@@ -23,5 +23,18 @@
   }
   &__image {
     margin-bottom: vars.$gutter;
+    max-width: 50px;
+    max-height: 80px;
+  }
+  &__info {
+    height: 40%;
+  }
+  &__link {
+    background-color: vars.$color-dark-gray;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: vars.$gutter / 2;
+    border-radius: 10px;
   }
 }

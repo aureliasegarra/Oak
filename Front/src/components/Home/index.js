@@ -42,6 +42,9 @@ const Home = ({ fetchResults, loading, results }) => {
       {results.length > 0 && (
         <Redirect to="/results" />
       )}
+      {!results && (
+        <Redirect to="/error" />
+      )}
       <News />
     </Page>
   );
