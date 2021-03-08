@@ -1,6 +1,5 @@
 // == Import npm
 import React from 'react';
-
 import { TiUserAdd } from 'react-icons/ti';
 import { BiLogIn } from 'react-icons/bi';
 import { FaMapMarkerAlt, FaSearch, FaRegCopyright } from 'react-icons/fa';
