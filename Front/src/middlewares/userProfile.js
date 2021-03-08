@@ -28,7 +28,6 @@ export default (store) => (next) => async (action) => {
     }
     case CREATE_LIST:
       try {
-        console.log(action);
         await axios.post('/list', {
           label: action.newListName,
           description: 'Description de ma liste',
