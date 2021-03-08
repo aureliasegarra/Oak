@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AddList from 'src/components/UserProfile/AddList';
-import { toggleAddListModal, setAddListValue, createList } from 'src/actions/userProfile';
+import { toggleAddListModal, setNewListName, createList } from 'src/actions/userProfile';
 
 const mapStateToProps = (state) => ({
   isModalOpen: state.userProfile.isModalOpen,
@@ -9,8 +9,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   toggleAddListModal: () => dispatch(toggleAddListModal()),
-  setAddListValue: (addListInputValue) => {
-    dispatch(setAddListValue(addListInputValue));
+  setNewListName: (addListInputValue) => {
+    dispatch(setNewListName(addListInputValue));
   },
   createList: () => dispatch(createList()),
 });

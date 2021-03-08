@@ -10,6 +10,7 @@ import {
 } from 'src/actions/userProfile';
 
 import axios from 'src/api/herokuAPI';
+import { MODIFY_LIST_NAME } from '../actions/userProfile';
 
 export default (store) => (next) => async (action) => {
   const { user: { id }, userProfile: { addListInputValue } } = store.getState();
@@ -31,6 +32,18 @@ export default (store) => (next) => async (action) => {
           label: addListInputValue,
           description: 'Description de ma liste',
           user_id: id,
+        });
+        store.dispatch(fetchUserInfos());
+      }
+      catch (error) {
+        console.log(error);
+      }
+      break;
+    case MODIFY_LIST_NAME:
+      try {
+        await axios.put(`/list/${action.listId}`, {
+          label: action.newListName,
+          id: action.listId,
         });
         store.dispatch(fetchUserInfos());
       }

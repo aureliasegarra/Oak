@@ -19,7 +19,7 @@ export const toggleAddListModal = () => ({
 
 export const SET_NEW_LIST_NAME = 'SET_NEW_LIST_NAME';
 
-export const setAddListValue = (addListInputValue) => ({
+export const setNewListName = (addListInputValue) => ({
   type: SET_NEW_LIST_NAME,
   addListInputValue,
 });
@@ -28,6 +28,14 @@ export const CREATE_LIST = 'CREATE_LIST';
 
 export const createList = () => ({
   type: CREATE_LIST,
+});
+
+export const MODIFY_LIST_NAME = 'MODIFY_LIST_NAME';
+
+export const modifyListName = (newListName, listId) => ({
+  type: MODIFY_LIST_NAME,
+  newListName,
+  listId,
 });
 
 export const DELETE_LIST = 'DELETE_LIST';

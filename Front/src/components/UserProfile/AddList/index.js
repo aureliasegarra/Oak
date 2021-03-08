@@ -10,14 +10,14 @@ import { TiDelete as CloseModalIcon } from 'react-icons/ti';
 
 // == Composant
 const AddList = ({
-  isModalOpen, toggleAddListModal, addListInputValue, setAddListValue, createList,
+  isModalOpen, toggleAddListModal, addListInputValue, setNewListName, createList,
 }) => {
   const handleClick = () => {
     toggleAddListModal();
   };
 
   const handleChange = (event) => {
-    setAddListValue(event.target.value);
+    setNewListName(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -57,7 +57,7 @@ AddList.propTypes = {
   isModalOpen: PropTypes.bool,
   toggleAddListModal: PropTypes.func,
   addListInputValue: PropTypes.string,
-  setAddListValue: PropTypes.func,
+  setNewListName: PropTypes.func,
   createList: PropTypes.func,
 };
 
@@ -65,7 +65,7 @@ AddList.defaultProps = {
   isModalOpen: false,
   addListInputValue: '',
   toggleAddListModal: () => {},
-  setAddListValue: () => {},
+  setNewListName: () => {},
   createList: () => {},
 };
 
