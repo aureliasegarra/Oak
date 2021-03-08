@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import BookDetails from 'src/components/Home/BookDetails';
+import BookDetails from 'src/components/BookDetails';
 import { findBookById } from 'src/selectors/results';
 
 const mapStateToProps = (state, ownProps) => {

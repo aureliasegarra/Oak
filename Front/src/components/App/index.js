@@ -11,7 +11,7 @@ import Home from 'src/containers/Home';
 import Results from 'src/containers/Results';
 import Search from 'src/containers/Search';
 import BookDetails from 'src/containers/BookDetails';
-import Error from 'src/components/Home/Error';
+import Error from 'src/components/Error';
 
 // == Import
 import './styles.scss';
