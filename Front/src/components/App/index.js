@@ -9,6 +9,7 @@ import {
 import Menu from 'src/containers/Menu';
 import Home from 'src/components/Home';
 import UserProfile from 'src/containers/UserProfile';
+import ListDetails from 'src/containers/ListDetails';
 import Footer from 'src/components/Footer';
 
 // == Import
@@ -24,6 +25,9 @@ const App = () => (
       </Route>
       <Route path="/profil/:pseudo/:id" exact>
         <UserProfile />
+      </Route>
+      <Route path="/list/:label/:id" exact>
+        <ListDetails />
       </Route>
       <Route path="/login" exact>
         <Home />

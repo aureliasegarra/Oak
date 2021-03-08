@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Link,
 } from 'react-router-dom';
@@ -10,12 +10,14 @@ import './styles.scss';
 
 import { TiEye as SeeDetailsIcon, TiPencil as ChangeListNameIcon, TiDelete as DeleteListIcon } from 'react-icons/ti';
 
-import Book from 'src/containers/UserProfile/Book';
-
 // == Composant
-const List = ({
-  label, books, id, deleteList, modifyListName,
+const ListDetails = ({
+  label, id, deleteList, modifyListName, fetchListDetails
 }) => {
+  useEffect(() => {
+    fetchListDetails();
+  }, []);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [listName, setListName] = useState(label);
 
@@ -56,18 +58,11 @@ const List = ({
           <DeleteListIcon onClick={handleDeleteList} />
         </div>
       </div>
-      {books.map((book) => (
-        <Book
-          key={book.id}
-          id={book.id}
-          {...book}
-        />
-      ))}
     </div>
   );
 };
 
-List.propTypes = {
+ListDetails.propTypes = {
   id: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
   books: PropTypes.array,
@@ -75,11 +70,11 @@ List.propTypes = {
   modifyListName: PropTypes.func,
 };
 
-List.defaultProps = {
+ListDetails.defaultProps = {
   books: [],
   deleteList: () => {},
   modifyListName: () => {},
 };
 
 // == Export
-export default List;
+export default ListDetails;

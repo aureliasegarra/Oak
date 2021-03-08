@@ -11,6 +11,19 @@ export const setUserInfos = (userInfos) => ({
   userInfos,
 });
 
+export const FETCH_LIST_DETAILS = 'FETCH_LIST_DETAILS';
+
+export const fetchListDetails = () => ({
+  type: FETCH_LIST_DETAILS,
+});
+
+export const SET_LIST_DETAILS = 'SET_LIST_DETAILS';
+
+export const setListDetails = (listDetails) => ({
+  type: SET_LIST_DETAILS,
+  listDetails,
+});
+
 export const CREATE_LIST = 'CREATE_LIST';
 
 export const createList = (newListName) => ({

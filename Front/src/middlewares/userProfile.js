@@ -4,6 +4,8 @@ import {
   FETCH_USER_INFOS,
   setUserInfos,
   fetchUserInfos,
+  FETCH_LIST_DETAILS,
+  setListDetails,
   CREATE_LIST,
   DELETE_LIST,
   DELETE_BOOK,
@@ -20,6 +22,16 @@ export default (store) => (next) => async (action) => {
       try {
         const result = await axios.get(`/user/${id}`);
         store.dispatch(setUserInfos(result.data));
+      }
+      catch (error) {
+        console.log(error);
+      }
+      break;
+    }
+    case FETCH_LIST_DETAILS: {
+      try {
+        const result = await axios.get(`/list/${id}`);
+        store.dispatch(setListDetails(result.data));
       }
       catch (error) {
         console.log(error);
