@@ -8,7 +8,7 @@ import {
 
 import Menu from 'src/components/Menu';
 import Home from 'src/components/Home';
-import Login from 'src/components/Login';
+import Login from 'src/containers/Login';
 
 // == Import
 import './styles.scss';

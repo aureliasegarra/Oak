@@ -11,10 +11,7 @@ export default (state = initialState, action = {}) => {
     case CHANGE_INPUT_VALUE:
       return {
         ...state,
-        user: {
-          ...state.user,
-          [action.name]: action.value,
-        },
+        [action.name]: action.value,
       };
     default:
       return state;
