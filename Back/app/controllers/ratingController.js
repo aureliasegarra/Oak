@@ -1,3 +1,4 @@
+const Rating = require('../models/rating');
 const ratingMapper = require('../models/ratingMapper');
 
 const ratingController = {
@@ -6,7 +7,7 @@ const ratingController = {
       const ratings = await ratingMapper.getAllRatings();
       res.json(ratings);
     } catch (error) {
-      console.log(error)
+      res.status(404).json(error.message);
     }
   },
   getRatingById: async (req, res) => {
@@ -15,17 +16,36 @@ const ratingController = {
       const rating = await ratingMapper.getRatingById(id);
       res.json(rating);
     } catch (error) {
-      console.log(error)
+      res.status(404).json(error.message);
     }
   },
   addRating: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      const rating = new Rating(req.body);
+      await ratingMapper.addRating(rating);
+      res.status(201).json(rating);
+    } catch (error) {
+      res.status(403).json(error.message);
+      console.log(error);
+    }
   },
-  deleteRating: async (req, res) => {
-    res.send('Hello world !');
+  deleteRatingById: async (req, res) => {
+    const { id } = req.params;
+    try {
+      await ratingMapper.deleteRatingById(id);
+      res.json('OK');
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
   },
   updateRating: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      const rating = new Rating(req.body);
+      const ratingUpdated = await ratingMapper.updateRating(rating);
+      res.json(ratingUpdated);
+    } catch (error) {
+      res.status(404).json(error.message);
+    }
   },
 };
 

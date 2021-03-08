@@ -6,7 +6,7 @@ const authorController = {
       const authors = await authorMapper.getAllAuthors();
       res.json(authors);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   getAuthorById: async (req, res) => {
@@ -15,7 +15,7 @@ const authorController = {
       const author = await authorMapper.getAuthorById(id);
       res.json(author);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   addAuthor: async (req, res) => {

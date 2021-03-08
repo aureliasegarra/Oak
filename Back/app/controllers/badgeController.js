@@ -6,7 +6,7 @@ const badgeController = {
       const badges = await badgeMapper.getAllBadges();
       res.json(badges);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   getBadgeById: async (req, res) => {
@@ -15,7 +15,7 @@ const badgeController = {
       const badge = await badgeMapper.getBadgeById(id);
       res.json(badge);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   addBadge: async (req, res) => {

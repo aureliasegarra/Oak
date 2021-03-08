@@ -4,6 +4,26 @@
 @path=api
 @baseUrl = {{protocol}}://{{domainname}}:{{port}}/{{path}}
 
+// AUTHENTICATION ROUTES
+### Register new user
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+    "username": "monusername",
+    "email": "monemail@monemail.fr",
+    "password": "monpassword",
+    "avatar": 1
+  }
+### Login user
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "email": "monemail@monemail.fr",
+    "password": "monpassword"
+  }
+
 // AUTHOR ROUTES
 ### Get all authors
 GET {{baseUrl}}/authors
@@ -20,7 +40,9 @@ GET {{baseUrl}}/badge/1
 ### Get all books
 GET {{baseUrl}}/books
 ### Get book by id
-GET {{baseUrl}}/book/1
+GET {{baseUrl}}/book/2
+### Delete book by id
+DELETE {{baseUrl}}/book/2
 
 
 // BOOKPOSITION ROUTES
@@ -34,7 +56,32 @@ GET {{baseUrl}}/bookPosition/1
 ### Get all lists
 GET {{baseUrl}}/lists
 ### Get list by id
-GET {{baseUrl}}/list/1
+GET {{baseUrl}}/list/23
+### Get lists by UserId
+GET {{baseUrl}}/lists/user/1
+### Delete list by id
+DELETE {{baseUrl}}/list/25
+### Add List
+POST {{baseUrl}}/list
+Content-Type: application/json
+
+{
+    "label": "Label de ma liste",
+    "position": 3,
+    "description": "Description de ma liste",
+    "user_id": 1
+  }
+### Update list by id
+PATCH {{baseUrl}}/list/24
+Content-Type: application/json
+
+{
+    "id": 24,
+    "label": "Label de ma liste",
+    "position": 3,
+    "description": "Description de ma liste",
+    "user_id": 1
+}
 
 
 // RATING ROUTES

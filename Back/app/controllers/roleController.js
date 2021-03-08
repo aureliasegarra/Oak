@@ -6,7 +6,7 @@ const roleController = {
       const roles = await roleMapper.getAllRoles();
       res.json(roles);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   getRoleById: async (req, res) => {
@@ -15,7 +15,7 @@ const roleController = {
       const role = await roleMapper.getRoleById(id);
       res.json(role);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   addRole: async (req, res) => {

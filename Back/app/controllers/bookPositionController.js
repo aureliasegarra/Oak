@@ -6,7 +6,7 @@ const bookPositionController = {
       const bookPositions = await bookPositionMapper.getAllBookPositions();
       res.json(bookPositions);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   getBookPositionById: async (req, res) => {
@@ -15,7 +15,7 @@ const bookPositionController = {
       const bookPosition = await bookPositionMapper.getBookPositionById(id);
       res.json(bookPosition);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   addBookPosition: async (req, res) => {

@@ -22,7 +22,7 @@ CREATE TABLE "role" (
 CREATE TABLE "user" (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     username text NOT NULL,
-    email text NOT NULL,
+    email text UNIQUE NOT NULL,
     "password" text NOT NULL,
     avatar posint NOT NULL default 0,
     role_id int NOT NULL REFERENCES role(id)
@@ -33,7 +33,7 @@ CREATE TABLE list (
     label text NOT NULL,
     "description" text NOT NULL,
     position posint NOT NULL default 0,
-    "user_id" int NOT NULL REFERENCES "user"(id)
+    "user_id" int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE
 );
 
 CREATE TABLE book (
@@ -47,40 +47,40 @@ CREATE TABLE book (
 CREATE TABLE rating (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     rating posint NOT NULL,
-    "user_id" int NOT NULL REFERENCES "user"(id),
-    book_id int NOT NULL REFERENCES book(id)
+    "user_id" int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
+    book_id int NOT NULL REFERENCES book(id) ON DELETE CASCADE
 );
 
 CREATE TABLE review (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     label text NOT NULL,
     publish_time timestamptz NOT NULL default now(),
-    "user_id" int NOT NULL REFERENCES "user"(id),
-    book_id int NOT NULL REFERENCES book(id)
+    "user_id" int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
+    book_id int NOT NULL REFERENCES book(id) ON DELETE CASCADE
 );
 
 CREATE TABLE book_position (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     position posint NOT NULL default 0,
-    "user_id" int NOT NULL REFERENCES "user"(id),
-    book_id int NOT NULL REFERENCES book(id)
+    "user_id" int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
+    book_id int NOT NULL REFERENCES book(id) ON DELETE CASCADE
 );
 
 CREATE TABLE list_has_book (
      id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     list_id int NOT NULL REFERENCES list(id),
-    book_id int NOT NULL REFERENCES book(id)
+    book_id int NOT NULL REFERENCES book(id) ON DELETE CASCADE
 );
 
 CREATE TABLE book_has_author (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    book_id int NOT NULL REFERENCES book(id),
-    author_id int NOT NULL REFERENCES author(id)
+    author_id int NOT NULL REFERENCES author(id),
+    book_id int NOT NULL REFERENCES book(id) ON DELETE CASCADE
 );
 
 CREATE TABLE user_has_badge (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "user_id" int NOT NULL REFERENCES "user"(id),
+    "user_id" int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
     badge_id int NOT NULL REFERENCES badge(id)
 );
 
