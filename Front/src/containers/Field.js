@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Field from 'src/components/Login/Field';
+import Field from 'src/components/Field';
 import { changeInputValue } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => ({
