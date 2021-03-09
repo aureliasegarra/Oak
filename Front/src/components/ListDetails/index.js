@@ -10,19 +10,23 @@ import './styles.scss';
 
 import { TiEye as SeeDetailsIcon, TiPencil as ChangeListNameIcon, TiDelete as DeleteListIcon } from 'react-icons/ti';
 
+import Book from 'src/containers/UserProfile/Book';
+
 // == Composant
 const ListDetails = ({
-  label, id, deleteList, modifyListName, fetchListDetails
+  list, deleteList, modifyListName, fetchListDetails,
 }) => {
   useEffect(() => {
-    fetchListDetails();
-  }, []);
+    if (!list) {
+      fetchListDetails();
+    }
+  }, [list]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [listName, setListName] = useState(label);
+  const [listName, setListName] = useState(list.label);
 
   const handleDeleteList = () => {
-    deleteList(id);
+    deleteList(list.id);
   };
 
   const handleModifyList = () => {
@@ -35,7 +39,7 @@ const ListDetails = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    modifyListName(listName, id);
+    modifyListName(listName, list.id);
     setIsModalOpen(false);
   };
 
@@ -43,7 +47,7 @@ const ListDetails = ({
     <div className="userprofile-list">
       <div className="userprofile-list__header">
         {!isModalOpen ? (
-          <h2 className="userprofile-list__title">{label}</h2>
+          <h2 className="userprofile-list__title">{list.label}</h2>
         )
           : (
             <form onSubmit={handleSubmit}>
@@ -51,27 +55,37 @@ const ListDetails = ({
             </form>
           )}
         <div>
-          <Link to={`/list/${label}/${id}`}>
+          <Link to={`/list/${list.id}`}>
             <SeeDetailsIcon />
           </Link>
           <ChangeListNameIcon onClick={handleModifyList} />
           <DeleteListIcon onClick={handleDeleteList} />
         </div>
       </div>
+      {list.books.map((book) => (
+        <Book
+          key={book.id}
+          id={book.id}
+          {...book}
+        />
+      ))}
     </div>
   );
 };
 
 ListDetails.propTypes = {
-  id: PropTypes.number.isRequired,
-  label: PropTypes.string.isRequired,
-  books: PropTypes.array,
+  list: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    books: PropTypes.array,
+  }).isRequired,
+  fetchListDetails: PropTypes.func,
   deleteList: PropTypes.func,
   modifyListName: PropTypes.func,
 };
 
 ListDetails.defaultProps = {
-  books: [],
+  fetchListDetails: () => {},
   deleteList: () => {},
   modifyListName: () => {},
 };

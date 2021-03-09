@@ -49,7 +49,7 @@ const List = ({
             </form>
           )}
         <div>
-          <Link to={`/list/${label}/${id}`}>
+          <Link to={`/list/${id}`}>
             <SeeDetailsIcon />
           </Link>
           <ChangeListNameIcon onClick={handleModifyList} />

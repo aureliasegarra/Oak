@@ -6,7 +6,6 @@ import {
   Route,
 } from 'react-router-dom';
 
-
 import Home from 'src/containers/Home';
 import Menu from 'src/containers/Menu';
 import Search from 'src/containers/Search';
@@ -39,7 +38,7 @@ const App = () => (
       <Route path="/profil/:pseudo/:id" exact>
         <UserProfile />
       </Route>
-      <Route path="/list/:label/:id" exact>
+      <Route path="/list/:id" exact>
         <ListDetails />
       </Route>
       <Route path="/login" exact>
