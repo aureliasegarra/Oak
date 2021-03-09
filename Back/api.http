@@ -20,7 +20,7 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-    "email": "monemail@monemail.fr",
+    "email": "nicolas@oak.fr",
     "password": "monpassword"
   }
 
@@ -110,3 +110,4 @@ GET {{baseUrl}}/role/1
 GET {{baseUrl}}/users
 ### Get user by id
 GET {{baseUrl}}/user/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInVzZXJuYW1lIjoibW9udXNlcm5hbWUiLCJlbWFpbCI6Im1vbmVtYWlsQG1vbmVtYWlsLmZyIiwiYXZhdGFyIjoxLCJyb2xlX2lkIjoyLCJpYXQiOjE2MTUyMTkyMDB9.1-rwc3XG_-m0h2x-3DmeEpOpIDso0KWXsP8vxihezdo
