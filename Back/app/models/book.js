@@ -3,11 +3,7 @@ class Book {
 
   title;
 
-  year;
-
-  page;
-
-  synopsis;
+  public_api_id;
 
   constructor(data) {
     for (const prop in data) {
