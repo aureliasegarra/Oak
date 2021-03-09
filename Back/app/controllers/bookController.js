@@ -1,3 +1,4 @@
+const Book = require('../models/book');
 const bookMapper = require('../models/bookMapper');
 
 const bookController = {
@@ -19,7 +20,27 @@ const bookController = {
     }
   },
   addBook: async (req, res) => {
-    res.send('Hello world !');
+    try {
+      // We check if the book is in the database
+      const book = await bookMapper.getBookByPublicApiId(
+        req.body.public_api_id
+      );
+      const newBook = new Book(req.body);
+      // If the book is not in the database
+      if (!book) {
+        // we add the book in the database
+        await bookMapper.addBook(newBook);
+        // then we add the book to the list
+        await bookMapper.addBookToList(newBook);
+      }
+      if (book) {
+        newBook.id = book.id;
+        await bookMapper.addBookToList(newBook);
+      }
+      res.status(201).json(newBook);
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
   },
   deleteBookById: async (req, res) => {
     const { id } = req.params;

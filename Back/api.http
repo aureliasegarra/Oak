@@ -11,7 +11,7 @@ Content-Type: application/json
 
 {
     "username": "monusername",
-    "email": "monemail@monemail.fr",
+    "email": "monemail1@monemail.fr",
     "password": "monpassword",
     "avatar": 1
   }
@@ -43,6 +43,16 @@ GET {{baseUrl}}/books
 GET {{baseUrl}}/book/2
 ### Delete book by id
 DELETE {{baseUrl}}/book/2
+### Add book to list
+POST {{baseUrl}}/book
+Content-Type: application/json
+
+{
+  "title" : "T'choupi fait du vélo",
+  "user_id" : 1,
+  "public_api_id":"Dw-3HAAACAAJ",
+  "list_id":1
+  }
 
 
 // BOOKPOSITION ROUTES
@@ -109,5 +119,5 @@ GET {{baseUrl}}/role/1
 ### Get all users
 GET {{baseUrl}}/users
 ### Get user by id
-GET {{baseUrl}}/user/1
+GET {{baseUrl}}/user/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInVzZXJuYW1lIjoibW9udXNlcm5hbWUiLCJlbWFpbCI6Im1vbmVtYWlsQG1vbmVtYWlsLmZyIiwiYXZhdGFyIjoxLCJyb2xlX2lkIjoyLCJpYXQiOjE2MTUyMTkyMDB9.1-rwc3XG_-m0h2x-3DmeEpOpIDso0KWXsP8vxihezdo

@@ -4,7 +4,6 @@ const router = Router();
 
 const auth = require('./middlewares/auth');
 
-const authorController = require('./controllers/authorController');
 const badgeController = require('./controllers/badgeController');
 const bookController = require('./controllers/bookController');
 const bookPositionController = require('./controllers/bookPositionController');
@@ -20,18 +19,6 @@ const authController = require('./controllers/authController');
 router.post('/register/', authController.register);
 // Login user
 router.post('/login/', authController.login);
-
-// AUTHOR ROUTES
-// Get all authors
-router.get('/authors', authorController.getAllAuthors);
-// Get author by id
-router.get('/author/:id(\\d+)', authorController.getAuthorById);
-// Add author
-router.post('/author/', authorController.addAuthor);
-// Delete author
-router.delete('/author/:id(\\d+)', authorController.deleteAuthor);
-// Update author
-router.patch('/author/:id(\\d+)', authorController.updateAuthor);
 
 // BADGE ROUTES
 // Get all badges

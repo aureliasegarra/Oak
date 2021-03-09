@@ -62,7 +62,8 @@ CREATE TABLE book_position (
 CREATE TABLE list_has_book (
      id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     list_id int NOT NULL REFERENCES list(id),
-    book_id int NOT NULL REFERENCES book(id) ON DELETE CASCADE
+    book_id int NOT NULL REFERENCES book(id) ON DELETE CASCADE,
+    UNIQUE(list_id, book_id)
 );
 
 CREATE TABLE user_has_badge (
