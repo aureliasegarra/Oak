@@ -1,5 +1,5 @@
 import axios from 'src/api/herokuAPI';
-import { LOGIN, REGISTER } from 'src/actions';
+import { LOGIN, REGISTER, saveUser } from 'src/actions';
 
 export default (store) => (next) => (action) => {
   switch (action.type) {
@@ -10,7 +10,7 @@ export default (store) => (next) => (action) => {
         password: state.auth.login_password,
       })
         .then((response) => {
-          console.log(response.data);
+          store.dispatch(saveUser(response));
         })
         .catch((err) => console.log('err', err));
       break;
