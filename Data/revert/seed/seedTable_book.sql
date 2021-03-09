@@ -2,6 +2,6 @@
 
 BEGIN;
 
-TRUNCATE book, rating, review, book_position, list_has_book, book_has_author, author;
+TRUNCATE book, rating, review, book_position, list_has_book;
 
 COMMIT;
