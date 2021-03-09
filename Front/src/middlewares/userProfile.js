@@ -53,9 +53,11 @@ export default (store) => (next) => async (action) => {
       break;
     case MODIFY_LIST_NAME:
       try {
-        await axios.put(`/list/${action.listId}`, {
+        await axios.patch(`/list/${action.listId}`, {
           label: action.newListName,
           id: action.listId,
+          description: 'test',
+          position: 0,
         });
         store.dispatch(fetchUserInfos());
       }
