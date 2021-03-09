@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-import Page from 'src/components/Page';
 import Search from 'src/containers/Search';
 import Header from './Header';
 import News from './News';
@@ -19,7 +18,7 @@ const Home = ({ loading, results }) => {
   }
 
   return (
-    <Page>
+    <main className="home-main">
       <Header />
       <Search />
       {results.length > 0 && (
@@ -29,7 +28,7 @@ const Home = ({ loading, results }) => {
         <Redirect to="/error" />
       )}
       <News />
-    </Page>
+    </main>
   );
 };
 
