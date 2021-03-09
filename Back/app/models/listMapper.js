@@ -16,17 +16,79 @@ const listMapper = {
   },
   getListById: async (id) => {
     try {
-      const query = ` SELECT *
-                            FROM list
-                            WHERE id = $1;`;
+      const queryList = ` SELECT
+      list.id,
+      list.label,
+      list.position
+      FROM list
+      WHERE list.id = $1`;
       const data = [id];
-      const { rows } = await db.query(query, data);
+      const { rows } = await db.query(queryList, data);
       if (!rows[0]) {
         throw new Error(`The list with the given id ${id} was not found`);
       }
-      return new List(rows[0]);
+      const list = new List(rows[0]);
+      const queryBooks = `SELECT DISTINCT(
+        book.id),
+        book.title,
+        book.public_api_id,
+        book_position.position
+        FROM list
+        JOIN list_has_book ON list_has_book.list_id = list.id
+        JOIN book ON book.id = list_has_book.book_id
+        JOIN book_position ON book_position.book_id = book.id
+        WHERE list.id = $1;`;
+      const books = await db.query(queryBooks, data);
+      list.books = books.rows;
+      return list;
     } catch (error) {
       throw new Error(error);
+    }
+  },
+  getListsByUserId: async (userId) => {
+    try {
+      const queryLists = `SELECT
+      list.id,
+      list.label,
+      list.description,
+      list.position
+      FROM list
+      WHERE "list".user_id IN
+      (
+        SELECT
+        id
+        FROM "user"
+        WHERE "user".id = $1
+        );`;
+      const data = [userId];
+      const { rows } = await db.query(queryLists, data);
+      const lists = rows;
+      const queryBooks = `SELECT book.id,
+      book.title, book.public_api_id,list_has_book.list_id, book_position.position
+      FROM book
+      JOIN list_has_book ON list_has_book.book_id = book.id
+      JOIN list ON list.id = list_has_book.list_id
+      JOIN book_position ON book_position.book_id = book.id
+      WHERE list.user_id = $1
+      GROUP BY book.id,list_has_book.list_id,book_position.position;`;
+      const booksRows = await db.query(queryBooks, data);
+      const books = booksRows.rows;
+      // for each list
+      lists.forEach((list) => {
+        // we add a property books who is an empty array who will contains every books from the list
+        list.books = [];
+        // for each book
+        books.forEach((book) => {
+          // we check if the id from the list object is the same as the id from the book object
+          if (book.list_id === list.id) {
+            // then we add the book to the books array previously initialized
+            list.books.push(book);
+          }
+        });
+      });
+      return lists;
+    } catch (error) {
+      console.log(error);
     }
   },
   addList: async (list) => {

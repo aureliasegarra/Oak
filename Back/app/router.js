@@ -83,6 +83,8 @@ router.patch(
 router.get('/lists', listController.getAllLists);
 // Get list by id
 router.get('/list/:id(\\d+)', listController.getListById);
+// Get lists by userId
+router.get('/lists/user/:userId(\\d+)', listController.getListsByUserId);
 // Add list
 router.post('/list/', listController.addList);
 // Delete list by id
