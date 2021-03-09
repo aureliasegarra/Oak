@@ -2,6 +2,8 @@ const { Router } = require('express');
 
 const router = Router();
 
+const auth = require('./middlewares/auth');
+
 const authorController = require('./controllers/authorController');
 const badgeController = require('./controllers/badgeController');
 const bookController = require('./controllers/bookController');
@@ -128,7 +130,7 @@ router.patch('/role/:id(\\d+)', roleController.updateRole);
 // Get all users
 router.get('/users', userController.getAllUsers);
 // Get user by id
-router.get('/user/:id(\\d+)', userController.getUserById);
+router.get('/user/me', auth, userController.getUserById);
 // Add user
 router.post('/user/', userController.addUser);
 // Delete user

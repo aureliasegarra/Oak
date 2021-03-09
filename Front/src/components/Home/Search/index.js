@@ -36,7 +36,7 @@ const Search = ({ inputValue, onChangeInputValue, onSubmitForm }) => {
           className="home-search__button"
           type="submit"
         >
-          <FaSearch className="home-search__icon" />
+          <BsSearch className="home-search__icon" />
         </button>
       </form>
     </section>

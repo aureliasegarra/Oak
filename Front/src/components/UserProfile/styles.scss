@@ -1,0 +1,12 @@
+@use 'src/styles/vars'; 
+
+.userprofile-main {
+  margin: 8rem auto 0;
+  width: 80%;
+}
+
+.userprofile-lists-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

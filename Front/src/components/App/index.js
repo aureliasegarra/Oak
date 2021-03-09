@@ -6,12 +6,16 @@ import {
   Route,
 } from 'react-router-dom';
 
-import Menu from 'src/components/Menu';
+
 import Home from 'src/containers/Home';
-import Results from 'src/containers/Results';
+import Menu from 'src/containers/Menu';
 import Search from 'src/containers/Search';
+import Results from 'src/containers/Results';
+import UserProfile from 'src/containers/UserProfile';
+import ListDetails from 'src/containers/ListDetails';
 import BookDetails from 'src/containers/BookDetails';
 import Error from 'src/components/Error';
+import Footer from 'src/components/Footer';
 
 // == Import
 import './styles.scss';
@@ -31,6 +35,18 @@ const App = () => (
       </Route>
       <Route path="/result/:id" exact>
         <BookDetails />
+      </Route>
+      <Route path="/profil/:pseudo/:id" exact>
+        <UserProfile />
+      </Route>
+      <Route path="/list/:label/:id" exact>
+        <ListDetails />
+      </Route>
+      <Route path="/login" exact>
+        <Home />
+      </Route>
+      <Route path="/search" exact>
+        <Home />
       </Route>
       <Route>
         <Error />
