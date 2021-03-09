@@ -29,6 +29,52 @@ const listMapper = {
       throw new Error(error);
     }
   },
+  getListsByUserId: async (userId) => {
+    try {
+      const queryLists = `SELECT
+      list.id,
+      list.label,
+      list.description,
+      list.position
+      FROM list
+      WHERE "list".user_id IN
+      (
+        SELECT
+        id
+        FROM "user"
+        WHERE "user".id = $1
+        );`;
+      const data = [userId];
+      const { rows } = await db.query(queryLists, data);
+      const lists = rows;
+      const queryBooks = `SELECT book.id,
+      book.title, book.public_api_id,list_has_book.list_id, book_position.position
+      FROM book
+      JOIN list_has_book ON list_has_book.book_id = book.id
+      JOIN list ON list.id = list_has_book.list_id
+      JOIN book_position ON book_position.book_id = book.id
+      WHERE list.user_id = $1
+      GROUP BY book.id,list_has_book.list_id,book_position.position;`;
+      const booksRows = await db.query(queryBooks, data);
+      const books = booksRows.rows;
+      // for each list
+      lists.forEach((list) => {
+        // we add a property books who is an empty array who will contains every books from the list
+        list.books = [];
+        // for each book
+        books.forEach((book) => {
+          // we check if the id from the list object is the same as the id from the book object
+          if (book.list_id === list.id) {
+            // then we add the book to the books array previously initialized
+            list.books.push(book);
+          }
+        });
+      });
+      return lists;
+    } catch (error) {
+      console.log(error);
+    }
+  },
   addList: async (list) => {
     try {
       const { label, description, user_id } = list;
