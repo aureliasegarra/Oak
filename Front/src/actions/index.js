@@ -2,6 +2,7 @@
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const LOGIN = 'LOGIN';
 export const REGISTER = 'REGISTER';
+export const SAVE_USER = 'SAVE_USER';
 
 // action creator
 export const changeInputValue = (value, name) => ({
@@ -16,4 +17,8 @@ export const login = () => ({
 
 export const register = () => ({
   type: REGISTER,
+});
+
+export const saveUser = () => ({
+  type: SAVE_USER,
 });
