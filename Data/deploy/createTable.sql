@@ -41,7 +41,8 @@ CREATE TABLE book (
     title text NOT NULL,
     "year" text,
     "page" posint,
-    synopsis text
+    synopsis text,
+    public_api_id text
 );
 
 CREATE TABLE rating (
