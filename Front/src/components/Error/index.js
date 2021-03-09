@@ -6,7 +6,7 @@ import './styles.scss';
 // == Composant
 const Error = () => (
   <div className="error-text__container">
-    <p className="error-text">Désolée une erreur s'est produite ... </p>
+    <p className="error-text">Désolé une erreur s'est produite ... </p>
   </div>
 );
 

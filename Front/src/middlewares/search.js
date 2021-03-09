@@ -5,7 +5,6 @@ const search = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_DATA: {
       store.dispatch(isLoading(true));
-      console.log('case', FETCH_DATA);
       const state = store.getState();
       const baseUrl = `https://www.googleapis.com/books/v1/volumes?q=${state.search.inputValue}`;
       const fetchData = async () => {
