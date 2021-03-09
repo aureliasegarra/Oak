@@ -19,6 +19,15 @@ const listController = {
       res.status(404).json(error.message);
     }
   },
+  getListsByUserId: async (req, res) => {
+    const { userId } = req.params;
+    try {
+      const lists = await listMapper.getListsByUserId(userId);
+      res.json(lists);
+    } catch (error) {
+      res.status(404).json(error.message);
+    }
+  },
   addList: async (req, res) => {
     try {
       const list = new List(req.body);
