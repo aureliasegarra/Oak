@@ -16,15 +16,29 @@ const listMapper = {
   },
   getListById: async (id) => {
     try {
-      const query = ` SELECT *
-                            FROM list
-                            WHERE id = $1;`;
+      const queryList = ` SELECT
+      list.id,
+      list.label
+      FROM list
+      WHERE list.id = $1`;
       const data = [id];
-      const { rows } = await db.query(query, data);
+      const { rows } = await db.query(queryList, data);
       if (!rows[0]) {
         throw new Error(`The list with the given id ${id} was not found`);
       }
-      return new List(rows[0]);
+      const list = new List(rows[0]);
+      const queryBooks = `SELECT DISTINCT(
+        book.id),
+        book.title,
+        book.public_api_id
+        FROM list
+        JOIN list_has_book ON list_has_book.list_id = list.id
+        JOIN book ON book.id = list_has_book.book_id
+        JOIN book_position ON book_position.book_id = book.id
+        WHERE list.id = $1;`;
+      const books = await db.query(queryBooks, data);
+      list.books = books.rows;
+      return list;
     } catch (error) {
       throw new Error(error);
     }
