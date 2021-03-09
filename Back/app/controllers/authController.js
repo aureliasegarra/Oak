@@ -29,8 +29,7 @@ const authController = {
       ]);
       const token = jwt.sign(newUser, process.env.JWTPRIVATEKEY);
       // we send the user without his password and we add the generated token to the header
-      console.log(newUser);
-      res.header('x-auth-token', token).status(201).json(newUser);
+      res.status(201).json(newUser);
     } catch (error) {
       res.status(403).json(error.message);
       console.log(error);
