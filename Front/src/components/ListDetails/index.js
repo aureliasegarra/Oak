@@ -10,17 +10,15 @@ import './styles.scss';
 
 import { TiEye as SeeDetailsIcon, TiPencil as ChangeListNameIcon, TiDelete as DeleteListIcon } from 'react-icons/ti';
 
-import Book from 'src/containers/UserProfile/Book';
+import Book from './Book';
 
 // == Composant
 const ListDetails = ({
-  list, deleteList, modifyListName, fetchListDetails,
+  id, list, deleteList, modifyListName, fetchListDetails,
 }) => {
   useEffect(() => {
-    if (!list) {
-      fetchListDetails();
-    }
-  }, [list]);
+    fetchListDetails(id);
+  }, []);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [listName, setListName] = useState(list.label);
@@ -62,7 +60,7 @@ const ListDetails = ({
           <DeleteListIcon onClick={handleDeleteList} />
         </div>
       </div>
-      {list.books.map((book) => (
+      {list.books && list.books.map((book) => (
         <Book
           key={book.id}
           id={book.id}
@@ -74,11 +72,7 @@ const ListDetails = ({
 };
 
 ListDetails.propTypes = {
-  list: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    books: PropTypes.array,
-  }).isRequired,
+  id: PropTypes.number.isRequired,
   fetchListDetails: PropTypes.func,
   deleteList: PropTypes.func,
   modifyListName: PropTypes.func,

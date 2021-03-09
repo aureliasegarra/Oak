@@ -34,7 +34,7 @@ export default (store) => (next) => async (action) => {
     }
     case FETCH_LIST_DETAILS: {
       try {
-        const result = await axios.get(`/list/${id}`);
+        const result = await axios.get(`/list/${action.listId}`);
         store.dispatch(setListDetails(result.data));
       }
       catch (error) {
