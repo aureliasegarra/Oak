@@ -16,13 +16,34 @@ const bookMapper = {
   },
   getBookById: async (id) => {
     try {
-      const query = 'SELECT * FROM book WHERE id = $1;';
+      const query = `SELECT
+                    book.id,
+                    book.title,
+                    book.public_api_id,
+                    AVG(rating.rating) AS average_rating
+                    FROM book
+                    JOIN rating ON rating.book_id = book.id
+                    WHERE book.id = $1
+                    GROUP BY book.id;`;
+      const queryReview = `SELECT
+      review.id,
+      review.label,
+      review.publish_time,
+      "user".username
+      FROM book
+      JOIN review ON review.book_id = book.id
+      JOIN "user" ON "user".id = review.user_id
+      WHERE book.id = $1
+      GROUP BY review.id, review.label, review.publish_time, "user".username;`;
       const data = [id];
       const { rows } = await db.query(query, data);
       if (!rows[0]) {
         throw new Error(`The book with the given id ${id} was not found`);
       }
-      return rows.map((book) => new Book(book));
+      const review = await db.query(queryReview, data);
+      const book = rows[0];
+      book.reviews = review.rows;
+      return new Book(book);
     } catch (error) {
       throw new Error(error);
     }
