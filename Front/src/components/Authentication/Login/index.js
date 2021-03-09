@@ -17,6 +17,7 @@ const Login = ({ login }) => {
           label="Email"
           name="login_email"
           placeholder="monadresse@email.fr"
+          className="email__input"
         />
         <Field
           type="password"
