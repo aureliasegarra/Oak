@@ -9,18 +9,22 @@ import {
   CREATE_LIST,
   DELETE_LIST,
   DELETE_BOOK,
+  MODIFY_LIST_NAME,
 } from 'src/actions/userProfile';
 
 import axios from 'src/api/herokuAPI';
-import { MODIFY_LIST_NAME } from '../actions/userProfile';
 
 export default (store) => (next) => async (action) => {
-  const { user: { id } } = store.getState();
+  const { user: { id, token } } = store.getState();
 
   switch (action.type) {
     case FETCH_USER_INFOS: {
       try {
-        const result = await axios.get(`/user/${id}`);
+        const result = await axios.get('/user/me', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         store.dispatch(setUserInfos(result.data));
       }
       catch (error) {
