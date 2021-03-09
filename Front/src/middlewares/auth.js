@@ -10,7 +10,7 @@ export default (store) => (next) => (action) => {
         password: state.auth.login_password,
       })
         .then((response) => {
-          store.dispatch(saveUser(response));
+          store.dispatch(saveUser(response.data));
         })
         .catch((err) => console.log('err', err));
       break;

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Register from 'src/components/Auth/Register';
+import Register from 'src/components/Authentication/Register';
 import { register } from 'src/actions';
 
 const mapState = null;

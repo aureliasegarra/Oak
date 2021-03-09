@@ -1,0 +1,14 @@
+@use 'src/styles/vars';
+
+.login__title {
+  font-size: 1.7rem;
+  
+}
+
+.login__submit {
+  border: none;
+  border-radius: 30px;
+  background-color: vars.$color-orange;
+  color: white;
+  padding: 0.7rem;
+}

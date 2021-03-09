@@ -1,0 +1,13 @@
+@use 'src/styles/vars';
+
+.register__title {
+  font-size: 1.7rem;
+}
+
+.register__submit {
+  border: none;
+  border-radius: 30px;
+  background-color: vars.$color-orange;
+  color: white;
+  padding: 0.7rem;
+}

@@ -1,4 +1,4 @@
-import { CHANGE_INPUT_VALUE } from 'src/actions';
+import { CHANGE_INPUT_VALUE, SAVE_USER } from 'src/actions';
 
 const initialState = {
   register_email: '',
@@ -10,11 +10,12 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_INPUT_VALUE:
+    case CHANGE_INPUT_VALUE: {
       return {
         ...state,
         [action.name]: action.value,
       };
+    }
     default:
       return state;
   }

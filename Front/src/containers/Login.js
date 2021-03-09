@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Login from 'src/components/Auth/Login';
+import Login from 'src/components/Authentication/Login';
 import { login } from 'src/actions';
 
 const mapState = null;
