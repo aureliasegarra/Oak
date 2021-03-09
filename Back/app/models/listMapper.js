@@ -18,7 +18,8 @@ const listMapper = {
     try {
       const queryList = ` SELECT
       list.id,
-      list.label
+      list.label,
+      list.position
       FROM list
       WHERE list.id = $1`;
       const data = [id];
@@ -30,7 +31,8 @@ const listMapper = {
       const queryBooks = `SELECT DISTINCT(
         book.id),
         book.title,
-        book.public_api_id
+        book.public_api_id,
+        book_position.position
         FROM list
         JOIN list_has_book ON list_has_book.list_id = list.id
         JOIN book ON book.id = list_has_book.book_id
