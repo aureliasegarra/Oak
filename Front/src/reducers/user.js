@@ -11,11 +11,11 @@ const initialState = {
   badges: [],
   token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInVzZXJuYW1lIjoiTmljbyIsImVtYWlsIjoibmljb0BuaWNvLmZyIiwiYXZhdGFyIjoxLCJyb2xlX2lkIjoyLCJpYXQiOjE2MTUyOTU4Mjh9.5uMW1wRug-MhTRgCSso1tr2CfrzK0jdqOKZMgeKwxgA',
   lists: [{
-    id: 1,
+    id: 21,
     label: 'Lus',
   },
   {
-    id: 2,
+    id: 22,
     label: 'A lire',
   }],
 };

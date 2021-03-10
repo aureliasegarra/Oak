@@ -5,9 +5,19 @@ import bookDefaultImg from './bookDefaultImg.png';
 
 import './styles.scss';
 
-const BookDetails = ({ result, addToReadList, readListId, toReadListId }) => {
+const BookDetails = ({
+  result,
+  addToReadList,
+  addToToReadList,
+  readListId,
+  toReadListId,
+}) => {
   const handleOnClick = () => {
     addToReadList(result.id, result.volumeInfo.title, readListId);
+  };
+
+  const handleOnSecondClick = () => {
+    addToToReadList(result.id, result.volumeInfo.title, toReadListId);
   };
 
   return (
@@ -25,7 +35,7 @@ const BookDetails = ({ result, addToReadList, readListId, toReadListId }) => {
         </div>
         <div className="book-page__buttons">
           <button onClick={handleOnClick} type="submit" className="book-page__button">Lu</button>
-          <button type="submit" className="book-page__button">À lire</button>
+          <button onClick={handleOnSecondClick} type="submit" className="book-page__button">À lire</button>
         </div>
       </section>
 
@@ -69,6 +79,7 @@ BookDetails.propTypes = {
     id: PropTypes.string.isRequired,
   }).isRequired,
   addToReadList: PropTypes.func.isRequired,
+  addToToReadList: PropTypes.func.isRequired,
   readListId: PropTypes.number.isRequired,
   toReadListId: PropTypes.number.isRequired,
 

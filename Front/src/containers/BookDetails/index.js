@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import BookDetails from 'src/components/BookDetails';
 import { findBookById } from 'src/selectors/results';
 import { readListId, toReadListId } from 'src/selectors/bookDetails';
-import { addToReadList } from 'src/actions/search';
+import { addToReadList, addToToReadList } from 'src/actions/search';
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
@@ -17,8 +17,12 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  addToReadList: (id, title, listId) => {
-    const action = addToReadList(id, title, listId);
+  addToReadList: (publicApiId, title, listId) => {
+    const action = addToReadList(publicApiId, title, listId);
+    dispatch(action);
+  },
+  addToToReadList: (publicApiId, title, listId) => {
+    const action = addToToReadList(publicApiId, title, listId);
     dispatch(action);
   },
 });
