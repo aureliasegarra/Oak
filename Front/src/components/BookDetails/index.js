@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { RiStarSFill } from 'react-icons/ri';
 import { AiFillCloseCircle } from 'react-icons/ai';
-import { FaShareSquare } from 'react-icons/fa';
 import bookDefaultImg from './bookDefaultImg.png';
 
 import './styles.scss';
