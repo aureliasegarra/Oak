@@ -24,7 +24,7 @@ const ListDetails = ({
   const [listName, setListName] = useState(list.label);
 
   const handleDeleteList = () => {
-    deleteList(list.id);
+    deleteList(id);
   };
 
   const handleModifyList = () => {
@@ -37,7 +37,7 @@ const ListDetails = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    modifyListName(listName, list.id);
+    modifyListName(listName, id);
     setIsModalOpen(false);
   };
 
@@ -54,7 +54,7 @@ const ListDetails = ({
               </form>
             )}
           <div>
-            <Link to={`/list/${list.id}`}>
+            <Link to={`/list/${id}`}>
               <SeeDetailsIcon />
             </Link>
             <ChangeListNameIcon onClick={handleModifyList} />
@@ -74,6 +74,11 @@ const ListDetails = ({
 };
 
 ListDetails.propTypes = {
+  list: PropTypes.shape({
+    id: PropTypes.number,
+    label: PropTypes.string,
+    books: PropTypes.array,
+  }),
   id: PropTypes.number.isRequired,
   fetchListDetails: PropTypes.func,
   deleteList: PropTypes.func,
@@ -81,6 +86,11 @@ ListDetails.propTypes = {
 };
 
 ListDetails.defaultProps = {
+  list: {
+    id: 1,
+    label: '',
+    books: [],
+  },
   fetchListDetails: () => {},
   deleteList: () => {},
   modifyListName: () => {},
