@@ -6,6 +6,9 @@
   background-color: vars.$color-medium-gray;
   border-radius: 20px;
   box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media screen and (max-width: 767px) {
     width: 45%;
@@ -25,4 +28,45 @@
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+}
+
+.userprofile-list__share {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: vars.$color-light-gray;
+  border-radius: 0 0 20px 20px;
+  padding: 1rem;
+}
+
+.userprofile-list__share__button {
+  background-color: vars.$color-white;
+  color: vars.$color-dark-gray;
+  font-size: 1rem;
+  padding: vars.$gutter;
+  border: none;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.userprofile-list__share__modal {
+  display: flex;
+  justify-content: space-between;
+  background-color: vars.$color-white;
+  color: vars.$color-dark-gray;
+  font-size: 1rem;
+  padding: vars.$gutter;
+  border: none;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.userprofile-list__modal__input {
+  background-color: vars.$color-white;
+  color: vars.$color-dark-gray;
+  font-size: 1rem;
+  border: none;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.userprofile-list__modal__copy:hover {
+  transform: scale(1.1);
 }

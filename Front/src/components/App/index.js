@@ -40,7 +40,7 @@ const App = () => (
       <Route path="/profil/:pseudo/:id" exact>
         <UserProfile />
       </Route>
-      <Route path="/list/:label/:id" exact>
+      <Route path="/list/:id" exact>
         <ListDetails />
       </Route>
       <Route path="/login" exact>

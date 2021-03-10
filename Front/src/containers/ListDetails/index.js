@@ -1,13 +1,21 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ListDetails from 'src/components/ListDetails';
-import { fetchListDetails } from '../../actions/userProfile';
+import { fetchListDetails } from 'src/actions/userProfile';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => {
+  const id = parseInt(ownProps.match.params.id, 10);
 
-});
+  return {
+    id,
+    list: state.lists,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchListDetails: () => dispatch(fetchListDetails()),
+  fetchListDetails: (listId) => dispatch(fetchListDetails(listId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListDetails);
+const container = connect(mapStateToProps, mapDispatchToProps)(ListDetails);
+
+export default withRouter(container);

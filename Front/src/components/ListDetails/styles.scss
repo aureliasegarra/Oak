@@ -1,6 +1,14 @@
 @use 'src/styles/vars'; 
 
-.userprofile-list {
+.listdetails-main {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.listdetails-list {
   width: 30%;
   margin-bottom: 3rem;
   background-color: vars.$color-medium-gray;
@@ -16,7 +24,7 @@
   }
 }
 
-.userprofile-list__header {
+.listdetails-list__header {
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -25,4 +33,40 @@
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+}
+
+.listdetails__share {
+  background-color: vars.$color-off-white;
+  color: vars.$color-dark-gray;
+  font-size: 1.5rem;
+  width: 30%;
+  padding: vars.$gutter;
+  border: none;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.listdetails__modal {
+  margin-top: 1rem;
+  background-color: vars.$color-off-white;
+  color: vars.$color-dark-gray;
+  font-size: 1.5rem;
+  width: 30%;
+  padding: vars.$gutter;
+  border: none;
+  border-radius: 20px 20px 20px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.listdetails__modal__input {
+  background-color: vars.$color-white;
+  color: vars.$color-dark-gray;
+  font-size: 1rem;
+  padding: vars.$gutter;
+  border: none;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.listdetails__modal__copy:hover {
+  transform: scale(1.1);
 }
