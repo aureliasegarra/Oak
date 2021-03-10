@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -8,6 +8,12 @@ import { BsSearch } from 'react-icons/bs';
 
 // == Composant
 const Search = ({ inputValue, onChangeInputValue, onSubmitForm }) => {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   const handleOnChange = (event) => {
     onChangeInputValue(event.target.value);
   };
@@ -24,6 +30,7 @@ const Search = ({ inputValue, onChangeInputValue, onSubmitForm }) => {
         className="home-search__form"
       >
         <input
+          ref={inputRef}
           className="home-search__input"
           type="text"
           name="search"

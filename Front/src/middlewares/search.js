@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { FETCH_DATA, saveData, isLoading } from 'src/actions/search';
+import {
+  FETCH_DATA,
+  saveData,
+  isLoading,
+} from 'src/actions/search';
 
 const search = (store) => (next) => (action) => {
   switch (action.type) {

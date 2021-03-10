@@ -44,9 +44,6 @@ const BookDetails = ({
           <Link to="/results">
             <AiFillCloseCircle className="book-page__outButton" />
           </Link>
-          <Link to="#">
-            <FaShareSquare className="book-page__outButton" />
-          </Link>
         </div>
       </section>
 
