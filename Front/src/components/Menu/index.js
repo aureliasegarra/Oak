@@ -57,8 +57,13 @@ const Menu = ({ isLogged, username, id }) => {
 
 Menu.propTypes = {
   isLogged: PropTypes.bool.isRequired,
-  username: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  username: PropTypes.string,
+  id: PropTypes.number,
+};
+
+Menu.defaultProps = {
+  username: '',
+  id: 1,
 };
 
 // == Export
