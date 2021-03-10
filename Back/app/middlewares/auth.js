@@ -4,7 +4,6 @@ require('dotenv').config();
 function auth(req, res, next) {
   const authHeader = req.headers.authorization;
   const token = authHeader && authHeader.split(' ')[1];
-  console.log(req.headers);
   if (!token) return res.status(401).json('Access denied. No token provided');
   try {
     const decodedPayload = jwt.verify(token, process.env.JWTPRIVATEKEY);

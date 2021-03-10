@@ -120,4 +120,4 @@ GET {{baseUrl}}/role/1
 GET {{baseUrl}}/users
 ### Get user by id
 GET {{baseUrl}}/user/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInVzZXJuYW1lIjoibW9udXNlcm5hbWUiLCJlbWFpbCI6Im1vbmVtYWlsQG1vbmVtYWlsLmZyIiwiYXZhdGFyIjoxLCJyb2xlX2lkIjoyLCJpYXQiOjE2MTUyMTkyMDB9.1-rwc3XG_-m0h2x-3DmeEpOpIDso0KWXsP8vxihezdo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJuaWNvbGFzIiwiZW1haWwiOiJuaWNvbGFzQG9hay5mciIsImF2YXRhciI6MSwicm9sZV9pZCI6MSwiaWF0IjoxNjE1MzY0NzQ3fQ.N5O1J651LP7MmYLYgE0zximgl0UnKhSfetRlJipFAHc
