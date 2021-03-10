@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { RiStarSFill } from 'react-icons/ri';
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { FaShareSquare } from 'react-icons/fa';
 import bookDefaultImg from './bookDefaultImg.png';
 
 import './styles.scss';
@@ -36,6 +39,14 @@ const BookDetails = ({
         <div className="book-page__buttons">
           <button onClick={handleOnClick} type="submit" className="book-page__button">Lu</button>
           <button onClick={handleOnSecondClick} type="submit" className="book-page__button">À lire</button>
+        </div>
+        <div className="book-page__outButtons">
+          <Link to="/results">
+            <AiFillCloseCircle className="book-page__outButton" />
+          </Link>
+          <Link to="#">
+            <FaShareSquare className="book-page__outButton" />
+          </Link>
         </div>
       </section>
 
