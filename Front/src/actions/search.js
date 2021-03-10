@@ -6,6 +6,8 @@ export const SAVE_DATA = 'SAVE_DATA';
 export const IS_LOADING = 'IS_LOADING';
 export const ADD_TO_READ_LIST = 'ADD_TO_READ_LIST';
 export const ADD_TO_TO_READ_LIST = 'ADD_TO_TO_READ_LIST';
+export const FETCH_BOOK_DETAIL = 'FETCH_BOOK_DETAIL';
+export const SET_BOOK_DETAIL = 'SET_BOOK_DETAIL';
 
 // Action creator
 export const setInputValue = (value) => ({
@@ -44,4 +46,14 @@ export const addToToReadList = (publicApiId, title, listId) => ({
   publicApiId,
   title,
   listId,
+});
+
+export const fetchBookDetail = (bookId) => ({
+  type: FETCH_BOOK_DETAIL,
+  bookId,
+});
+
+export const setBookDetail = (bookDetail) => ({
+  type: SET_BOOK_DETAIL,
+  bookDetail,
 });
