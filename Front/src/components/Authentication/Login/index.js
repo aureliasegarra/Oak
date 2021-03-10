@@ -1,13 +1,15 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import Field from 'src/containers/Field';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-const Login = ({ login }) => {
+const Login = ({ login, isLogged }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     login();
   };
+  if (isLogged) return (<Redirect to="/" />);
   return (
     <div className="login">
       <h2 className="login__title">Se connecter</h2>
@@ -33,6 +35,11 @@ const Login = ({ login }) => {
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool,
+};
+
+Login.defaultProps = {
+  isLogged: false,
 };
 
 export default Login;
