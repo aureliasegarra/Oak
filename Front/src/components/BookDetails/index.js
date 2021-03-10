@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { RiStarSFill } from 'react-icons/ri';
 import { AiFillCloseCircle } from 'react-icons/ai';
-import { FaShareSquare } from 'react-icons/fa';
-import Loading from 'src/components/Loading';
 import bookDefaultImg from './bookDefaultImg.png';
 
 import './styles.scss';
@@ -20,7 +18,6 @@ const BookDetails = ({
   id,
 }) => {
   useEffect(() => {
-    console.log('on est bon', id);
     fetchBookDetail(id);
   }, []);
 
@@ -88,6 +85,7 @@ const BookDetails = ({
 
 BookDetails.propTypes = {
   id: PropTypes.string.isRequired,
+  book: PropTypes.object,
   isLogged: PropTypes.bool.isRequired,
   addToReadList: PropTypes.func,
   addToToReadList: PropTypes.func,
@@ -102,6 +100,7 @@ BookDetails.defaultProps = {
   readListId: 0,
   toReadListId: 1,
   fetchBookDetail: () => {},
+  book: {},
 };
 
 export default BookDetails;
