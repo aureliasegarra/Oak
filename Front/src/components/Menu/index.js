@@ -13,7 +13,14 @@ import './styles.scss';
 import logo from './logo-glan.svg';
 
 // == Composant
-const Menu = ({ isLogged, username, id }) => {
+const Menu = ({ isLogged, username, id, open, onClickButton}) => {
+  const handleOnClick = () => {
+    console.log('je click sur le bouton');
+    onClickButton();
+  };
+
+  const className = open ? 'menu__burger--open' : 'menu__burger';
+
   const profileURL = `/profil/${username}/${id}`;
 
   return (
@@ -24,7 +31,10 @@ const Menu = ({ isLogged, username, id }) => {
           <h2 className="menu__logo__title">oak</h2>
         </NavLink>
       </div>
-      <div className="menu__burger">
+      <div
+        className={className}
+        onClick={handleOnClick}
+      >
         <span className="menu__burger__logo" />
       </div>
       <div className="menu__logo__container">
@@ -62,6 +72,8 @@ Menu.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   username: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  onClickButton: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
 };
 
 // == Export
