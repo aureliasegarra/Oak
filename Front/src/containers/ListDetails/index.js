@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ListDetails from 'src/components/ListDetails';
-import { fetchListDetails, deleteList, modifyListName } from 'src/actions/userProfile';
+import { fetchListDetails } from 'src/actions/userProfile';
 
 const mapStateToProps = (state, ownProps) => {
   const id = parseInt(ownProps.match.params.id, 10);
@@ -14,8 +14,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchListDetails: (listId) => dispatch(fetchListDetails(listId)),
-  deleteList: (listId) => dispatch(deleteList(listId)),
-  modifyListName: (newListName, listId) => dispatch(modifyListName(newListName, listId)),
 });
 
 const container = connect(mapStateToProps, mapDispatchToProps)(ListDetails);

@@ -1,65 +1,42 @@
 // == Import npm
 import React, { useEffect, useState } from 'react';
 import {
-  Link,
+  useLocation,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
 import './styles.scss';
 
-import { TiEye as SeeDetailsIcon, TiPencil as ChangeListNameIcon, TiDelete as DeleteListIcon } from 'react-icons/ti';
+import { MdContentCopy } from 'react-icons/md';
 
 import Book from './Book';
 
 // == Composant
 const ListDetails = ({
-  id, list, deleteList, modifyListName, fetchListDetails,
+  id, list, fetchListDetails,
 }) => {
   useEffect(() => {
     fetchListDetails(id);
   }, []);
 
+  const location = useLocation();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [listName, setListName] = useState(list.label);
 
-  const handleDeleteList = () => {
-    deleteList(id);
-  };
-
-  const handleModifyList = () => {
+  const handleShareClick = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const handleChange = (event) => {
-    setListName(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    modifyListName(listName, id);
-    setIsModalOpen(false);
+  const handleCopyClick = () => {
+    navigator.clipboard.writeText(`http://oak.fr${location.pathname}`);
   };
 
   return (
     <main className="listdetails-main">
-      <div className="userprofile-list">
-        <div className="userprofile-list__header">
-          {!isModalOpen ? (
-            <h2 className="userprofile-list__title">{list.label}</h2>
-          )
-            : (
-              <form onSubmit={handleSubmit}>
-                <input type="text" value={listName} onChange={handleChange} />
-              </form>
-            )}
-          <div>
-            <Link to={`/list/${id}`}>
-              <SeeDetailsIcon />
-            </Link>
-            <ChangeListNameIcon onClick={handleModifyList} />
-            <DeleteListIcon onClick={handleDeleteList} />
-          </div>
+      <div className="listdetails-list">
+        <div className="listdetails-list__header">
+          <h2 className="listdetails-list__title">{list.label}</h2>
         </div>
         {list.books && list.books.map((book) => (
           <Book
@@ -69,6 +46,13 @@ const ListDetails = ({
           />
         ))}
       </div>
+      <button type="button" className="listdetails__share" onClick={handleShareClick}>Partager</button>
+      {isModalOpen && (
+        <div className="listdetails__modal">
+          <input type="text" className="listdetails__modal__input" defaultValue={`https://www.oak.fr${location.pathname}`} />
+          <MdContentCopy className="listdetails__modal__copy" onClick={handleCopyClick} />
+        </div>
+      )}
     </main>
   );
 };
