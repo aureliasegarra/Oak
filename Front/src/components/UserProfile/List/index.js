@@ -12,19 +12,22 @@ import { TiEye as SeeDetailsIcon, TiPencil as ChangeListNameIcon, TiDelete as De
 
 import Book from 'src/containers/UserProfile/Book';
 
+import { MdContentCopy } from 'react-icons/md';
+
 // == Composant
 const List = ({
   label, books, id, deleteList, modifyListName,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAddListModalOpen, setIsAddListModalOpen] = useState(false);
   const [listName, setListName] = useState(label);
+  const [isSharingModalOpen, setIsSharingModalOpen] = useState(false);
 
   const handleDeleteList = () => {
     deleteList(id);
   };
 
   const handleModifyList = () => {
-    setIsModalOpen(!isModalOpen);
+    setIsAddListModalOpen(!isAddListModalOpen);
   };
 
   const handleChange = (event) => {
@@ -34,13 +37,22 @@ const List = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     modifyListName(listName, id);
-    setIsModalOpen(false);
+    setIsAddListModalOpen(false);
+  };
+
+  const handleShareClick = () => {
+    setIsSharingModalOpen(!isSharingModalOpen);
+  };
+
+  const handleCopyClick = () => {
+    navigator.clipboard.writeText(`http://oak.fr/list/${id}`);
+    setIsSharingModalOpen(!isSharingModalOpen);
   };
 
   return (
     <div className="userprofile-list">
       <div className="userprofile-list__header">
-        {!isModalOpen ? (
+        {!isAddListModalOpen ? (
           <h2 className="userprofile-list__title">{label}</h2>
         )
           : (
@@ -63,6 +75,16 @@ const List = ({
           {...book}
         />
       ))}
+      <div className="userprofile-list__share">
+        {!isSharingModalOpen ? (
+          <button type="button" className="userprofile-list__share__button" onClick={handleShareClick}>Partager</button>
+        ) : (
+          <div className="userprofile-list__share__modal">
+            <input type="text" className="userprofile-list__modal__input" defaultValue={`http://oak.fr/list/${id}`} />
+            <MdContentCopy className="userprofile-list__modal__copy" onClick={handleCopyClick} />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
