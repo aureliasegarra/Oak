@@ -6,7 +6,6 @@ import {
   Route,
 } from 'react-router-dom';
 
-
 import Home from 'src/containers/Home';
 import Menu from 'src/containers/Menu';
 import Search from 'src/containers/Search';
@@ -46,7 +45,8 @@ const App = () => (
         <Home />
       </Route>
       <Route path="/search" exact>
-        <Home />
+        <Search />
+        <Results />
       </Route>
       <Route>
         <Error />

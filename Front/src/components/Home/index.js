@@ -1,9 +1,9 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 
 import Search from 'src/containers/Search';
+import Results from 'src/containers/Results';
 import Header from './Header';
 import News from './News';
 import Loading from '../Loading';
@@ -21,13 +21,12 @@ const Home = ({ loading, results }) => {
     <main className="home-main">
       <Header />
       <Search />
-      {results.length > 0 && (
-        <Redirect to="/results" />
-      )}
-      {!results && (
-        <Redirect to="/error" />
-      )}
-      <News />
+      {results.length > 0 ? (
+        <Results />
+      )
+        : (
+          <News />
+        )}
     </main>
   );
 };
