@@ -44,16 +44,17 @@ const userMapper = {
       const lists = await db.query(queryLists, data);
       user.lists = lists.rows;
 
-      const queryBooks = `SELECT book.id,
-      book.title, list_has_book.list_id, book_position.position, array_agg(author.full_name) AS authors
-      FROM book
-      JOIN book_has_author ON book_has_author.book_id = book.id
-      JOIN list_has_book ON list_has_book.book_id = book.id
-      JOIN list ON list.id = list_has_book.list_id
-      JOIN book_position ON book_position.book_id = book.id
-      JOIN author ON author.id = book_has_author.author_id
-      WHERE list.user_id = $1
-      GROUP BY book.id,list_has_book.list_id,book_position.position;`;
+      const queryBooks = `SELECT
+                          book.id,
+                          book.title,
+                          list_has_book.list_id,
+                          book_position.position
+                          FROM book
+                          JOIN list_has_book ON list_has_book.book_id = book.id
+                          JOIN list ON list.id = list_has_book.list_id
+                          JOIN book_position ON book_position.book_id = book.id
+                          WHERE list.user_id = $1
+                          GROUP BY book.id,list_has_book.list_id,book_position.position;`;
       const booksRows = await db.query(queryBooks, data);
       const books = booksRows.rows;
       // for each list
@@ -62,10 +63,6 @@ const userMapper = {
         list.books = [];
         // for each book
         books.forEach((book) => {
-          // we remove duplicate in authors array
-          const cleanAuthors = [...new Set(book.authors)];
-          // then we erase our array with our new array without duplicate authors
-          book.authors = cleanAuthors;
           // we check if the id from the list object is the same as the id from the book object
           if (book.list_id === list.id) {
             // then we add the book to the books array previously initialized

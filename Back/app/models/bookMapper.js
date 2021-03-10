@@ -74,7 +74,6 @@ const bookMapper = {
   addBookToList: async (newBook) => {
     try {
       const { id, list_id, user_id } = newBook;
-      console.log(id);
       const queryList = ` INSERT INTO public.list_has_book (book_id, list_id)
                       VALUES ($1::integer, $2::integer)
                       returning id;`;
