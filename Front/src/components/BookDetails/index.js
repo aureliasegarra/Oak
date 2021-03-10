@@ -9,6 +9,7 @@ import bookDefaultImg from './bookDefaultImg.png';
 import './styles.scss';
 
 const BookDetails = ({
+  isLogged,
   result,
   addToReadList,
   addToToReadList,
@@ -36,10 +37,12 @@ const BookDetails = ({
           <p className="book-page__text">{result.volumeInfo.publishedDate}</p>
           <p className="book-page__text">{result.volumeInfo.pageCount} pages</p>
         </div>
+        {isLogged && (
         <div className="book-page__buttons">
           <button onClick={handleOnClick} type="submit" className="book-page__button">Lu</button>
           <button onClick={handleOnSecondClick} type="submit" className="book-page__button">À lire</button>
         </div>
+        )}
         <div className="book-page__outButtons">
           <Link to="/results">
             <AiFillCloseCircle className="book-page__outButton" />
@@ -73,6 +76,7 @@ const BookDetails = ({
 };
 
 BookDetails.propTypes = {
+  isLogged: PropTypes.bool.isRequired,
   result: PropTypes.shape({
     volumeInfo: PropTypes.shape({
       title: PropTypes.string,
@@ -86,11 +90,17 @@ BookDetails.propTypes = {
     }).isRequired,
     id: PropTypes.string.isRequired,
   }).isRequired,
-  addToReadList: PropTypes.func.isRequired,
-  addToToReadList: PropTypes.func.isRequired,
-  readListId: PropTypes.number.isRequired,
-  toReadListId: PropTypes.number.isRequired,
+  addToReadList: PropTypes.func,
+  addToToReadList: PropTypes.func,
+  readListId: PropTypes.number,
+  toReadListId: PropTypes.number,
+};
 
+BookDetails.defaultProps = {
+  addToReadList: () => {},
+  addToToReadList: () => {},
+  readListId: 0,
+  toReadListId: 1,
 };
 
 export default BookDetails;

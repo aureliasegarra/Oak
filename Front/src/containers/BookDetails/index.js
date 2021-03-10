@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
 
   return {
+    isLogged: state.user.isLogged,
     lists: state.user.lists,
     result: findBookById(state.search.results, id),
     readListId: readListId(state.user.lists),
