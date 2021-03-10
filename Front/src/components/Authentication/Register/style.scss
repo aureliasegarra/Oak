@@ -1,0 +1,28 @@
+@use 'src/styles/vars';
+
+.register {
+  background-color: vars.$color-dark-gray;
+  width: 50%;
+  padding: 10rem;
+}
+
+.register__title {
+  font-size: 1.7rem;
+}
+
+.register__form {
+  background-color: vars.$color-light-gray;
+  padding: 3rem;
+  margin: 1rem;
+  align-items: center;
+}
+
+.register__submit {
+  border: none;
+  border-radius: 30px;
+  background-color: vars.$color-orange;
+  color: white;
+  font-size: 1rem;
+  padding: 0.7rem 3rem 0.7rem 3rem;
+  margin: 3rem 3rem 3rem 4rem;
+}

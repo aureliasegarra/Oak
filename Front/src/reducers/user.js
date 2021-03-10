@@ -1,16 +1,8 @@
 import { SET_USER_INFOS } from 'src/actions/userProfile';
+import { SAVE_USER } from 'src/actions';
 
 const initialState = {
-  isLogged: true,
-  id: 11,
-  email: 'nico@nico.fr',
-  password: 'nico',
-  avatar: 1,
-  loading: false,
-  username: 'nico',
-  badges: [],
-  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInVzZXJuYW1lIjoiTmljbyIsImVtYWlsIjoibmljb0BuaWNvLmZyIiwiYXZhdGFyIjoxLCJyb2xlX2lkIjoyLCJpYXQiOjE2MTUyOTU4Mjh9.5uMW1wRug-MhTRgCSso1tr2CfrzK0jdqOKZMgeKwxgA',
-  lists: [],
+  isLogged: false,
 };
 
 export default (state = initialState, action = {}) => {
@@ -19,6 +11,12 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         lists: action.userInfos.lists,
+      };
+    case SAVE_USER:
+      return {
+        ...state,
+        ...action.userInfos,
+        isLogged: true,
       };
     default:
       return state;
