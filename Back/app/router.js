@@ -4,6 +4,14 @@ const router = Router();
 
 const auth = require('./middlewares/auth');
 
+const { validateBody } = require('./services/validator');
+const registerSchema = require('./schemas/register');
+const loginSchema = require('./schemas/login');
+const bookToListSchema = require('./schemas/bookToList');
+const listSchema = require('./schemas/list');
+const reviewSchema = require('./schemas/review');
+const ratingSchema = require('./schemas/rating');
+
 const badgeController = require('./controllers/badgeController');
 const bookController = require('./controllers/bookController');
 const bookPositionController = require('./controllers/bookPositionController');
@@ -16,9 +24,13 @@ const authController = require('./controllers/authController');
 
 // AUTHENTICATION ROUTES
 // Register new user
-router.post('/register/', authController.register);
+router.post(
+  '/register/',
+  validateBody(registerSchema),
+  authController.register
+);
 // Login user
-router.post('/login/', authController.login);
+router.post('/login/', validateBody(loginSchema), authController.login);
 
 // BADGE ROUTES
 // Get all badges
@@ -38,7 +50,12 @@ router.get('/books', bookController.getAllBooks);
 // Get book by id
 router.get('/book/:id(\\d+)', bookController.getBookById);
 // Add book
-router.post('/book/', auth, bookController.addBook);
+router.post(
+  '/book/',
+  auth,
+  validateBody(bookToListSchema),
+  bookController.addBook
+);
 // Delete book
 router.delete('/book/:id(\\d+)', auth, bookController.deleteBookById);
 // Update book
@@ -68,7 +85,7 @@ router.get('/list/:id(\\d+)', listController.getListById);
 // Get lists by userId
 router.get('/lists/user/:userId(\\d+)', listController.getListsByUserId);
 // Add list
-router.post('/list/', auth, listController.addList);
+router.post('/list/', auth, validateBody(listSchema), listController.addList);
 // Delete list by id
 router.delete('/list/:id(\\d+)', auth, listController.deleteListById);
 // Update list
@@ -80,7 +97,12 @@ router.get('/ratings', ratingController.getAllRatings);
 // Get rating by id
 router.get('/rating/:id(\\d+)', ratingController.getRatingById);
 // Add rating
-router.post('/rating/', auth, ratingController.addRating);
+router.post(
+  '/rating/',
+  auth,
+  validateBody(ratingSchema),
+  ratingController.addRating
+);
 // Delete rating
 router.delete('/rating/:id(\\d+)', auth, ratingController.deleteRatingById);
 // Update rating
@@ -92,7 +114,12 @@ router.get('/reviews', reviewController.getAllReviews);
 // Get review by id
 router.get('/review/:id(\\d+)', reviewController.getReviewById);
 // Add review
-router.post('/review/', reviewController.addReview);
+router.post(
+  '/review/',
+  auth,
+  validateBody(reviewSchema),
+  reviewController.addReview
+);
 // Delete review
 router.delete('/review/:id(\\d+)', auth, reviewController.deleteReviewById);
 // Update review
