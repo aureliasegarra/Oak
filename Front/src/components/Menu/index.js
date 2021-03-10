@@ -7,6 +7,7 @@ import { TiUserAdd } from 'react-icons/ti';
 import { BiLogIn } from 'react-icons/bi';
 import { FaMapMarkerAlt, FaSearch, FaRegCopyright } from 'react-icons/fa';
 import { RiTeamFill } from 'react-icons/ri';
+import { HiMenu } from 'react-icons/hi';
 
 // == Import
 import './styles.scss';
@@ -23,6 +24,9 @@ const Menu = ({ isLogged, username, id }) => {
         <NavLink to="/">
           <h2 className="menu__logo__title">oak</h2>
         </NavLink>
+      </div>
+      <div className="burger__menu">
+        <HiMenu className="burger__menu__icon" />
       </div>
       <div className="menu__logo__container">
         {isLogged && (
