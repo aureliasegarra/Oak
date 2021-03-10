@@ -6,14 +6,12 @@ const mapStateToProps = (state) => ({
   isLogged: state.user.isLogged,
   username: state.user.username,
   id: state.user.id,
-  open: state.open,
+  open: state.menu.open,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onClickButton: () => {
-    console.log('youpi');
+  onClick: () => {
     const action = toggleBurgerMenu();
-    console.log('action ok');
     dispatch(action);
   },
 });

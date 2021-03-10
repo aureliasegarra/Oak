@@ -68,9 +68,6 @@
   height: 24px;
   cursor: pointer;
   position: relative;
-  &--open {
-    
-  }
 }
 
 .menu__burger__logo {
@@ -82,6 +79,10 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+
+  &open {
+    background-color: transparent;
+  }
 }
 
 .menu__burger__logo::before, .menu__burger__logo::after {
@@ -95,8 +96,16 @@
 
 .menu__burger__logo::before {
   transform: translateY(-10px);
+
+  &open {
+    transform: translateY(0px) rotateZ(45deg);
+  }
 }
 
 .menu__burger__logo::after {
   transform: translateY(10px);
+  
+  &open {
+    transform: translateY(0px) rotateZ(-45deg);
+  }
 }

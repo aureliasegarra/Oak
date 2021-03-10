@@ -1,5 +1,4 @@
-import {} from 'src/actions';
-import { TOGGLE_BURGER_MENU } from '../actions/menu';
+import { TOGGLE_BURGER_MENU } from 'src/actions/menu';
 
 const initialState = {
   open: false,
