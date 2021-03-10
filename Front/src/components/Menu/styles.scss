@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 
   @media screen and (max-width: 767px) {
     position: relative;
@@ -60,4 +61,39 @@
   &:hover {
     transform: scale(1.2);
   }
+}
+
+.menu__burger {
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu__burger__logo {
+  width: 100%;
+  height: 4px;
+  border-radius: 20px;
+  background-color: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu__burger__logo::before, .menu__burger__logo::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.menu__burger__logo::before {
+  transform: translateY(-10px);
+}
+
+.menu__burger__logo::after {
+  transform: translateY(10px);
 }
