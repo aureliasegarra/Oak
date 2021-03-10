@@ -42,32 +42,34 @@ const ListDetails = ({
   };
 
   return (
-    <div className="userprofile-list">
-      <div className="userprofile-list__header">
-        {!isModalOpen ? (
-          <h2 className="userprofile-list__title">{list.label}</h2>
-        )
-          : (
-            <form onSubmit={handleSubmit}>
-              <input type="text" value={listName} onChange={handleChange} />
-            </form>
-          )}
-        <div>
-          <Link to={`/list/${list.id}`}>
-            <SeeDetailsIcon />
-          </Link>
-          <ChangeListNameIcon onClick={handleModifyList} />
-          <DeleteListIcon onClick={handleDeleteList} />
+    <main className="listdetails-main">
+      <div className="userprofile-list">
+        <div className="userprofile-list__header">
+          {!isModalOpen ? (
+            <h2 className="userprofile-list__title">{list.label}</h2>
+          )
+            : (
+              <form onSubmit={handleSubmit}>
+                <input type="text" value={listName} onChange={handleChange} />
+              </form>
+            )}
+          <div>
+            <Link to={`/list/${list.id}`}>
+              <SeeDetailsIcon />
+            </Link>
+            <ChangeListNameIcon onClick={handleModifyList} />
+            <DeleteListIcon onClick={handleDeleteList} />
+          </div>
         </div>
+        {list.books && list.books.map((book) => (
+          <Book
+            key={book.id}
+            id={book.id}
+            {...book}
+          />
+        ))}
       </div>
-      {list.books && list.books.map((book) => (
-        <Book
-          key={book.id}
-          id={book.id}
-          {...book}
-        />
-      ))}
-    </div>
+    </main>
   );
 };
 

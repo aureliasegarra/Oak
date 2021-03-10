@@ -1,5 +1,11 @@
 @use 'src/styles/vars'; 
 
+.listdetails-main {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
+}
+
 .userprofile-list {
   width: 30%;
   margin-bottom: 3rem;
