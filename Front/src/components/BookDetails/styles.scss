@@ -72,5 +72,23 @@
     width: 400px;
     height: 200px;
   }
+  &__buttons {
+    align-self: flex-end;
+  }
+  &__button {
+    width: 150px;
+    background-color: vars.$color-orange;
+    color: white;
+    font-size: 1em;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    margin: vars.$gutter;
+  }
+  &__outButton {
+    color: vars.$color-purple;
+    font-size: 2em;
+    margin-left: vars.$gutter;
+  }
 }
 

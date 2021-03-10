@@ -4,6 +4,8 @@ export const SEARCH_QUERY = 'SEARCH_QUERY';
 export const FETCH_DATA = 'FETCH_DATA';
 export const SAVE_DATA = 'SAVE_DATA';
 export const IS_LOADING = 'IS_LOADING';
+export const ADD_TO_READ_LIST = 'ADD_TO_READ_LIST';
+export const ADD_TO_TO_READ_LIST = 'ADD_TO_TO_READ_LIST';
 
 // Action creator
 export const setInputValue = (value) => ({
@@ -28,4 +30,18 @@ export const saveData = (results) => ({
 export const isLoading = (status) => ({
   type: IS_LOADING,
   status,
+});
+
+export const addToReadList = (publicApiId, title, listId) => ({
+  type: ADD_TO_READ_LIST,
+  publicApiId,
+  title,
+  listId,
+});
+
+export const addToToReadList = (publicApiId, title, listId) => ({
+  type: ADD_TO_TO_READ_LIST,
+  publicApiId,
+  title,
+  listId,
 });

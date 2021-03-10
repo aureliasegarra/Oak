@@ -3,6 +3,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 
 import search from 'src/middlewares/search';
 import userProfile from 'src/middlewares/userProfile';
+import bookDetails from 'src/middlewares/bookDetails';
 
 import authMiddleware from 'src/middlewares/auth';
 import rootReducer from 'src/reducers';
@@ -14,6 +15,7 @@ const enhancers = composeEnhancers(
     userProfile,
     search,
     authMiddleware,
+    bookDetails,
   ),
 );
 
