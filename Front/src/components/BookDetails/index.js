@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { RiStarSFill } from 'react-icons/ri';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { Rating } from '@material-ui/lab';
 import bookDefaultImg from './bookDefaultImg.png';
 
 import './styles.scss';
@@ -10,6 +10,8 @@ import './styles.scss';
 const BookDetails = ({
   isLogged,
   book,
+  rating,
+  reviews,
   addToReadList,
   addToToReadList,
   readListId,
@@ -61,11 +63,7 @@ const BookDetails = ({
 
           <section className="book-page__notes">
             <div className="book-page__container-stars">
-              <RiStarSFill className="book-page__stars" />
-              <RiStarSFill className="book-page__stars" />
-              <RiStarSFill className="book-page__stars" />
-              <RiStarSFill className="book-page__stars" />
-              <RiStarSFill className="book-page__stars" />
+              <Rating defaultValue={rating} readOnly />
             </div>
           </section>
 
@@ -75,7 +73,7 @@ const BookDetails = ({
           </section>
 
           <section className="book-page__comments">
-            {book.reviews && book.reviews.map((review) => (
+            {reviews && reviews.map((review) => (
               <div className="book-page__comment">{review.label}</div>
             ))}
           </section>
