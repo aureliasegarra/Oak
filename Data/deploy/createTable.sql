@@ -34,7 +34,7 @@ CREATE TABLE list (
 CREATE TABLE book (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     title text NOT NULL,
-    public_api_id text UNIQUE
+    public_api_id text UNIQUE NOT NULL
 );
 
 CREATE TABLE rating (
