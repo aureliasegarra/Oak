@@ -73,9 +73,16 @@ const BookDetails = ({
           </section>
 
           <section className="book-page__comments">
-            {reviews && reviews.map((review) => (
-              <div className="book-page__comment">{review.label}</div>
-            ))}
+            <p className="book-page__comments-title">Avis</p>
+            <form>
+              <input type="text"></input>
+              <button type="submit">Envoyer</button>
+            </form>
+            <div className="book-page__comments-container">
+              {reviews && reviews.map((review) => (
+                <div className="book-page__comment">{review.label}</div>
+              ))}
+            </div>
           </section>
         </>
       )}
