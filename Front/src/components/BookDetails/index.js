@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { AiFillCloseCircle } from 'react-icons/ai';
@@ -18,12 +18,25 @@ const BookDetails = ({
   toReadListId,
   fetchBookDetail,
   fetchBookReviews,
+  sendComment,
   id,
+  bookAPIId,
 }) => {
   useEffect(() => {
     fetchBookDetail(id);
     fetchBookReviews(id);
   }, []);
+
+  const [labelComment, setLabelComment] = useState('');
+
+  const handleCommentChange = (event) => {
+    setLabelComment(event.target.value);
+  };
+
+  const handleCommentSubmit = (event) => {
+    event.preventDefault();
+    sendComment(labelComment, bookAPIId, id);
+  };
 
   const handleOnClick = () => {
     addToReadList(book.id, book.volumeInfo.title, readListId);
@@ -63,7 +76,7 @@ const BookDetails = ({
 
           <section className="book-page__notes">
             <div className="book-page__container-stars">
-              <Rating defaultValue={rating} readOnly />
+              <Rating value={rating} readOnly />
             </div>
           </section>
 
@@ -74,8 +87,8 @@ const BookDetails = ({
 
           <section className="book-page__comments">
             <p className="book-page__comments-title">Avis</p>
-            <form>
-              <input type="text"></input>
+            <form onSubmit={handleCommentSubmit}>
+              <input type="text" value={labelComment} onChange={handleCommentChange} />
               <button type="submit">Envoyer</button>
             </form>
             <div className="book-page__comments-container">

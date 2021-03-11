@@ -13,6 +13,7 @@ export default (state = initialState, action = {}) => {
     case SET_BOOK_REVIEWS:
       return {
         ...state,
+        bookId: action.bookReviews.id,
         reviews: action.bookReviews.reviews,
         rating: action.bookReviews.average_rating,
       };

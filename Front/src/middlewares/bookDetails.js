@@ -5,7 +5,11 @@ import {
   setBookDetail,
   FETCH_BOOK_REVIEWS,
   setBookReviews,
+  fetchBookReviews,
 } from 'src/actions/search';
+import {
+  SEND_COMMENT,
+} from 'src/actions/bookDetail';
 import axios from 'src/api/herokuAPI';
 import axiosGoogle from 'src/api/googleAPI';
 
@@ -52,8 +56,23 @@ const bookDetails = (store) => (next) => async (action) => {
     }
     case FETCH_BOOK_REVIEWS: {
       try {
-        const result = await axios.get('/book/1');
+        const result = await axios.get(`/book/${action.bookId}`);
         store.dispatch(setBookReviews(result.data));
+      }
+      catch (error) {
+        console.log(error);
+      }
+      break;
+    }
+    case SEND_COMMENT: {
+      try {
+        const res = await axios.post('/review', {
+          label: action.labelComment,
+          book_id: action.bookAPIId,
+          user_id: id,
+        });
+        console.log(res.data);
+        store.dispatch(fetchBookReviews(action.bookGoogleId));
       }
       catch (error) {
         console.log(error);
