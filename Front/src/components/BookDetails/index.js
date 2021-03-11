@@ -92,6 +92,8 @@ BookDetails.propTypes = {
   readListId: PropTypes.number,
   toReadListId: PropTypes.number,
   fetchBookDetail: PropTypes.func,
+  rating: PropTypes.number,
+  reviews: PropTypes.array,
 };
 
 BookDetails.defaultProps = {
@@ -101,6 +103,8 @@ BookDetails.defaultProps = {
   toReadListId: 1,
   fetchBookDetail: () => {},
   book: {},
+  rating: 3,
+  reviews: [],
 };
 
 export default BookDetails;
