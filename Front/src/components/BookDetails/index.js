@@ -15,10 +15,12 @@ const BookDetails = ({
   readListId,
   toReadListId,
   fetchBookDetail,
+  fetchBookReviews,
   id,
 }) => {
   useEffect(() => {
     fetchBookDetail(id);
+    fetchBookReviews(id);
   }, []);
 
   const handleOnClick = () => {
@@ -73,9 +75,9 @@ const BookDetails = ({
           </section>
 
           <section className="book-page__comments">
-            <div className="book-page__comment">comments</div>
-            <div className="book-page__comment">comments</div>
-            <div className="book-page__comment">comments</div>
+            {book.reviews && book.reviews.map((review) => (
+              <div className="book-page__comment">{review.label}</div>
+            ))}
           </section>
         </>
       )}

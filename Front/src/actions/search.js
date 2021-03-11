@@ -8,6 +8,8 @@ export const ADD_TO_READ_LIST = 'ADD_TO_READ_LIST';
 export const ADD_TO_TO_READ_LIST = 'ADD_TO_TO_READ_LIST';
 export const FETCH_BOOK_DETAIL = 'FETCH_BOOK_DETAIL';
 export const SET_BOOK_DETAIL = 'SET_BOOK_DETAIL';
+export const FETCH_BOOK_REVIEWS = 'FETCH_BOOK_REVIEWS';
+export const SET_BOOK_REVIEWS = 'SET_BOOK_REVIEWS';
 
 // Action creator
 export const setInputValue = (value) => ({
@@ -56,4 +58,14 @@ export const fetchBookDetail = (bookId) => ({
 export const setBookDetail = (bookDetail) => ({
   type: SET_BOOK_DETAIL,
   bookDetail,
+});
+
+export const fetchBookReviews = (bookId) => ({
+  type: FETCH_BOOK_REVIEWS,
+  bookId,
+});
+
+export const setBookReviews = (bookReviews) => ({
+  type: SET_BOOK_REVIEWS,
+  bookReviews,
 });

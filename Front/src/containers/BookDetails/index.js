@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import BookDetails from 'src/components/BookDetails';
 import { readListId, toReadListId } from 'src/selectors/bookDetails';
-import { addToReadList, addToToReadList, fetchBookDetail } from 'src/actions/search';
+import {
+  addToReadList, addToToReadList, fetchBookDetail, fetchBookReviews,
+} from 'src/actions/search';
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
@@ -14,6 +16,8 @@ const mapStateToProps = (state, ownProps) => {
     toReadListId: toReadListId(state.user.lists),
     lists: state.user.lists,
     book: state.book,
+    reviews: state.book.reviews,
+    rating: state.book.rating,
   };
 };
 
@@ -27,6 +31,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   fetchBookDetail: (bookId) => dispatch(fetchBookDetail(bookId)),
+  fetchBookReviews: (bookId) => dispatch(fetchBookReviews(bookId)),
 });
 
 const container = connect(mapStateToProps, mapDispatchToProps)(BookDetails);

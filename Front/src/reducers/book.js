@@ -1,4 +1,4 @@
-import { SET_BOOK_DETAIL } from 'src/actions/search';
+import { SET_BOOK_DETAIL, SET_BOOK_REVIEWS } from 'src/actions/search';
 
 const initialState = {
 };
@@ -9,6 +9,12 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.bookDetail,
+      };
+    case SET_BOOK_REVIEWS:
+      return {
+        ...state,
+        reviews: action.bookReviews.reviews,
+        rating: action.bookReviews.average_rating,
       };
     default:
       return state;
