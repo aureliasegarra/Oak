@@ -10,7 +10,7 @@ const bookDetails = (store) => (next) => async (action) => {
     case ADD_TO_READ_LIST: {
       console.log(action);
       try {
-        const res = await axios.post('/book', {
+        const res = await axios.post('/listHasBook', {
           public_api_id: action.publicApiId,
           title: action.title,
           list_id: action.listId,
@@ -26,7 +26,7 @@ const bookDetails = (store) => (next) => async (action) => {
     case ADD_TO_TO_READ_LIST: {
       console.log(action);
       try {
-        const res = await axios.post('/book', {
+        const res = await axios.post('/listHasBook', {
           public_api_id: action.publicApiId,
           title: action.title,
           list_id: action.listId,

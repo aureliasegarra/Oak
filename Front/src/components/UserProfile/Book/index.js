@@ -9,10 +9,10 @@ import { TiDelete as DeleteBookIcon } from 'react-icons/ti';
 
 // == Composant
 const Book = ({
-  title, id, deleteBook,
+  title, id, listId, deleteBook,
 }) => {
   const handleClick = () => {
-    deleteBook(id);
+    deleteBook(id, listId);
   };
 
   return (
