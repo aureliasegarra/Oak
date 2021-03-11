@@ -53,3 +53,11 @@ export const deleteBook = (bookId) => ({
   type: DELETE_BOOK,
   bookId,
 });
+
+export const MOVE_BOOK = 'MOVE_BOOK';
+
+export const moveBook = (bookId, listId) => ({
+  type: MOVE_BOOK,
+  bookId,
+  listId,
+});
