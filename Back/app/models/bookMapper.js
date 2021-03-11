@@ -14,7 +14,7 @@ const bookMapper = {
       throw new Error(error);
     }
   },
-  getBookById: async (public_api_id) => {
+  getBookByPublicApiId: async (public_api_id) => {
     try {
       const query = `SELECT
                     book.id,
