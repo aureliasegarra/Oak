@@ -10,10 +10,10 @@ const bookController = {
       res.status(404).json(error.message);
     }
   },
-  getBookById: async (req, res) => {
-    const { id } = req.params;
+  getBookByPublicApiId: async (req, res) => {
+    const { public_api_id } = req.params;
     try {
-      const book = await bookMapper.getBookById(id);
+      const book = await bookMapper.getBookByPublicApiId(public_api_id);
       res.json(book);
     } catch (error) {
       res.status(404).json(error.message);
