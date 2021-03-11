@@ -14,7 +14,7 @@ const bookMapper = {
       throw new Error(error);
     }
   },
-  getBookById: async (id) => {
+  getBookById: async (public_api_id) => {
     try {
       const query = `SELECT
                     book.id,
@@ -23,7 +23,7 @@ const bookMapper = {
                     AVG(rating.rating) AS average_rating
                     FROM book
                     JOIN rating ON rating.book_id = book.id
-                    WHERE book.id = $1
+                    WHERE book.public_api_id = $1
                     GROUP BY book.id;`;
       const queryReview = `SELECT
       review.id,
@@ -35,10 +35,12 @@ const bookMapper = {
       JOIN "user" ON "user".id = review.user_id
       WHERE book.id = $1
       GROUP BY review.id, review.label, review.publish_time, "user".username;`;
-      const data = [id];
+      const data = [public_api_id];
       const { rows } = await db.query(query, data);
       if (!rows[0]) {
-        throw new Error(`The book with the given id ${id} was not found`);
+        throw new Error(
+          `The book with the given public_api_id ${public_api_id} was not found`
+        );
       }
       const review = await db.query(queryReview, data);
       const book = rows[0];

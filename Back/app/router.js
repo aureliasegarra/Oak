@@ -48,7 +48,7 @@ router.patch('/badge/:id(\\d+)', auth, badgeController.updateBadge);
 // Get all books
 router.get('/books', bookController.getAllBooks);
 // Get book by id
-router.get('/book/:id(\\d+)', bookController.getBookById);
+router.get('/book/:id(\\d+)', bookController.getBookByPublicApiId);
 // Add book
 router.post(
   '/book/',
