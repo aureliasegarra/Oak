@@ -46,6 +46,8 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "axios": "^0.21.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",

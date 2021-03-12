@@ -60,7 +60,29 @@
     font-size: 1.5em;
     color: vars.$color-dark-gray;
   }
-  &__comments {
+  &__rating__button {
+    background-color: vars.$color-white;
+    color: vars.$color-dark-gray;
+    font-size: 1rem;
+    padding: vars.$gutter;
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+  }
+  &__comment__button {
+    background-color: vars.$color-white;
+    color: vars.$color-dark-gray;
+    font-size: 1rem;
+    padding: vars.$gutter;
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+  }
+  &__comments-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: vars.$gutter * 1.5;
+    text-align: left;
+  }
+  &__comments-container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
