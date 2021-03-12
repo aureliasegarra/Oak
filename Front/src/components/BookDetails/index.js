@@ -29,6 +29,8 @@ const BookDetails = ({
   }, []);
 
   const [labelComment, setLabelComment] = useState('');
+  const [isCommentModalOpen, setIsCommentModalOpen] = useState(false);
+  const [isRatingModalOpen, setIsRatingModalOpen] = useState(false);
   const [myRating, setMyRating] = useState(0);
 
   const handleCommentChange = (event) => {
@@ -38,11 +40,13 @@ const BookDetails = ({
   const handleCommentSubmit = (event) => {
     event.preventDefault();
     sendComment(labelComment, bookAPIId, id);
+    setIsCommentModalOpen(!isCommentModalOpen);
   };
 
   const handleRatingChange = (event, newValue) => {
     setMyRating(newValue);
     sendRating(newValue, bookAPIId, id);
+    setIsRatingModalOpen(!isRatingModalOpen);
   };
 
   const handleOnClick = () => {
@@ -51,6 +55,14 @@ const BookDetails = ({
 
   const handleOnSecondClick = () => {
     addToToReadList(book.id, book.volumeInfo.title, toReadListId);
+  };
+
+  const handleCommentClick = () => {
+    setIsCommentModalOpen(!isCommentModalOpen);
+  };
+
+  const handleRatingClick = () => {
+    setIsRatingModalOpen(!isRatingModalOpen);
   };
 
   return (
@@ -86,11 +98,17 @@ const BookDetails = ({
               <Rating value={rating} readOnly />
             </div>
             {isLogged && (
-              <Rating
-                name="simple-controlled"
-                value={myRating}
-                onChange={handleRatingChange}
-              />
+              <>
+                {!isRatingModalOpen ? (
+                  <button type="button" className="book-page__rating__button" onClick={handleRatingClick}>Noter</button>
+                ) : (
+                  <Rating
+                    name="simple-controlled"
+                    value={myRating}
+                    onChange={handleRatingChange}
+                  />
+                )}
+              </>
             )}
           </section>
 
@@ -102,10 +120,16 @@ const BookDetails = ({
           <section className="book-page__comments">
             <p className="book-page__comments-title">Avis</p>
             {isLogged && (
-              <form onSubmit={handleCommentSubmit}>
-                <input type="text" value={labelComment} onChange={handleCommentChange} />
-                <button type="submit">Envoyer</button>
-              </form>
+              <>
+                {!isCommentModalOpen ? (
+                  <button type="button" className="book-page__comment__button" onClick={handleCommentClick}>Commenter</button>
+                ) : (
+                  <form onSubmit={handleCommentSubmit}>
+                    <input type="text" value={labelComment} onChange={handleCommentChange} />
+                    <button type="submit">Envoyer</button>
+                  </form>
+                )}
+              </>
             )}
             <div className="book-page__comments-container">
               {reviews && reviews.map((review) => (

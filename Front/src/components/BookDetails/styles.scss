@@ -60,6 +60,22 @@
     font-size: 1.5em;
     color: vars.$color-dark-gray;
   }
+  &__rating__button {
+    background-color: vars.$color-white;
+    color: vars.$color-dark-gray;
+    font-size: 1rem;
+    padding: vars.$gutter;
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+  }
+  &__comment__button {
+    background-color: vars.$color-white;
+    color: vars.$color-dark-gray;
+    font-size: 1rem;
+    padding: vars.$gutter;
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+  }
   &__comments-title {
     font-size: 1.5em;
     font-weight: 600;
