@@ -72,6 +72,7 @@ const List = ({
         <Book
           key={book.id}
           id={book.id}
+          listId={id}
           {...book}
         />
       ))}

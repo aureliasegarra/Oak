@@ -81,7 +81,13 @@ export default (store) => (next) => async (action) => {
       break;
     case DELETE_BOOK:
       try {
-        await axios.delete(`/book/${action.bookId}`);
+        console.log(action);
+        await axios.delete('/listHasBook/', {
+          data: {
+            book_id: action.bookId,
+            list_id: action.listId,
+          },
+        });
         store.dispatch(fetchUserInfos());
       }
       catch (error) {

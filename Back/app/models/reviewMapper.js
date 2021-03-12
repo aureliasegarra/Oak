@@ -29,13 +29,14 @@ const reviewMapper = {
   },
   addReview: async (review) => {
     try {
-      const { label, publish_time, user_id, book_id } = review;
+      const { label, user_id, book_id } = review;
       const query = ` INSERT INTO public.review (label, publish_time, user_id, book_id)
-      VALUES ($1::text, $2::timestamp with time zone, $3::integer, $4::integer)
-         returning id;`;
-      const data = [label, publish_time, user_id, book_id];
+      VALUES ($1::text, NOW()::timestamp with time zone, $2::integer, $3::integer)
+         returning id,publish_time;`;
+      const data = [label, user_id, book_id];
       const { rows } = await db.query(query, data);
       review.id = rows[0].id;
+      review.publish_time = rows[0].publish_time;
     } catch (error) {
       throw new Error(error);
     }

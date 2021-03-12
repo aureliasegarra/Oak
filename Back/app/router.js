@@ -7,15 +7,17 @@ const auth = require('./middlewares/auth');
 const { validateBody } = require('./services/validator');
 const registerSchema = require('./schemas/register');
 const loginSchema = require('./schemas/login');
-const bookToListSchema = require('./schemas/bookToList');
+const bookHasListSchema = require('./schemas/bookHasList');
+const listHasBookSchema = require('./schemas/listHasBook');
+const bookSchema = require('./schemas/book');
 const listSchema = require('./schemas/list');
 const reviewSchema = require('./schemas/review');
 const ratingSchema = require('./schemas/rating');
 
-const badgeController = require('./controllers/badgeController');
 const bookController = require('./controllers/bookController');
 const bookPositionController = require('./controllers/bookPositionController');
 const listController = require('./controllers/listController');
+const listHasBookController = require('./controllers/listHasBookController');
 const ratingController = require('./controllers/ratingController');
 const reviewController = require('./controllers/reviewController');
 const roleController = require('./controllers/roleController');
@@ -32,34 +34,34 @@ router.post(
 // Login user
 router.post('/login/', validateBody(loginSchema), authController.login);
 
-// BADGE ROUTES
-// Get all badges
-router.get('/badges', auth, badgeController.getAllBadges);
-// Get badge by id
-router.get('/badge/:id(\\d+)', badgeController.getBadgeById);
-// Add badge
-router.post('/badge/', auth, badgeController.addBadge);
-// Delete badge
-router.delete('/badge/:id(\\d+)', auth, badgeController.deleteBadge);
-// Update badge
-router.patch('/badge/:id(\\d+)', auth, badgeController.updateBadge);
-
 // BOOK ROUTES
 // Get all books
 router.get('/books', bookController.getAllBooks);
 // Get book by id
-router.get('/book/:id(\\d+)', bookController.getBookById);
+router.get('/book/:public_api_id', bookController.getBookByPublicApiId);
 // Add book
+router.post('/book/', auth, validateBody(bookSchema), bookController.addBook);
+// Add book to list
 router.post(
-  '/book/',
+  '/listHasBook/',
   auth,
-  validateBody(bookToListSchema),
-  bookController.addBook
+  validateBody(bookHasListSchema),
+  listHasBookController.addBookToList
 );
-// Delete book
-router.delete('/book/:id(\\d+)', auth, bookController.deleteBookById);
-// Update book
-router.patch('/book/:id(\\d+)', auth, bookController.updateBook);
+// Move book to another list
+router.patch(
+  '/listHasBook/',
+  auth,
+  validateBody(listHasBookSchema),
+  listHasBookController.moveBookToAnotherList
+);
+// Delete book from list
+router.delete(
+  '/listHasBook/',
+  auth,
+  validateBody(listHasBookSchema),
+  listHasBookController.deleteBookFromList
+);
 
 // BOOKPOSITION ROUTES
 // Get all bookPositions

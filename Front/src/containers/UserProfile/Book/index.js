@@ -7,8 +7,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteBook: (bookId) => dispatch(deleteBook(bookId)),
   moveBook: (bookId, listId) => dispatch(moveBook(bookId, listId)),
+  deleteBook: (bookId, listId) => dispatch(deleteBook(bookId, listId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Book);

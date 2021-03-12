@@ -15,11 +15,12 @@ const Book = ({
   deleteBook,
   moveBook,
   lists,
+  listId,
 }) => {
   const [isMovingModalOpen, setIsMovingModalOpen] = useState(false);
 
   const handleClick = () => {
-    deleteBook(id);
+    deleteBook(id, listId);
   };
 
   const handleModalClick = () => {
@@ -59,6 +60,7 @@ const Book = ({
 
 Book.propTypes = {
   id: PropTypes.number.isRequired,
+  listId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   lists: PropTypes.array,
   deleteBook: PropTypes.func,
