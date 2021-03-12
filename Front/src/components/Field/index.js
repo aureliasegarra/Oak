@@ -6,7 +6,6 @@ const Field = ({
   label,
   name,
   type,
-  placeholder,
   inputValue,
   onChangeInputValue,
 }) => {
@@ -20,7 +19,6 @@ const Field = ({
       <input
         type={type}
         name={name}
-        placeholder={placeholder}
         value={inputValue}
         onChange={handleOnChange}
         className="field__input"
@@ -34,7 +32,6 @@ Field.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   inputValue: PropTypes.string,
-  placeholder: PropTypes.string.isRequired,
   onChangeInputValue: PropTypes.func.isRequired,
 };
 

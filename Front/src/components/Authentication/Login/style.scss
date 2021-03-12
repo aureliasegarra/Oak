@@ -23,6 +23,7 @@ h2 {
 .copy {
   color: black;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .right .copy p {
@@ -34,19 +35,24 @@ h2 {
 }
 
 .login__form {
-  background-color: vars.$color-dark-gray;
   padding: 6rem 3rem 5rem 3rem;
   margin: 1rem;
   align-items: center;
 }
 
 .login__submit {
-  border: none;
-  border-radius: 30px;
-  background-color: vars.$color-orange;
+  display: block;
+  margin: auto;
+  margin-top: 4rem;
+  width: 80%;
+  background: vars.$color-orange;
   color: white;
-  font-size: 1rem;
-  padding: 0.7rem 3rem 0.7rem 3rem;
-  margin: 4rem 3rem 3rem 4rem;
+  font-weight: 700;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
