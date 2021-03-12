@@ -72,7 +72,8 @@ const listHasbookController = {
           .json(
             `The list ${req.body.list_id} does not belong to the user ${req.body.user_id}`
           );
-      await listHasbookMapper.deleteBookFromList(req.body);
+      await listHasbookMapper.moveBookToAnotherList(req.body);
+      res.json('OK');
     } catch (error) {
       res.status(500).json(error.message);
     }
