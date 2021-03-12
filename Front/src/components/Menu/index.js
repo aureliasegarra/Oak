@@ -13,15 +13,13 @@ import './styles.scss';
 import logo from './logo-glan.svg';
 
 // == Composant
-const Menu = ({ isLogged, username, id, open, onClick }) => {
-  const handleOnClick = () => {
-    onClick();
-  };
+const Menu = ({ isLogged, username, id }) => {
+  // const handleOnClick = () => {
+  // onClick();
+  // };
 
-  const className = open ? 'menu__burger__logo--open' : 'menu__burger__logo';
+  // const className = open ? 'menu__burger__logo--open' : 'menu__burger__logo';
 
-
-  
   const profileURL = `/profil/${username}/${id}`;
 
   return (
@@ -33,10 +31,9 @@ const Menu = ({ isLogged, username, id, open, onClick }) => {
         </NavLink>
       </div>
       <div className="menu__burger">
-        <span
-          onClick={handleOnClick}
-          className={className}
-        />
+        <label htmlFor="toggle" className="burger">&#9776;
+          <input type="checkbox" id="toggle" />
+        </label>
       </div>
       <div className="menu__logo__container">
         {isLogged && (
@@ -73,8 +70,6 @@ Menu.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   username: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
 };
 
 // == Export
