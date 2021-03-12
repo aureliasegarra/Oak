@@ -8,12 +8,12 @@ const { validateBody } = require('./services/validator');
 const registerSchema = require('./schemas/register');
 const loginSchema = require('./schemas/login');
 const bookHasListSchema = require('./schemas/bookHasList');
+const listHasBookSchema = require('./schemas/listHasBook');
 const bookSchema = require('./schemas/book');
 const listSchema = require('./schemas/list');
 const reviewSchema = require('./schemas/review');
 const ratingSchema = require('./schemas/rating');
 
-const badgeController = require('./controllers/badgeController');
 const bookController = require('./controllers/bookController');
 const bookPositionController = require('./controllers/bookPositionController');
 const listController = require('./controllers/listController');
@@ -52,10 +52,16 @@ router.post(
 router.patch(
   '/listHasBook/',
   auth,
+  validateBody(listHasBookSchema),
   listHasBookController.moveBookToAnotherList
 );
 // Delete book from list
-router.delete('/listHasBook/', auth, listHasBookController.deleteBookFromList);
+router.delete(
+  '/listHasBook/',
+  auth,
+  validateBody(listHasBookSchema),
+  listHasBookController.deleteBookFromList
+);
 
 // BOOKPOSITION ROUTES
 // Get all bookPositions
