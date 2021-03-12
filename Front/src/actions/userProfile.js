@@ -49,7 +49,8 @@ export const deleteList = (listId) => ({
 
 export const DELETE_BOOK = 'DELETE_BOOK';
 
-export const deleteBook = (bookId) => ({
+export const deleteBook = (bookId, listId) => ({
   type: DELETE_BOOK,
   bookId,
+  listId,
 });
