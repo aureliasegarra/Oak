@@ -5,7 +5,7 @@ import { readListId, toReadListId } from 'src/selectors/bookDetails';
 import {
   addToReadList, addToToReadList, fetchBookDetail, fetchBookReviews,
 } from 'src/actions/search';
-import { sendComment } from 'src/actions/bookDetail';
+import { sendComment, sendRating } from 'src/actions/bookDetail';
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
@@ -35,6 +35,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchBookDetail: (bookId) => dispatch(fetchBookDetail(bookId)),
   fetchBookReviews: (bookId) => dispatch(fetchBookReviews(bookId)),
   sendComment: (labelComment, bookAPIId, bookGoogleId) => dispatch(sendComment(labelComment, bookAPIId, bookGoogleId)),
+  sendRating: (rating, bookAPIId, bookGoogleId) => dispatch(sendRating(rating, bookAPIId, bookGoogleId)),
 });
 
 const container = connect(mapStateToProps, mapDispatchToProps)(BookDetails);

@@ -6,3 +6,12 @@ export const sendComment = (labelComment, bookAPIId, bookGoogleId) => ({
   bookAPIId,
   bookGoogleId,
 });
+
+export const SEND_RATING = 'SEND_RATING';
+
+export const sendRating = (rating, bookAPIId, bookGoogleId) => ({
+  type: SEND_RATING,
+  rating,
+  bookAPIId,
+  bookGoogleId,
+});

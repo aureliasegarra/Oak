@@ -9,12 +9,12 @@ import {
 } from 'src/actions/search';
 import {
   SEND_COMMENT,
+  SEND_RATING,
 } from 'src/actions/bookDetail';
 import axios from 'src/api/herokuAPI';
 import axiosGoogle from 'src/api/googleAPI';
 
 const bookDetails = (store) => (next) => async (action) => {
-  const { user: { id } } = store.getState();
   switch (action.type) {
     case ADD_TO_READ_LIST: {
       try {
@@ -67,7 +67,20 @@ const bookDetails = (store) => (next) => async (action) => {
         const res = await axios.post('/review', {
           label: action.labelComment,
           book_id: action.bookAPIId,
-          user_id: id,
+        });
+        console.log(res.data);
+        store.dispatch(fetchBookReviews(action.bookGoogleId));
+      }
+      catch (error) {
+        console.log(error);
+      }
+      break;
+    }
+    case SEND_RATING: {
+      try {
+        const res = await axios.post('/rating', {
+          rating: action.rating,
+          book_id: action.bookAPIId,
         });
         console.log(res.data);
         store.dispatch(fetchBookReviews(action.bookGoogleId));

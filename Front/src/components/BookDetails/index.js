@@ -19,6 +19,7 @@ const BookDetails = ({
   fetchBookDetail,
   fetchBookReviews,
   sendComment,
+  sendRating,
   id,
   bookAPIId,
 }) => {
@@ -28,6 +29,7 @@ const BookDetails = ({
   }, []);
 
   const [labelComment, setLabelComment] = useState('');
+  const [myRating, setMyRating] = useState(0);
 
   const handleCommentChange = (event) => {
     setLabelComment(event.target.value);
@@ -36,6 +38,11 @@ const BookDetails = ({
   const handleCommentSubmit = (event) => {
     event.preventDefault();
     sendComment(labelComment, bookAPIId, id);
+  };
+
+  const handleRatingChange = (event, newValue) => {
+    setMyRating(newValue);
+    sendRating(newValue, bookAPIId, id);
   };
 
   const handleOnClick = () => {
@@ -78,6 +85,13 @@ const BookDetails = ({
             <div className="book-page__container-stars">
               <Rating value={rating} readOnly />
             </div>
+            {isLogged && (
+              <Rating
+                name="simple-controlled"
+                value={myRating}
+                onChange={handleRatingChange}
+              />
+            )}
           </section>
 
           <section className="book-page__synopsis">
@@ -87,10 +101,12 @@ const BookDetails = ({
 
           <section className="book-page__comments">
             <p className="book-page__comments-title">Avis</p>
-            <form onSubmit={handleCommentSubmit}>
-              <input type="text" value={labelComment} onChange={handleCommentChange} />
-              <button type="submit">Envoyer</button>
-            </form>
+            {isLogged && (
+              <form onSubmit={handleCommentSubmit}>
+                <input type="text" value={labelComment} onChange={handleCommentChange} />
+                <button type="submit">Envoyer</button>
+              </form>
+            )}
             <div className="book-page__comments-container">
               {reviews && reviews.map((review) => (
                 <div className="book-page__comment">{review.label}</div>
