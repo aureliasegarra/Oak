@@ -5,7 +5,6 @@ import axios from 'src/api/herokuAPI';
 import axiosGoogle from 'src/api/googleAPI';
 
 const bookDetails = (store) => (next) => async (action) => {
-  const { user: { id } } = store.getState();
   switch (action.type) {
     case ADD_TO_READ_LIST: {
       console.log(action);
@@ -14,7 +13,6 @@ const bookDetails = (store) => (next) => async (action) => {
           public_api_id: action.publicApiId,
           title: action.title,
           list_id: action.listId,
-          user_id: id,
         });
         console.log(res);
       }
@@ -30,7 +28,6 @@ const bookDetails = (store) => (next) => async (action) => {
           public_api_id: action.publicApiId,
           title: action.title,
           list_id: action.listId,
-          user_id: id,
         });
         console.log(res);
       }
