@@ -15,7 +15,7 @@ import {
 import axios from 'src/api/herokuAPI';
 
 export default (store) => (next) => async (action) => {
-  const { user: { id, token } } = store.getState();
+  const { user: { token } } = store.getState();
 
   switch (action.type) {
     case FETCH_USER_INFOS: {
@@ -47,7 +47,6 @@ export default (store) => (next) => async (action) => {
         await axios.post('/list', {
           label: action.newListName,
           description: 'Description de ma liste',
-          user_id: id,
         });
         store.dispatch(fetchUserInfos());
       }
