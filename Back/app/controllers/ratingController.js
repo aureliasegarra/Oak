@@ -22,9 +22,9 @@ const ratingController = {
   addRating: async (req, res) => {
     try {
       req.body.user_id = req.user.id;
-      const rating = new Rating(req.body);
-      await ratingMapper.addRating(rating);
-      res.status(201).json(rating);
+      const newRating = new Rating(req.body);
+      await ratingMapper.addRating(newRating);
+      res.status(201).json(newRating);
     } catch (error) {
       res.status(403).json(error.message);
       console.log(error);

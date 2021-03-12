@@ -27,15 +27,15 @@ const ratingMapper = {
       console.log(error);
     }
   },
-  addRating: async (rating) => {
+  addRating: async (newRating) => {
     try {
-      const { rating, user_id, book_id } = rating;
+      const { rating, user_id, book_id } = newRating;
       const query = ` INSERT INTO public.rating (rating, user_id, book_id)
                       VALUES ($1::integer, $2::integer, $3::integer)
                       returning id;`;
       const data = [rating, user_id, book_id];
       const { rows } = await db.query(query, data);
-      rating.id = rows[0].id;
+      newRating.id = rows[0].id;
     } catch (error) {
       throw new Error(error);
     }
