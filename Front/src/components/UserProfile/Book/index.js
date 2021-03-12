@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 // == Import npm
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -40,7 +41,9 @@ const Book = ({
       )}
       {isMovingModalOpen && (
         <form>
-          <select onChange={handleChange}>
+          <label htmlFor="listes">Choisir une liste</label>
+          <select onChange={handleChange} name="listes">
+            <option>...</option>
             {lists.map((list) => (
               <option
                 key={list.id}
