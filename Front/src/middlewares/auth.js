@@ -10,7 +10,7 @@ export default (store) => (next) => (action) => {
         password: state.auth.login_password,
       })
         .then((response) => {
-          axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+          localStorage.setItem('token', response.data.token);
           store.dispatch(saveUser(response.data));
         })
         .catch((err) => console.log('err', err));
