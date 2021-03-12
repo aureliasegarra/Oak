@@ -23,13 +23,12 @@ const Book = ({
   };
 
   const handleModalClick = () => {
-    console.log('je veux ouvrir la modale');
     setIsMovingModalOpen(!isMovingModalOpen);
   };
 
-  const handleChange = () => {
-    console.log('je veux bouger le livre');
-    moveBook(id);
+  const handleChange = (event) => {
+    moveBook(id, event.target.value);
+    setIsMovingModalOpen(!isMovingModalOpen);
   };
 
   return (
@@ -45,7 +44,7 @@ const Book = ({
               <option
                 key={list.id}
                 id={list.id}
-                value={list.label}
+                value={list.id}
               >
                 {list.label}
               </option>

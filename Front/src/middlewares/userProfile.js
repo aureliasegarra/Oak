@@ -89,13 +89,11 @@ export default (store) => (next) => async (action) => {
       }
       break;
     case MOVE_BOOK:
-      console.log('case', MOVE_BOOK);
+      console.log(action);
       try {
-        await axios.patch(`/book/${action.bookId}`, {
-          public_api_id: action.publicApiId,
-          title: action.title,
+        await axios.patch('/listHasBook', {
+          book_id: action.bookId,
           list_id: action.listId,
-          user_id: id,
         });
         store.dispatch(fetchUserInfos());
       }
