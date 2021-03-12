@@ -21,6 +21,7 @@ const reviewController = {
   },
   addReview: async (req, res) => {
     try {
+      req.body.user_id = req.user.id;
       const review = new Review(req.body);
       await reviewMapper.addReview(review);
       res.status(201).json(review);
