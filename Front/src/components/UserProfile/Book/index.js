@@ -25,6 +25,7 @@ const Book = ({
 
 Book.propTypes = {
   id: PropTypes.number.isRequired,
+  listId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   deleteBook: PropTypes.func,
 };

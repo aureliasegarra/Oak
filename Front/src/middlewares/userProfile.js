@@ -80,7 +80,8 @@ export default (store) => (next) => async (action) => {
       break;
     case DELETE_BOOK:
       try {
-        await axios.delete(`/listHasBook/${action.bookId}`, {
+        console.log(action);
+        await axios.delete('/listHasBook/', {
           book_id: action.bookId,
           list_id: action.listId,
         });
