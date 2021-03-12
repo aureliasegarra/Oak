@@ -40,7 +40,8 @@ GET {{baseUrl}}/badge/1
 ### Get all books
 GET {{baseUrl}}/books
 ### Get book by id
-GET {{baseUrl}}/book/2
+GET {{baseUrl}}/book/JJW0QgAACAAJ
+
 ### Delete book by id
 DELETE {{baseUrl}}/book/2
 ### Add book to list

@@ -10,49 +10,31 @@ const bookController = {
       res.status(404).json(error.message);
     }
   },
-  getBookById: async (req, res) => {
-    const { id } = req.params;
+  getBookByPublicApiId: async (req, res) => {
+    const { public_api_id } = req.params;
     try {
-      const book = await bookMapper.getBookById(id);
+      const book = await bookMapper.getBookByPublicApiId(public_api_id);
       res.json(book);
     } catch (error) {
       res.status(404).json(error.message);
     }
   },
   addBook: async (req, res) => {
-    try {
-      // We check if the book is in the database
-      const book = await bookMapper.getBookByPublicApiId(
-        req.body.public_api_id
-      );
+    const { public_api_id } = req.body;
+
+    const book = await bookMapper.getBookByPublicApiId(public_api_id);
+    if (book) {
+      const newBook = new Book(book);
+      res.json(newBook);
+    }
+
+    if (!book) {
       const newBook = new Book(req.body);
-      // If the book is not in the database
-      if (!book) {
-        // we add the book in the database
-        await bookMapper.addBook(newBook);
-        // then we add the book to the list
-        await bookMapper.addBookToList(newBook);
-      }
-      if (book) {
-        newBook.id = book.id;
-        await bookMapper.addBookToList(newBook);
-      }
-      res.status(201).json(newBook);
-    } catch (error) {
-      res.status(500).json(error.message);
+      await bookMapper.addBook(newBook);
+      const bookFound = await bookMapper.getBookByPublicApiId(public_api_id);
+      const bookAdded = new Book(bookFound);
+      res.json(bookAdded);
     }
-  },
-  deleteBookById: async (req, res) => {
-    const { id } = req.params;
-    try {
-      await bookMapper.deleteBookById(id);
-      res.json('OK');
-    } catch (error) {
-      res.status(500).json(error.message);
-    }
-  },
-  updateBook: async (req, res) => {
-    res.send('Hello world !');
   },
 };
 
