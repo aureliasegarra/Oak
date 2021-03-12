@@ -42,7 +42,6 @@ const bookDetails = (store) => (next) => async (action) => {
     case FETCH_BOOK_DETAIL: {
       try {
         const result = await axiosGoogle.get(`${action.bookId}`);
-        console.log(result.data);
         store.dispatch(setBookDetail(result.data));
       }
       catch (error) {

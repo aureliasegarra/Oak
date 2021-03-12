@@ -6,9 +6,11 @@ import './styles.scss';
 
 const Results = ({ results }) => (
   <div className="results-box">
-    {results.map((result) => (
-      <Book key={result.id} {...result} />
-    ))}
+    {results
+      .map((result) => (
+        <Book key={result.id} {...result} />
+      ))}
+
   </div>
 );
 

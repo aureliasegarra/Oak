@@ -16,7 +16,7 @@ const search = (store) => (next) => (action) => {
         try {
           const response = await axios.get(baseUrl);
           console.log('response', response.data.items);
-          store.dispatch(saveData(response.data.items));
+          store.dispatch(saveData(response.data.items === (response.data.items.volumeInfo.maturityRating === 'NOT_MATURE')));
         }
         catch (error) {
           console.log('error', error);
