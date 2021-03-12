@@ -51,7 +51,12 @@
   align-items: center;
 
   @media screen and (max-width: 767px) {
+    display: none;
     flex-direction: row;
+
+    &--open {
+      display: block;
+    }
   }
 }
 
@@ -63,7 +68,7 @@
   }
 }
 
-/*.menu__burger {
+.menu__burger {
   width: 42px;
   height: 24px;
   cursor: pointer;
@@ -111,28 +116,5 @@
   
   &open {
     //transform: translateY(0px) rotateZ(-45deg);
-  }
-}*/
-
-
-.burger {
-  font-size: 30px;
-  display: none;
-}
-
-#toggle {
-  display: none;
-}
-
-@media screen and (max-width: 767px) {
-  .burger {
-    display: block;
-    cursor: pointer;
-  }
-  .menu__logo__container {
-    display: none;
-  }
-  #toggle:checked + .menu__logo__container {
-      display: block;
   }
 }

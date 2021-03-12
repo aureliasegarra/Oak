@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -14,11 +14,15 @@ import logo from './logo-glan.svg';
 
 // == Composant
 const Menu = ({ isLogged, username, id }) => {
-  // const handleOnClick = () => {
-  // onClick();
-  // };
+  const [open, setOpen] = useState(false);
 
-  // const className = open ? 'menu__burger__logo--open' : 'menu__burger__logo';
+  const handleOnClick = () => {
+    setOpen(!open);
+  };
+
+  const className = open ? 'menu__burger__logo--open' : 'menu__burger__logo';
+
+  const classNameMenu = open ? 'menu__logo__container--open' : 'menu__logo__container';
 
   const profileURL = `/profil/${username}/${id}`;
 
@@ -31,11 +35,12 @@ const Menu = ({ isLogged, username, id }) => {
         </NavLink>
       </div>
       <div className="menu__burger">
-        <label htmlFor="toggle" className="burger">&#9776;
-          <input type="checkbox" id="toggle" />
-        </label>
+        <span
+          onClick={handleOnClick}
+          className={className}
+        />
       </div>
-      <div className="menu__logo__container">
+      <div className={classNameMenu}>
         {isLogged && (
           <NavLink to={profileURL}>
             <TiUserAdd className="menu__logo__user" />
