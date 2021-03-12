@@ -30,6 +30,7 @@ const listController = {
   },
   addList: async (req, res) => {
     try {
+      req.body.user_id = req.user.id;
       const list = new List(req.body);
       await listMapper.addList(list);
       res.status(201).json(list);
