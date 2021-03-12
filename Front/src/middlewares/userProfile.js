@@ -10,6 +10,7 @@ import {
   DELETE_LIST,
   DELETE_BOOK,
   MODIFY_LIST_NAME,
+  MOVE_BOOK,
 } from 'src/actions/userProfile';
 
 import axios from 'src/api/herokuAPI';
@@ -85,6 +86,19 @@ export default (store) => (next) => async (action) => {
             book_id: action.bookId,
             list_id: action.listId,
           },
+        });
+        store.dispatch(fetchUserInfos());
+      }
+      catch (error) {
+        console.log(error);
+      }
+      break;
+    case MOVE_BOOK:
+      console.log(action);
+      try {
+        await axios.patch('/listHasBook', {
+          book_id: action.bookId,
+          list_id: action.listId,
         });
         store.dispatch(fetchUserInfos());
       }
