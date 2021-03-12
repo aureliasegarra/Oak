@@ -14,6 +14,7 @@ import axios from 'src/api/herokuAPI';
 import axiosGoogle from 'src/api/googleAPI';
 
 const bookDetails = (store) => (next) => async (action) => {
+  const { user: { id } } = store.getState();
   switch (action.type) {
     case ADD_TO_READ_LIST: {
       try {
