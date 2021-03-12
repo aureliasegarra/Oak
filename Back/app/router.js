@@ -48,6 +48,12 @@ router.post(
   validateBody(bookHasListSchema),
   listHasBookController.addBookToList
 );
+// Move book to another list
+router.patch(
+  '/listHasBook/',
+  auth,
+  listHasBookController.moveBookToAnotherList
+);
 // Delete book from list
 router.delete('/listHasBook/', auth, listHasBookController.deleteBookFromList);
 
