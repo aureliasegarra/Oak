@@ -35,6 +35,18 @@ const listHasbookMapper = {
       throw new Error(error);
     }
   },
+  checkIfListBelongsToUser: async (list_has_book) => {
+    const { list_id, user_id } = list_has_book;
+    try {
+      const query = ` SELECT * FROM list WHERE id = $1 AND user_id = $2;`;
+
+      const data = [list_id, user_id];
+      const { rows } = await db.query(query, data);
+      return rows[0];
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 };
 
 module.exports = listHasbookMapper;
