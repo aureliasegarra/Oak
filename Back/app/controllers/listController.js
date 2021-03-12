@@ -41,6 +41,10 @@ const listController = {
   deleteListById: async (req, res) => {
     const { id } = req.params;
     try {
+      const list = await listMapper.getListById(id);
+      // add condition to protect default list
+      if (list.label === 'Lus' || list.label === 'A livre')
+        return res.json('OK');
       await listMapper.deleteListById(id);
       res.json('OK');
     } catch (error) {

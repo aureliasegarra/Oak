@@ -14,15 +14,13 @@ import axios from 'src/api/herokuAPI';
 import axiosGoogle from 'src/api/googleAPI';
 
 const bookDetails = (store) => (next) => async (action) => {
-  const { user: { id } } = store.getState();
   switch (action.type) {
     case ADD_TO_READ_LIST: {
       try {
-        const res = await axios.post('/book', {
+        const res = await axios.post('/listHasBook', {
           public_api_id: action.publicApiId,
           title: action.title,
           list_id: action.listId,
-          user_id: id,
         });
       }
       catch (error) {
@@ -32,11 +30,10 @@ const bookDetails = (store) => (next) => async (action) => {
     }
     case ADD_TO_TO_READ_LIST: {
       try {
-        const res = await axios.post('/book', {
+        const res = await axios.post('/listHasBook', {
           public_api_id: action.publicApiId,
           title: action.title,
           list_id: action.listId,
-          user_id: id,
         });
       }
       catch (error) {
