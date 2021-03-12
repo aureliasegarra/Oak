@@ -1,9 +1,32 @@
 @use 'src/styles/vars';
 
-.login {
-  width: 50%;
-  padding: 10rem;
-  background-color: white;
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+.right a {
+  text-decoration: none;
+  color: vars.$color-orange;
+}
+
+.right a:hover {
+  text-decoration: underline;
+ 
+}
+.copy {
+  color: black;
+  text-align: center;
+}
+
+.right .copy p {
+  margin: 1.5em 0;
 }
 
 .login__title {

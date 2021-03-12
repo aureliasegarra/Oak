@@ -4,7 +4,7 @@ import Register from 'src/containers/Register';
 import './style.scss';
 
 const Auth = () => (
-  <div className="authentication">
+  <div className="split-screen">
     <Login />
     <Register />
   </div>

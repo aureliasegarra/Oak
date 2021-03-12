@@ -11,9 +11,14 @@ const Login = ({ login, isLogged }) => {
   };
   if (isLogged) return (<Redirect to="/" />);
   return (
-    <div className="login">
-      <h2 className="login__title">Se connecter</h2>
+    <div className="right">
       <form className="login__form" onSubmit={handleOnSubmit}>
+        <section className="copy">
+          <h2>Se connecter</h2>
+          <div>
+            <p>Pas encore de compte ? <a href="#"><strong>Inscription</strong></a></p>
+          </div>
+        </section>
         <Field
           type="email"
           label="Email"

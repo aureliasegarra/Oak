@@ -5,14 +5,19 @@
 }
 
 .field__input {
-  border: none;
-  border-radius: 30px;
-  padding: 1rem;
-  background-color: white;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  padding: 1em;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
 
 }
 
 .field__label {
-  margin: 4rem 4rem 4rem 1rem;
-  width: 100%;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
 }
