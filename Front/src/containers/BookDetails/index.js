@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     id,
-    isLogged: state.user.isLogged,
+    isLogged: JSON.parse(localStorage.getItem('isLogged')) || state.user.isLogged,
     readListId: readListId(state.user.lists),
     toReadListId: toReadListId(state.user.lists),
     lists: state.user.lists,

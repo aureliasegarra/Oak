@@ -11,7 +11,7 @@ export default (store) => (next) => (action) => {
       })
         .then((response) => {
           localStorage.setItem('token', response.data.token);
-          localStorage.setItem('isLogged', true);
+          localStorage.setItem('isLogged', JSON.stringify(true));
           store.dispatch(saveUser(response.data));
         })
         .catch((err) => console.log('err', err));
