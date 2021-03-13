@@ -10,6 +10,10 @@ export default (store) => (next) => (action) => {
         password: state.auth.login_password,
       })
         .then((response) => {
+          localStorage.setItem('avatarId', JSON.stringify(response.data.avatar));
+          localStorage.setItem('userId', JSON.stringify(response.data.id));
+          localStorage.setItem('username', JSON.stringify(response.data.username));
+          localStorage.setItem('email', JSON.stringify(response.data.email));
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('isLogged', JSON.stringify(true));
           store.dispatch(saveUser(response.data));
