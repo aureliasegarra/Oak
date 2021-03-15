@@ -27,7 +27,6 @@ const authController = {
         'avatar',
         'role_id',
       ]);
-      const token = jwt.sign(newUser, process.env.JWTPRIVATEKEY);
       // we send the user without his password and we add the generated token to the header
       res.status(201).json(newUser);
     } catch (error) {
