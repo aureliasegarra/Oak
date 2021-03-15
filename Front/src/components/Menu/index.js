@@ -25,41 +25,43 @@ const Menu = ({ isLogged, username, id }) => {
   const profileURL = `/profil/${username}/${id}`;
 
   return (
-    <header className="menu">
-      <div className="menu__logo">
-        <img className="menu__logo__glan" src={logo} alt="illustration" />
-        <NavLink to="/">
-          <h2 className="menu__logo__title">oak</h2>
-        </NavLink>
-      </div>
+    <>
       <div className="menu__burger">
         <span
           onClick={handleOnClick}
           className={className}
         />
       </div>
-      <div className={classNameMenu}>
-        {isLogged && (
+      <header className="menu">
+        <div className="menu__logo">
+          <img className="menu__logo__glan" src={logo} alt="illustration" />
+          <NavLink to="/">
+            <h2 className="menu__logo__title">oak</h2>
+          </NavLink>
+        </div>
+        <div className={classNameMenu}>
+          {isLogged && (
           <NavLink to={profileURL}>
             <BiUser className="menu__logo__user" />
           </NavLink>
-        )}
-        {!isLogged && (
+          )}
+          {!isLogged && (
           <NavLink to="/login">
             <BiUser className="menu__logo__user" />
           </NavLink>
-        )}
-        <NavLink to="/login">
-          <BiLogInCircle className="menu__logo__user" />
-        </NavLink>
-        <NavLink to="/search">
-          <BiSearch className="menu__logo__user" />
-        </NavLink>
-        <NavLink to="/">
-          <RiTeamFill className="menu__logo__user" />
-        </NavLink>
-      </div>
-    </header>
+          )}
+          <NavLink to="/login">
+            <BiLogInCircle className="menu__logo__user" />
+          </NavLink>
+          <NavLink to="/search">
+            <BiSearch className="menu__logo__user" />
+          </NavLink>
+          <NavLink to="/">
+            <RiTeamFill className="menu__logo__user" />
+          </NavLink>
+        </div>
+      </header>
+    </>
   );
 };
 

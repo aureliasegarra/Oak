@@ -14,17 +14,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
-  @media screen and (max-width: 767px) {
-    position: relative;
-    width: 95%;
-    margin: auto;
-    top: 0;
-    border-radius: 0 0 20px 20px;
-    display: flex;
-    justify-content: space-between;
-  }
 }
+  
 
 .menu__logo {
   @media screen and (max-width: 767px) {
