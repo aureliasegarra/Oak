@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import DOMPurify from 'dompurify';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { Rating } from '@material-ui/lab';
 import bookDefaultImg from './bookDefaultImg.png';
@@ -114,7 +115,7 @@ const BookDetails = ({
 
           <section className="book-page__synopsis">
             <p className="book-page__synopsis-title">Résumé</p>
-            <p className="book-page__synopsis-text">{book.volumeInfo.description}</p>
+            <p className="book-page__synopsis-text" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(book.volumeInfo.description) }} />
           </section>
 
           <section className="book-page__comments">
