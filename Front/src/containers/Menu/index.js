@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Menu from 'src/components/Menu';
+import { toggleBurgerMenu } from 'src/actions/menu';
 
 const mapStateToProps = (state) => ({
   isLogged: JSON.parse(localStorage.getItem('isLogged')) || state.user.isLogged,
@@ -8,6 +9,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  onClick: () => {
+    const action = toggleBurgerMenu();
+    dispatch(action);
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

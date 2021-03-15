@@ -13,16 +13,30 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 
   @media screen and (max-width: 767px) {
-    position: relative;
-    width: 95%;
-    margin: auto;
-    top: 0;
-    border-radius: 0 0 20px 20px;
-    display: flex;
-    justify-content: space-between;
+    display: none;
+
+    &--open {
+      width: 50%;
+      display: flex;
+    }
   }
+}  
+
+.cross {
+  color: vars.$color-purple;
+  font-size: 2.5rem;
+  position: fixed;
+  top: 15px;
+  right: 0;
+  width: 50px;
+  display: none;
+
+  &--open {
+    display: flex;
+  } 
 }
 
 .menu__logo {
@@ -48,10 +62,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-
-  @media screen and (max-width: 767px) {
-    flex-direction: row;
-  }
 }
 
 .menu__logo__user {
@@ -60,4 +70,31 @@
   &:hover {
     transform: scale(1.2);
   }
+}
+
+.menu__burger {
+  color: vars.$color-purple;
+  font-size: 2.5rem;
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  display: block;
+
+  &--disabled {
+    display: none;
+  }
+}
+
+.menu__burger__logo {
+  width: 100%;
+  height: 4px;
+  border-radius: 20px;
+  background-color: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }

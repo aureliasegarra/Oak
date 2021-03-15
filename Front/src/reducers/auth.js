@@ -2,7 +2,7 @@ import { CHANGE_INPUT_VALUE, SAVE_USER } from 'src/actions';
 
 const initialState = {
   register_email: '',
-  register_password: '',
+  word: '',
   login_email: '',
   login_password: '',
   register_username: '',
