@@ -45,7 +45,7 @@ const List = ({
   };
 
   const handleCopyClick = () => {
-    navigator.clipboard.writeText(`http://oak.fr/list/${id}`);
+    navigator.clipboard.writeText(`http://oak.surge.sh/list/${id}`);
     setIsSharingModalOpen(!isSharingModalOpen);
   };
 
@@ -85,7 +85,7 @@ const List = ({
           <button type="button" className="userprofile-list__share__button" onClick={handleShareClick}>Partager</button>
         ) : (
           <div className="userprofile-list__share__modal">
-            <input type="text" className="userprofile-list__modal__input" defaultValue={`http://oak.fr/list/${id}`} />
+            <input type="text" className="userprofile-list__modal__input" defaultValue={`http://oak.surge.sh/list/${id}`} />
             <MdContentCopy className="userprofile-list__modal__copy" onClick={handleCopyClick} />
           </div>
         )}

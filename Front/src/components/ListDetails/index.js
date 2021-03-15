@@ -29,7 +29,7 @@ const ListDetails = ({
   };
 
   const handleCopyClick = () => {
-    navigator.clipboard.writeText(`http://oak.fr${location.pathname}`);
+    navigator.clipboard.writeText(`http://oak.surge.sh${location.pathname}`);
   };
 
   return (
@@ -49,7 +49,7 @@ const ListDetails = ({
       <button type="button" className="listdetails__share" onClick={handleShareClick}>Partager</button>
       {isModalOpen && (
         <div className="listdetails__modal">
-          <input type="text" className="listdetails__modal__input" defaultValue={`https://www.oak.fr${location.pathname}`} />
+          <input type="text" className="listdetails__modal__input" defaultValue={`http://oak.surge.sh${location.pathname}`} />
           <MdContentCopy className="listdetails__modal__copy" onClick={handleCopyClick} />
         </div>
       )}
