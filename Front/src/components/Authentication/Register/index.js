@@ -2,9 +2,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Field from 'src/containers/Field';
+import { getAvatar } from 'src/selectors/index';
+
 import './style.scss';
 
-const Register = ({ register }) => {
+const Register = ({ register, saveAvatar }) => {
+  const handleOnClick = (event) => {
+    /* saveAvatar(event.target.id); */
+    console.log('je choisi cet avatar', event.target.id);
+
+    const avatarId = parseInt(event.target.id, 10);
+    saveAvatar(avatarId);
+  };
+
   const handleOnSubmit = (event) => {
     event.preventDefault();
     register();
@@ -43,6 +53,24 @@ const Register = ({ register }) => {
             name="register_password"
             placeholder="Au moins 6 caractères"
           />
+          <fieldset className="avatar-section">
+            <legend>Je choisi un avatar :</legend>
+            <div className="avatar-wrapper">
+              <img className="avatar" src={getAvatar(1)} alt="avatar" />
+              <input type="radio" name="avatar-icon" id="1" value="1" onClick={handleOnClick} />
+            </div>
+
+            <div className="avatar-wrapper">
+              <img className="avatar" src={getAvatar(2)} alt="avatar" />
+              <input type="radio" name="avatar-icon" id="2" value="2" onClick={handleOnClick} />
+            </div>
+
+            <div className="avatar-wrapper">
+              <img className="avatar" src={getAvatar(3)} alt="avatar" />
+              <input type="radio" name="avatar-icon" id="3" value="3" onClick={handleOnClick} />
+            </div>
+          </fieldset>
+
           <div className="input-container__cta">
             <label className="checkbox-container">
               <input type="checkbox" required />
@@ -63,6 +91,7 @@ const Register = ({ register }) => {
 
 Register.propTypes = {
   register: PropTypes.func.isRequired,
+  saveAvatar: PropTypes.func.isRequired,
 };
 
 export default Register;

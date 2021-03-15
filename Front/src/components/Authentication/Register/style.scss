@@ -57,6 +57,25 @@ h2 {
   line-height: 1.5em;
 }
 
+.avatar-section {
+  margin: 2em 0;
+}
+.avatar-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* .avatar-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+ */
+.avatar {
+  width: 15%;
+}
+
 .checkbox-container {
   display: block;
   position: relative;

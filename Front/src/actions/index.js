@@ -3,6 +3,7 @@ export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const LOGIN = 'LOGIN';
 export const REGISTER = 'REGISTER';
 export const SAVE_USER = 'SAVE_USER';
+export const SAVE_AVATAR = 'SAVE_AVATAR';
 
 // action creator
 export const changeInputValue = (value, name) => ({
@@ -22,4 +23,9 @@ export const register = () => ({
 export const saveUser = (userInfos) => ({
   type: SAVE_USER,
   userInfos,
+});
+
+export const saveAvatar = (id) => ({
+  type: SAVE_AVATAR,
+  id,
 });
