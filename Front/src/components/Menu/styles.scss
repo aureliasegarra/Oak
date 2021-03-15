@@ -74,6 +74,7 @@
   cursor: pointer;
   position: relative;
   display: none;
+
   @media screen and (max-width: 767px) {
     display: flex;
   }
@@ -89,7 +90,7 @@
   top: 50%;
   transform: translateY(-50%);
 
-  &open {
+  &--open {
     background-color: transparent;
   }
 }
@@ -106,15 +107,15 @@
 .menu__burger__logo::before {
   transform: translateY(-10px);
 
-  &open {
-    //transform: translateY(0px) rotateZ(45deg);
+  &--open {
+    transform: translateY(0px) rotateZ(45deg);
   }
 }
 
 .menu__burger__logo::after {
   transform: translateY(10px);
   
-  &open {
-    //transform: translateY(0px) rotateZ(-45deg);
+  &--open {
+    transform: translateY(0px) rotateZ(-45deg);
   }
 }

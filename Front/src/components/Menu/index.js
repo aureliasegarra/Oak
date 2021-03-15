@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { TiUserAdd } from 'react-icons/ti';
-import { BiLogIn } from 'react-icons/bi';
-import { FaMapMarkerAlt, FaSearch, FaRegCopyright } from 'react-icons/fa';
+import { BiSearch, BiLogInCircle, BiUser } from 'react-icons/bi';
 import { RiTeamFill } from 'react-icons/ri';
 
 // == Import
@@ -43,28 +41,22 @@ const Menu = ({ isLogged, username, id }) => {
       <div className={classNameMenu}>
         {isLogged && (
           <NavLink to={profileURL}>
-            <TiUserAdd className="menu__logo__user" />
+            <BiUser className="menu__logo__user" />
           </NavLink>
         )}
         {!isLogged && (
           <NavLink to="/login">
-            <TiUserAdd className="menu__logo__user" />
+            <BiUser className="menu__logo__user" />
           </NavLink>
         )}
         <NavLink to="/login">
-          <BiLogIn className="menu__logo__user" />
+          <BiLogInCircle className="menu__logo__user" />
         </NavLink>
         <NavLink to="/search">
-          <FaSearch className="menu__logo__user" />
-        </NavLink>
-        <NavLink to="/">
-          <FaMapMarkerAlt className="menu__logo__user" />
+          <BiSearch className="menu__logo__user" />
         </NavLink>
         <NavLink to="/">
           <RiTeamFill className="menu__logo__user" />
-        </NavLink>
-        <NavLink to="/">
-          <FaRegCopyright className="menu__logo__user" />
         </NavLink>
       </div>
     </header>
