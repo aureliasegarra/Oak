@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {
   useLocation,
 } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -34,6 +35,10 @@ const ListDetails = ({
 
   return (
     <main className="listdetails-main">
+      <Helmet>
+        <title>{`Liste ${list.label} | Oak`}</title>
+        <meta name="description" content={`Découvrez la liste de lecture ${list.label}`} />
+      </Helmet>
       <div className="listdetails-list">
         <div className="listdetails-list__header">
           <h2 className="listdetails-list__title">{list.label}</h2>

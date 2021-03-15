@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import DOMPurify from 'dompurify';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { Rating } from '@material-ui/lab';
@@ -71,6 +72,10 @@ const BookDetails = ({
 
       {book.volumeInfo && (
         <>
+          <Helmet>
+            <title>{`${book.volumeInfo.title} par ${book.volumeInfo.authors} | Oak`}</title>
+            <meta name="description" content={`Découvrez le livre ${book.volumeInfo.title} par ${book.volumeInfo.authors}`} />
+          </Helmet>
           <section className="book-page__presentation">
             <div className="book-page__image">
               <img src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : bookDefaultImg} alt="illustration" />

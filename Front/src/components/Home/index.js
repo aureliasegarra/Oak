@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 
 import Search from 'src/containers/Search';
 import Results from 'src/containers/Results';
@@ -19,6 +20,10 @@ const Home = ({ loading, results }) => {
 
   return (
     <main className="home-main">
+      <Helmet>
+        <title>Oak, des listes de lecture de livres pour enfants</title>
+        <meta name="description" content="Recherchez un livre pour enfants, ajoutez-le à votre liste de lecture et partagez-la avec vos amis" />
+      </Helmet>
       <Header />
       <Search />
       {results.length > 0 ? (
