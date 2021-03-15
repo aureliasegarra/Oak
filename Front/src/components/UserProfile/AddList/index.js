@@ -27,6 +27,7 @@ const AddList = ({
     event.preventDefault();
     createList(newListName);
     setIsModalOpen(false);
+    setNewListName('');
   };
 
   return (

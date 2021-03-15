@@ -64,8 +64,12 @@ const List = ({
           <Link to={`/list/${id}`}>
             <SeeDetailsIcon />
           </Link>
-          <ChangeListNameIcon onClick={handleModifyList} />
-          <DeleteListIcon onClick={handleDeleteList} />
+          {(label !== 'Lus' && label !== 'A lire') && (
+            <>
+              <ChangeListNameIcon onClick={handleModifyList} />
+              <DeleteListIcon onClick={handleDeleteList} />
+            </>
+          )}
         </div>
       </div>
       {books.map((book) => (
