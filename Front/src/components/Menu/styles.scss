@@ -14,8 +14,23 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+
+    &--open {
+      width: 50%;
+      display: flex;
+    }
+  }
+}  
+
+.cross {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50px;
 }
-  
 
 .menu__logo {
   @media screen and (max-width: 767px) {
@@ -40,15 +55,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-
-  @media screen and (max-width: 767px) {
-    display: none;
-    flex-direction: row;
-
-    &--open {
-      display: block;
-    }
-  }
 }
 
 .menu__logo__user {
@@ -63,11 +69,13 @@
   width: 42px;
   height: 24px;
   cursor: pointer;
-  position: relative;
-  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  display: block;
 
-  @media screen and (max-width: 767px) {
-    display: flex;
+  &--disabled {
+    display: none;
   }
 }
 
@@ -80,10 +88,6 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
-  &--open {
-    background-color: transparent;
-  }
 }
 
 .menu__burger__logo::before, .menu__burger__logo::after {

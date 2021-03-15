@@ -18,28 +18,26 @@ const Menu = ({ isLogged, username, id }) => {
     setOpen(!open);
   };
 
-  const className = open ? 'menu__burger__logo--open' : 'menu__burger__logo';
+  const classNameBurger = open ? 'menu__burger--disabled' : 'menu__burger';
 
-  const classNameMenu = open ? 'menu__logo__container--open' : 'menu__logo__container';
+  const classNameMenu = open ? 'menu menu--open' : 'menu';
 
   const profileURL = `/profil/${username}/${id}`;
 
   return (
     <>
-      <div className="menu__burger">
-        <span
-          onClick={handleOnClick}
-          className={className}
-        />
+      <div className={classNameBurger} onClick={handleOnClick}>
+        <BiUser />
       </div>
-      <header className="menu">
+      <BiUser className="cross" onClick={handleOnClick} />
+      <header className={classNameMenu}>
         <div className="menu__logo">
           <img className="menu__logo__glan" src={logo} alt="illustration" />
           <NavLink to="/">
             <h2 className="menu__logo__title">oak</h2>
           </NavLink>
         </div>
-        <div className={classNameMenu}>
+        <div className="menu__logo__container">
           {isLogged && (
           <NavLink to={profileURL}>
             <BiUser className="menu__logo__user" />
