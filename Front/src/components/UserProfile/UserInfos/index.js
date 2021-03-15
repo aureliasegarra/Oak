@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { IoMdLogOut } from 'react-icons/io';
@@ -16,10 +16,15 @@ const UserInfos = ({
   avatarId,
   handleLogout,
 }) => {
+  const [isLoggedOut, setIsLoggedOut] = useState(false);
+
   const handleOnClick = () => {
     console.log('je veux me déconnecter');
     handleLogout();
+    setIsLoggedOut(!isLoggedOut);
   };
+
+  if (isLoggedOut) return (<Redirect to="/" exact />);
 
   return (
     <div className="userprofile-infos__wrapper">
