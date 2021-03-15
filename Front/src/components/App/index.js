@@ -16,7 +16,7 @@ import BookDetails from 'src/containers/BookDetails';
 import Error from 'src/components/Error';
 import Footer from 'src/components/Footer';
 import Auth from 'src/components/Authentication/Auth';
-
+import Register from 'src/containers/Register';
 
 // == Import
 import './styles.scss';
@@ -45,6 +45,9 @@ const App = () => (
       </Route>
       <Route path="/login" exact>
         <Auth />
+      </Route>
+      <Route path="/register" exact>
+        <Register />
       </Route>
       <Route path="/search" exact>
         <Search />

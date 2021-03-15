@@ -16,7 +16,7 @@ const Login = ({ login, isLogged }) => {
         <section className="copy">
           <h2>Se connecter</h2>
           <div>
-            <p>Pas encore inscrit ? <a href="#"><strong>Inscription</strong></a></p>
+            <p>Pas encore inscrit ? <a href="/register"><strong>Inscription</strong></a></p>
           </div>
         </section>
         <Field
@@ -24,11 +24,13 @@ const Login = ({ login, isLogged }) => {
           label="Email"
           name="login_email"
           className="email__input"
+          placeholder=""
         />
         <Field
           type="password"
           label="Mot de passe"
           name="login_password"
+          placeholder=""
         />
         <button type="submit" className="login__submit">C'est parti !</button>
       </form>
