@@ -76,8 +76,10 @@ export default (store) => (next) => async (action) => {
       try {
         console.log(action);
         await axiosInstance.delete('/listHasBook/', {
-          book_id: action.bookId,
-          list_id: action.listId,
+          data: {
+            book_id: action.bookId,
+            list_id: action.listId,
+          },
         });
         store.dispatch(fetchUserInfos());
       }
