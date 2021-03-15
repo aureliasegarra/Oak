@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {
   useLocation,
 } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -29,11 +30,15 @@ const ListDetails = ({
   };
 
   const handleCopyClick = () => {
-    navigator.clipboard.writeText(`http://oak.fr${location.pathname}`);
+    navigator.clipboard.writeText(`http://oak.surge.sh${location.pathname}`);
   };
 
   return (
     <main className="listdetails-main">
+      <Helmet>
+        <title>{`Liste ${list.label} | Oak`}</title>
+        <meta name="description" content={`Découvrez la liste de lecture ${list.label}`} />
+      </Helmet>
       <div className="listdetails-list">
         <div className="listdetails-list__header">
           <h2 className="listdetails-list__title">{list.label}</h2>
@@ -49,7 +54,7 @@ const ListDetails = ({
       <button type="button" className="listdetails__share" onClick={handleShareClick}>Partager</button>
       {isModalOpen && (
         <div className="listdetails__modal">
-          <input type="text" className="listdetails__modal__input" defaultValue={`https://www.oak.fr${location.pathname}`} />
+          <input type="text" className="listdetails__modal__input" defaultValue={`http://oak.surge.sh${location.pathname}`} />
           <MdContentCopy className="listdetails__modal__copy" onClick={handleCopyClick} />
         </div>
       )}

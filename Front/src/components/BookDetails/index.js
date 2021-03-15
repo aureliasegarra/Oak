@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { RiStarSFill } from 'react-icons/ri';
+import { Helmet } from 'react-helmet';
+import DOMPurify from 'dompurify';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { Rating } from '@material-ui/lab';
 import bookDefaultImg from './bookDefaultImg.png';
 
 import './styles.scss';
@@ -10,16 +12,44 @@ import './styles.scss';
 const BookDetails = ({
   isLogged,
   book,
+  rating,
+  reviews,
   addToReadList,
   addToToReadList,
   readListId,
   toReadListId,
   fetchBookDetail,
+  fetchBookReviews,
+  sendComment,
+  sendRating,
   id,
+  bookAPIId,
 }) => {
   useEffect(() => {
     fetchBookDetail(id);
+    fetchBookReviews(id);
   }, []);
+
+  const [labelComment, setLabelComment] = useState('');
+  const [isCommentModalOpen, setIsCommentModalOpen] = useState(false);
+  const [isRatingModalOpen, setIsRatingModalOpen] = useState(false);
+  const [myRating, setMyRating] = useState(0);
+
+  const handleCommentChange = (event) => {
+    setLabelComment(event.target.value);
+  };
+
+  const handleCommentSubmit = (event) => {
+    event.preventDefault();
+    sendComment(labelComment, bookAPIId, id);
+    setIsCommentModalOpen(!isCommentModalOpen);
+  };
+
+  const handleRatingChange = (event, newValue) => {
+    setMyRating(newValue);
+    sendRating(newValue, bookAPIId, id);
+    setIsRatingModalOpen(!isRatingModalOpen);
+  };
 
   const handleOnClick = () => {
     addToReadList(book.id, book.volumeInfo.title, readListId);
@@ -29,11 +59,23 @@ const BookDetails = ({
     addToToReadList(book.id, book.volumeInfo.title, toReadListId);
   };
 
+  const handleCommentClick = () => {
+    setIsCommentModalOpen(!isCommentModalOpen);
+  };
+
+  const handleRatingClick = () => {
+    setIsRatingModalOpen(!isRatingModalOpen);
+  };
+
   return (
     <article className="book-page">
 
       {book.volumeInfo && (
         <>
+          <Helmet>
+            <title>{`${book.volumeInfo.title} par ${book.volumeInfo.authors} | Oak`}</title>
+            <meta name="description" content={`Découvrez le livre ${book.volumeInfo.title} par ${book.volumeInfo.authors}`} />
+          </Helmet>
           <section className="book-page__presentation">
             <div className="book-page__image">
               <img src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : bookDefaultImg} alt="illustration" />
@@ -59,23 +101,47 @@ const BookDetails = ({
 
           <section className="book-page__notes">
             <div className="book-page__container-stars">
-              <RiStarSFill className="book-page__stars" />
-              <RiStarSFill className="book-page__stars" />
-              <RiStarSFill className="book-page__stars" />
-              <RiStarSFill className="book-page__stars" />
-              <RiStarSFill className="book-page__stars" />
+              <Rating value={rating} readOnly />
             </div>
+            {isLogged && (
+              <>
+                {!isRatingModalOpen ? (
+                  <button type="button" className="book-page__rating__button" onClick={handleRatingClick}>Noter</button>
+                ) : (
+                  <Rating
+                    name="simple-controlled"
+                    value={myRating}
+                    onChange={handleRatingChange}
+                  />
+                )}
+              </>
+            )}
           </section>
 
           <section className="book-page__synopsis">
             <p className="book-page__synopsis-title">Résumé</p>
-            <p className="book-page__synopsis-text">{book.volumeInfo.description}</p>
+            <p className="book-page__synopsis-text" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(book.volumeInfo.description) }} />
           </section>
 
           <section className="book-page__comments">
-            <div className="book-page__comment">comments</div>
-            <div className="book-page__comment">comments</div>
-            <div className="book-page__comment">comments</div>
+            <p className="book-page__comments-title">Avis</p>
+            {isLogged && (
+              <>
+                {!isCommentModalOpen ? (
+                  <button type="button" className="book-page__comment__button" onClick={handleCommentClick}>Commenter</button>
+                ) : (
+                  <form onSubmit={handleCommentSubmit}>
+                    <input type="text" value={labelComment} onChange={handleCommentChange} />
+                    <button type="submit">Envoyer</button>
+                  </form>
+                )}
+              </>
+            )}
+            <div className="book-page__comments-container">
+              {reviews && reviews.map((review) => (
+                <div className="book-page__comment">{review.label}</div>
+              ))}
+            </div>
           </section>
         </>
       )}
@@ -92,6 +158,8 @@ BookDetails.propTypes = {
   readListId: PropTypes.number,
   toReadListId: PropTypes.number,
   fetchBookDetail: PropTypes.func,
+  rating: PropTypes.number,
+  reviews: PropTypes.array,
 };
 
 BookDetails.defaultProps = {
@@ -101,6 +169,8 @@ BookDetails.defaultProps = {
   toReadListId: 1,
   fetchBookDetail: () => {},
   book: {},
+  rating: 3,
+  reviews: [],
 };
 
 export default BookDetails;

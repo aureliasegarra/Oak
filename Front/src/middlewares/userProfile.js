@@ -10,21 +10,16 @@ import {
   DELETE_LIST,
   DELETE_BOOK,
   MODIFY_LIST_NAME,
+  MOVE_BOOK,
 } from 'src/actions/userProfile';
 
-import axios from 'src/api/herokuAPI';
+import axiosInstance from 'src/api/herokuAPI';
 
 export default (store) => (next) => async (action) => {
-  const { user: { id, token } } = store.getState();
-
   switch (action.type) {
     case FETCH_USER_INFOS: {
       try {
-        const result = await axios.get('/user/me', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const result = await axiosInstance.get('/user/me');
         store.dispatch(setUserInfos(result.data));
       }
       catch (error) {
@@ -34,7 +29,7 @@ export default (store) => (next) => async (action) => {
     }
     case FETCH_LIST_DETAILS: {
       try {
-        const result = await axios.get(`/list/${action.listId}`);
+        const result = await axiosInstance.get(`/list/${action.listId}`);
         store.dispatch(setListDetails(result.data));
       }
       catch (error) {
@@ -44,10 +39,9 @@ export default (store) => (next) => async (action) => {
     }
     case CREATE_LIST:
       try {
-        await axios.post('/list', {
+        await axiosInstance.post('/list', {
           label: action.newListName,
           description: 'Description de ma liste',
-          user_id: id,
         });
         store.dispatch(fetchUserInfos());
       }
@@ -57,7 +51,7 @@ export default (store) => (next) => async (action) => {
       break;
     case MODIFY_LIST_NAME:
       try {
-        await axios.patch(`/list/${action.listId}`, {
+        await axiosInstance.patch(`/list/${action.listId}`, {
           label: action.newListName,
           id: action.listId,
           description: 'test',
@@ -71,7 +65,7 @@ export default (store) => (next) => async (action) => {
       break;
     case DELETE_LIST:
       try {
-        await axios.delete(`/list/${action.listId}`);
+        await axiosInstance.delete(`/list/${action.listId}`);
         store.dispatch(fetchUserInfos());
       }
       catch (error) {
@@ -81,11 +75,24 @@ export default (store) => (next) => async (action) => {
     case DELETE_BOOK:
       try {
         console.log(action);
-        await axios.delete('/listHasBook/', {
+        await axiosInstance.delete('/listHasBook/', {
           data: {
             book_id: action.bookId,
             list_id: action.listId,
           },
+        });
+        store.dispatch(fetchUserInfos());
+      }
+      catch (error) {
+        console.log(error);
+      }
+      break;
+    case MOVE_BOOK:
+      console.log(action);
+      try {
+        await axiosInstance.patch('/listHasBook', {
+          book_id: action.bookId,
+          list_id: action.listId,
         });
         store.dispatch(fetchUserInfos());
       }

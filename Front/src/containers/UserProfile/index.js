@@ -3,7 +3,7 @@ import UserProfile from 'src/components/UserProfile';
 import { fetchUserInfos } from '../../actions/userProfile';
 
 const mapStateToProps = (state) => ({
-  isLogged: state.user.isLogged,
+  isLogged: JSON.parse(localStorage.getItem('isLogged')) || state.user.isLogged,
   username: state.user.username,
   email: state.user.email,
   badge: state.user.badge,
