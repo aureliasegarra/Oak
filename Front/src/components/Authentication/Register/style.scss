@@ -45,6 +45,7 @@ h2 {
   align-items: center;
 }
 
+
 .input-container__cta {
   display: flex;
   flex-direction: row;
@@ -64,16 +65,23 @@ h2 {
   display: flex;
   justify-content: space-evenly;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin: 2rem 0;
+  &__text {
+    margin: 1.5em 0;
+    font-size: 1em;
+  }
 }
 
-/* .avatar-wrapper {
+.avatar-wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
- */
+
 .avatar {
-  width: 15%;
+  width: 70%;
+  margin-bottom: 1em;
 }
 
 .checkbox-container {
@@ -132,7 +140,7 @@ h2 {
 .register__submit {
   display: block;
   margin: auto;
-  margin-top: 4rem;
+  margin-top: 2rem;
   width: 80%;
   background: vars.$color-orange;
   color: white;
