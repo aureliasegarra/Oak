@@ -9,7 +9,7 @@ const Login = ({ login, isLogged }) => {
     event.preventDefault();
     login();
   };
-  if (isLogged) return (<Redirect to="/" />);
+  if (isLogged) return (<Redirect to="/profil/:pseudo/:id" />);
   return (
     <div className="right">
       <form className="login__form" onSubmit={handleOnSubmit}>

@@ -45,9 +45,16 @@ h2 {
   align-items: center;
 }
 
-.input-container .cta {
+.input-container__cta {
   display: flex;
   flex-direction: row;
+  
+}
+
+.small {
+  font-size: 80%;
+  flex-direction: column;
+  line-height: 1.5em;
 }
 
 .checkbox-container {
@@ -79,7 +86,7 @@ h2 {
   background: white;
   border: 1px solid #c4c4c4;
   border-radius: 2px;
-  top: -4px;
+  top: 10px;
   left: 0;
 }
 

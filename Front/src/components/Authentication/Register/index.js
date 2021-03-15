@@ -43,13 +43,13 @@ const Register = ({ register }) => {
             name="register_password"
             placeholder="Au moins 6 caractères"
           />
-          <div className="input-container cta">
+          <div className="input-container__cta">
             <label className="checkbox-container">
               <input type="checkbox" required />
               <span className="checkmark" />
               <p>
                 <span className="small">
-                  Oui, j'accepte les <a href="#">termes et conditions</a> ainsi que la <a href="#">politique de confidentialité.</a>
+                  Oui, j'accepte les <a href="#">termes et conditions</a> ainsi que <br /> la <a href="#">politique de confidentialité.</a>
                 </span>
               </p>
             </label>
