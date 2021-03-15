@@ -23,3 +23,9 @@ export const saveUser = (userInfos) => ({
   type: SAVE_USER,
   userInfos,
 });
+
+export const LOGOUT = 'LOGOUT';
+
+export const logout = () => ({
+  type: LOGOUT,
+});
