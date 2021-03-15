@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Field from 'src/containers/Field';
 import { getAvatar } from 'src/selectors/index';
@@ -7,6 +8,8 @@ import { getAvatar } from 'src/selectors/index';
 import './style.scss';
 
 const Register = ({ register, saveAvatar }) => {
+  const [subscribed, setSubscribed] = useState(false);
+
   const handleOnClick = (event) => {
     const avatarId = parseInt(event.target.id, 10);
     saveAvatar(avatarId);
@@ -15,7 +18,11 @@ const Register = ({ register, saveAvatar }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     register();
+    setSubscribed(!subscribed);
   };
+
+  if (subscribed) return (<Redirect to="/login" />);
+
   return (
     <div className="split-screen">
       <div className="left">

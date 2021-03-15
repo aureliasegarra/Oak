@@ -4,6 +4,7 @@ export const LOGIN = 'LOGIN';
 export const REGISTER = 'REGISTER';
 export const SAVE_USER = 'SAVE_USER';
 export const SAVE_AVATAR = 'SAVE_AVATAR';
+export const SUBSCRIBED = 'SUBSCRIBED';
 
 // action creator
 export const changeInputValue = (value, name) => ({
@@ -14,6 +15,10 @@ export const changeInputValue = (value, name) => ({
 
 export const login = () => ({
   type: LOGIN,
+});
+
+export const subscribed = () => ({
+  type: SUBSCRIBED,
 });
 
 export const register = () => ({

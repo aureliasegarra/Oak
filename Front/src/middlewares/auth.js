@@ -1,5 +1,5 @@
 import axios from 'src/api/herokuAPI';
-import { LOGIN, REGISTER, saveUser } from 'src/actions';
+import { LOGIN, REGISTER, saveUser, SUBSCRIBED } from 'src/actions';
 
 export default (store) => (next) => (action) => {
   switch (action.type) {

@@ -1,8 +1,9 @@
 import { SET_USER_INFOS } from 'src/actions/userProfile';
-import { SAVE_USER } from 'src/actions';
+import { SAVE_USER, SUBSCRIBED } from 'src/actions';
 
 const initialState = {
   isLogged: false,
+  subscribed: false,
 };
 
 export default (state = initialState, action = {}) => {
@@ -17,6 +18,11 @@ export default (state = initialState, action = {}) => {
         ...state,
         ...action.userInfos,
         isLogged: true,
+      };
+    case SUBSCRIBED:
+      return {
+        ...state,
+        subscribed: true,
       };
     default:
       return state;
