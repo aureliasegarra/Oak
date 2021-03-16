@@ -46,6 +46,7 @@ const BookDetails = ({
     event.preventDefault();
     sendComment(labelComment, bookAPIId, id);
     setIsCommentModalOpen(!isCommentModalOpen);
+    setLabelComment('');
   };
 
   const handleRatingChange = (event, newValue) => {
