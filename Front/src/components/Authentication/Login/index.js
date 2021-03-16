@@ -9,25 +9,30 @@ const Login = ({ login, isLogged }) => {
     event.preventDefault();
     login();
   };
-  if (isLogged) return (<Redirect to="/" />);
+  if (isLogged) return (<Redirect to="/profil/:pseudo/:id" />);
   return (
-    <div className="login">
-      <h2 className="login__title">Se connecter</h2>
+    <div className="right">
       <form className="login__form" onSubmit={handleOnSubmit}>
+        <section className="copy">
+          <h2>Se connecter</h2>
+          <div>
+            <p>Pas encore inscrit ? <a href="/register"><strong>Inscription</strong></a></p>
+          </div>
+        </section>
         <Field
           type="email"
           label="Email"
           name="login_email"
-          placeholder="monadresse@email.fr"
           className="email__input"
+          placeholder=""
         />
         <Field
           type="password"
           label="Mot de passe"
           name="login_password"
-          placeholder="*******"
+          placeholder=""
         />
-        <button type="submit" className="login__submit">Connexion</button>
+        <button type="submit" className="login__submit">C'est parti !</button>
       </form>
     </div>
   );

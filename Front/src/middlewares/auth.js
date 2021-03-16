@@ -1,5 +1,5 @@
 import axios from 'src/api/herokuAPI';
-import { LOGIN, REGISTER, saveUser } from 'src/actions';
+import { LOGIN, REGISTER, saveUser, SUBSCRIBED } from 'src/actions';
 
 export default (store) => (next) => (action) => {
   switch (action.type) {
@@ -23,11 +23,12 @@ export default (store) => (next) => (action) => {
     }
     case REGISTER: {
       const state = store.getState();
+      console.log(state);
       axios.post('/register', {
         email: state.auth.register_email,
         password: state.auth.register_password,
         username: state.auth.register_username,
-        avatar: 1,
+        avatar: state.auth.register_avatar,
       })
         .then((response) => {
           console.log(response.data);

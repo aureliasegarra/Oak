@@ -20,10 +20,10 @@ const Field = ({
       <input
         type={type}
         name={name}
-        placeholder={placeholder}
         value={inputValue}
         onChange={handleOnChange}
         className="field__input"
+        placeholder={placeholder}
       />
     </div>
   );
@@ -33,8 +33,8 @@ Field.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  inputValue: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
+  inputValue: PropTypes.string,
   onChangeInputValue: PropTypes.func.isRequired,
 };
 

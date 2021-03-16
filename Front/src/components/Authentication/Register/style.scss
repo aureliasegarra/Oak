@@ -1,5 +1,34 @@
 @use 'src/styles/vars';
 
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+.right a {
+  text-decoration: none;
+  color: vars.$color-orange;
+}
+
+.right a:hover {
+  text-decoration: underline;
+ 
+}
+.copy {
+  color: black;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.right .copy p {
+  margin: 1.5em 0;
+}
 .register {
   background-color: vars.$color-dark-gray;
   width: 50%;
@@ -11,18 +40,120 @@
 }
 
 .register__form {
-  background-color: vars.$color-light-gray;
-  padding: 3rem;
+  padding: 6rem 3rem 5rem 3rem;
   margin: 1rem;
   align-items: center;
 }
 
-.register__submit {
-  border: none;
-  border-radius: 30px;
+
+.input-container__cta {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.small {
+  font-size: 80%;
+  flex-direction: column;
+  line-height: 1.5em;
+}
+
+.avatar-section {
+  margin: 2em 0;
+}
+.avatar-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  margin: 2rem 0;
+  &__text {
+    margin: 1.5em 0;
+    font-size: 1em;
+  }
+}
+
+.avatar-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 70%;
+  margin-bottom: 1em;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+  user-select: none;
+  margin: 0 0 1.25rem 0;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container input:checked~.checkmark {
   background-color: vars.$color-orange;
+  border: 1px solid vars.$color-orange;
+}
+
+.checkmark {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+  top: 10px;
+  left: 0;
+}
+
+.checkmark:after {
+  content:"";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked~.checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  width: 5px;
+  height: 10px;
+  left: 8px;
+  top: 4px;
+  transform: rotate(45deg);
+}
+
+.register__submit {
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+  width: 80%;
+  background: vars.$color-orange;
   color: white;
-  font-size: 1rem;
-  padding: 0.7rem 3rem 0.7rem 3rem;
-  margin: 3rem 3rem 3rem 4rem;
+  font-weight: 700;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.register__submit:hover {
+  background: #6556a6;
+  cursor: pointer;
 }

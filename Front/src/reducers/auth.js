@@ -1,11 +1,12 @@
-import { CHANGE_INPUT_VALUE, SAVE_USER } from 'src/actions';
+import { CHANGE_INPUT_VALUE, SAVE_USER, SAVE_AVATAR } from 'src/actions';
 
 const initialState = {
+  register_username: '',
   register_email: '',
-  word: '',
+  register_password: '',
+  register_avatar: 1,
   login_email: '',
   login_password: '',
-  register_username: '',
 };
 
 export default (state = initialState, action = {}) => {
@@ -14,6 +15,12 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+    }
+    case SAVE_AVATAR: {
+      return {
+        ...state,
+        register_avatar: action.id,
       };
     }
     default:
