@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import Field from 'src/containers/Field';
 import PropTypes from 'prop-types';
 import './style.scss';
@@ -16,7 +16,7 @@ const Login = ({ login, isLogged }) => {
         <section className="copy">
           <h2>Se connecter</h2>
           <div>
-            <p>Pas encore inscrit ? <a href="/register"><strong>Inscription</strong></a></p>
+            <p>Pas encore inscrit ? <Link to="/register"><strong>Inscription</strong></Link></p>
           </div>
         </section>
         <Field

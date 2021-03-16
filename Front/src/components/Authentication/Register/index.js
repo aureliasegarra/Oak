@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Field from 'src/containers/Field';
 import { getAvatar } from 'src/selectors/index';
@@ -81,7 +81,7 @@ const Register = ({ register, saveAvatar }) => {
               <span className="checkmark" />
               <p>
                 <span className="small">
-                  Oui, j'accepte les <a href="#">termes et conditions</a> ainsi que <br /> la <a href="#">politique de confidentialité.</a>
+                  Oui, j'accepte les <Link to="/">termes et conditions</Link> ainsi que <br /> la <Link to="/">politique de confidentialité.</Link>
                 </span>
               </p>
             </label>
