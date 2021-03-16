@@ -5,20 +5,17 @@
   flex-direction: column;
 }
 .title {
-   font-size: 4.5rem;
+   font-size: 3rem;
    font-weight: 700;
-   margin-bottom: 2em;
-   color: vars.$color-orange;
-   line-height: 1.2em;
+   margin-bottom: 1em;
+   margin-top: 1.2em;
    text-shadow: 2px 2px 2px rgb(118, 118, 118);
  }
 
 .subtitle {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-top: 0.8em;
-  line-height: 1.4em;
-  text-shadow: 2px 2px 2px rgb(94, 94, 94);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 2px rgb(118, 118, 118);
 }
 
  .left {
