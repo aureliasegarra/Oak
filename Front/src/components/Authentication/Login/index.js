@@ -4,12 +4,12 @@ import Field from 'src/containers/Field';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-const Login = ({ login, isLogged }) => {
+const Login = ({ login, isLogged, username, id }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     login();
   };
-  if (isLogged) return (<Redirect to="/profil/:pseudo/:id" />);
+  if (isLogged) return (<Redirect to={`/profil/${username}/${id}`} />);
   return (
     <div className="right">
       <form className="login__form" onSubmit={handleOnSubmit}>
@@ -41,10 +41,14 @@ const Login = ({ login, isLogged }) => {
 Login.propTypes = {
   login: PropTypes.func.isRequired,
   isLogged: PropTypes.bool,
+  username: PropTypes.string,
+  id: PropTypes.number,
 };
 
 Login.defaultProps = {
   isLogged: false,
+  username: '',
+  id: 0,
 };
 
 export default Login;
