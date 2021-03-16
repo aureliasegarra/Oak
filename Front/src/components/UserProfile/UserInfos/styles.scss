@@ -35,3 +35,18 @@
 .userprofile-infos__badges {
   margin-left: 3rem;
 }
+
+.logout-icon {
+  font-size: 2.5em;
+  color: vars.$color-purple;
+  cursor: pointer;
+}
+
+.logout-container {
+  display: flex;
+  align-items: center;
+}
+.userprofile-infos__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
