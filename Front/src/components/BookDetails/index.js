@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import DOMPurify from 'dompurify';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { Rating } from '@material-ui/lab';
 import bookDefaultImg from './bookDefaultImg.png';
@@ -52,10 +55,28 @@ const BookDetails = ({
   };
 
   const handleOnClick = () => {
+    toast.success('📚 Livre ajouté à la liste \'Lus\'', {
+      position: 'top-center',
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     addToReadList(book.id, book.volumeInfo.title, readListId);
   };
 
   const handleOnSecondClick = () => {
+    toast.success('📚 Livre ajouté à la liste \'A lire\'', {
+      position: 'top-center',
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     addToToReadList(book.id, book.volumeInfo.title, toReadListId);
   };
 
@@ -90,6 +111,17 @@ const BookDetails = ({
             <div className="book-page__buttons">
               <button onClick={handleOnClick} type="submit" className="book-page__button">Lu</button>
               <button onClick={handleOnSecondClick} type="submit" className="book-page__button">À lire</button>
+              <ToastContainer
+                position="top-center"
+                autoClose={1500}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
             </div>
             )}
             <div className="book-page__outButtons">
