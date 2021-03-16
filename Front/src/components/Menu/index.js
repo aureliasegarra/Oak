@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { BiSearch, BiLogInCircle, BiUser, BiMenu } from 'react-icons/bi';
+import {
+  BiSearch, BiLogInCircle, BiUser, BiMenu,
+} from 'react-icons/bi';
 import { RiTeamFill, RiCloseFill } from 'react-icons/ri';
 
 // == Import
@@ -19,12 +21,8 @@ const Menu = ({ isLogged, username, id }) => {
   };
 
   const classNameBurger = open ? 'menu__burger--disabled' : 'menu__burger';
-
   const classNameMenu = open ? 'menu menu--open' : 'menu';
-
   const classNameCross = open ? 'cross cross--open' : 'cross';
-
-  const profileURL = `/profil/${username}/${id}`;
 
   return (
     <>
@@ -40,23 +38,20 @@ const Menu = ({ isLogged, username, id }) => {
           </NavLink>
         </div>
         <div className="menu__logo__container">
-          {isLogged && (
-          <NavLink to={profileURL}>
-            <BiUser className="menu__logo__user" />
-          </NavLink>
-          )}
-          {!isLogged && (
-          <NavLink to="/login">
-            <BiUser className="menu__logo__user" />
-          </NavLink>
-          )}
-          <NavLink to="/login">
-            <BiLogInCircle className="menu__logo__user" />
-          </NavLink>
-          <NavLink to="/search">
+          {isLogged ? (
+            <NavLink to={`/profil/${username}/${id}`} onClick={handleOnClick}>
+              <BiUser className="menu__logo__user" />
+            </NavLink>
+          )
+            : (
+              <NavLink to="/login" onClick={handleOnClick}>
+                <BiLogInCircle className="menu__logo__user" />
+              </NavLink>
+            )}
+          <NavLink to="/search" onClick={handleOnClick}>
             <BiSearch className="menu__logo__user" />
           </NavLink>
-          <NavLink to="/">
+          <NavLink to="/" onClick={handleOnClick}>
             <RiTeamFill className="menu__logo__user" />
           </NavLink>
         </div>
