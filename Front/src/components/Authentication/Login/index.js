@@ -1,22 +1,22 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import Field from 'src/containers/Field';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-const Login = ({ login, isLogged }) => {
+const Login = ({ login, isLogged, username, id }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     login();
   };
-  if (isLogged) return (<Redirect to="/profil/:pseudo/:id" />);
+  if (isLogged) return (<Redirect to={`/profil/${username}/${id}`} />);
   return (
     <div className="right">
       <form className="login__form" onSubmit={handleOnSubmit}>
         <section className="copy">
           <h2>Se connecter</h2>
           <div>
-            <p>Pas encore inscrit ? <a href="/register"><strong>Inscription</strong></a></p>
+            <p>Pas encore inscrit ? <Link to="/register"><strong>Inscription</strong></Link></p>
           </div>
         </section>
         <Field
@@ -41,10 +41,14 @@ const Login = ({ login, isLogged }) => {
 Login.propTypes = {
   login: PropTypes.func.isRequired,
   isLogged: PropTypes.bool,
+  username: PropTypes.string,
+  id: PropTypes.number,
 };
 
 Login.defaultProps = {
   isLogged: false,
+  username: '',
+  id: 0,
 };
 
 export default Login;
