@@ -13,7 +13,9 @@ import './styles.scss';
 import logo from './logo-glan.svg';
 
 // == Composant
-const Menu = ({ isLogged, username, id }) => {
+const Menu = ({
+  isLogged, username, id, emptyResults,
+}) => {
   const [open, setOpen] = useState(false);
 
   const handleOnClick = () => {
@@ -29,7 +31,13 @@ const Menu = ({ isLogged, username, id }) => {
       <header className={open ? 'menu menu--open' : 'menu'}>
         <div className="menu__logo">
           <img className="menu__logo__glan" src={logo} alt="illustration" />
-          <NavLink to="/" onClick={handleOnClick}>
+          <NavLink
+            to="/"
+            onClick={() => {
+              handleOnClick();
+              emptyResults();
+            }}
+          >
             <h2 className="menu__logo__title">oak</h2>
           </NavLink>
         </div>

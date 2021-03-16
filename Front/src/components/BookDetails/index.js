@@ -46,6 +46,7 @@ const BookDetails = ({
     event.preventDefault();
     sendComment(labelComment, bookAPIId, id);
     setIsCommentModalOpen(!isCommentModalOpen);
+    setLabelComment('');
   };
 
   const handleRatingChange = (event, newValue) => {
@@ -133,7 +134,12 @@ const BookDetails = ({
 
           <section className="book-page__notes">
             <div className="book-page__container-stars">
-              <Rating value={rating} readOnly />
+              {rating ? (
+                <Rating value={rating} readOnly />
+              )
+                : (
+                  <p>Soyez le premier à noter ce livre</p>
+                )}
             </div>
             {isLogged && (
               <>
@@ -170,9 +176,13 @@ const BookDetails = ({
               </>
             )}
             <div className="book-page__comments-container">
-              {reviews && reviews.map((review) => (
-                <div className="book-page__comment">{review.label}</div>
-              ))}
+              {(reviews.length > 0) ? (
+                reviews.map((review) => (
+                  <div className="book-page__comment">{review.label}</div>
+                ))
+              ) : (
+                <p>Soyez le premier à commenter ce livre</p>
+              )}
             </div>
           </section>
         </>
@@ -201,7 +211,7 @@ BookDetails.defaultProps = {
   toReadListId: 1,
   fetchBookDetail: () => {},
   book: {},
-  rating: 3,
+  rating: null,
   reviews: [],
 };
 

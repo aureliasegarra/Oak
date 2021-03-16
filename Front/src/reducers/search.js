@@ -3,6 +3,7 @@ import {
   SEARCH_QUERY,
   SAVE_DATA,
   IS_LOADING,
+  EMPTY_RESULTS,
 } from 'src/actions/search';
 
 const initialState = {
@@ -33,6 +34,11 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         loading: action.status,
+      };
+    case EMPTY_RESULTS:
+      return {
+        ...state,
+        results: [],
       };
     default:
       return state;
