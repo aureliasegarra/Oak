@@ -30,6 +30,11 @@
   @media screen and (max-width: 767px) {
     width: 250px;
   }
+
+  &::placeholder {
+    color: vars.$color-dark-gray;
+    font-size: 1rem;
+  }
 }
 
 .home-search__button {
