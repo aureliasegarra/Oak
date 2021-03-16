@@ -32,13 +32,13 @@ const AddList = ({
 
   return (
     <div className="userprofile-addlist">
-      <AddListIcon className="userprofile-addlist__button" onClick={handleModalClick} />
       <p className="userprofile-addlist__text">Ajouter une liste</p>
+      <AddListIcon className="userprofile-addlist__button" onClick={handleModalClick} />
       {isModalOpen && (
         <div className="userprofile-addlistmodal">
           <div className="userprofile-addlistmodalcontent">
             <CloseModalIcon className="userprofile-addlist__button" onClick={handleModalClick} />
-            <form onSubmit={handleSubmit}>
+            <form className="list-form" onSubmit={handleSubmit}>
               <label htmlFor="list-label">Nommez votre liste</label>
               <input
                 type="text"
@@ -47,8 +47,9 @@ const AddList = ({
                 value={newListName}
                 onChange={handleChange}
                 placeholder="Nommez votre liste"
+                className="list-input"
               />
-              <button type="submit">Créez ma liste</button>
+              <button className="list-button" type="submit">Créez ma liste</button>
             </form>
           </div>
         </div>

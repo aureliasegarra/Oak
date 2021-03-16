@@ -1,14 +1,22 @@
 @use 'src/styles/vars'; 
 
 .userprofile-list__bookcard {
-  padding: 1rem;
+  padding: 1.2rem;
   margin: 1rem;
-  background-color: vars.$color-light-gray;
+  background-color: white;
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
 }
 
-.book-button__move {
+.userprofile-list__bookcard p {
+  font-size: 1em;
+}
+
+.book-button {
   cursor: pointer;
+  font-size: 1.5em;
+  color: vars.$color-purple;
 }

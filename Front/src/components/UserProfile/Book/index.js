@@ -36,27 +36,29 @@ const Book = ({
   return (
     <div className="userprofile-list__bookcard">
       <p>{title}</p>
-      {!isMovingModalOpen && (
-        <CgMoveTask className="book-button__move" onClick={handleModalClick} />
-      )}
-      {isMovingModalOpen && (
-        <form>
-          <label htmlFor="listes">Choisir une liste</label>
-          <select onChange={handleChange} name="listes">
-            <option>...</option>
-            {lists.map((list) => (
-              <option
-                key={list.id}
-                id={list.id}
-                value={list.id}
-              >
-                {list.label}
-              </option>
-            ))}
-          </select>
-        </form>
-      )}
-      <DeleteBookIcon onClick={handleClick} />
+      <div className="book-button__container">
+        {!isMovingModalOpen && (
+          <CgMoveTask className="book-button" onClick={handleModalClick} />
+        )}
+        {isMovingModalOpen && (
+          <form>
+            <label htmlFor="listes">Choisir une liste</label>
+            <select onChange={handleChange} name="listes">
+              <option>...</option>
+              {lists.map((list) => (
+                <option
+                  key={list.id}
+                  id={list.id}
+                  value={list.id}
+                >
+                  {list.label}
+                </option>
+              ))}
+            </select>
+          </form>
+        )}
+        <DeleteBookIcon className="book-button" onClick={handleClick} />
+      </div>
     </div>
   );
 };
