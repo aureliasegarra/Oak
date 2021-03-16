@@ -29,7 +29,7 @@ const Menu = ({ isLogged, username, id }) => {
       <header className={open ? 'menu menu--open' : 'menu'}>
         <div className="menu__logo">
           <img className="menu__logo__glan" src={logo} alt="illustration" />
-          <NavLink to="/">
+          <NavLink to="/" onClick={handleOnClick}>
             <h2 className="menu__logo__title">oak</h2>
           </NavLink>
         </div>
