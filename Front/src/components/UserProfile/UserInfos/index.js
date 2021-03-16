@@ -21,6 +21,7 @@ const UserInfos = ({
   const handleOnClick = () => {
     console.log('je veux me déconnecter');
     handleLogout();
+    localStorage.clear();
     setIsLoggedOut(!isLoggedOut);
   };
 

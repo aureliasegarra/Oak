@@ -17,7 +17,6 @@ import Error from 'src/components/Error';
 import Footer from 'src/components/Footer';
 import Auth from 'src/components/Authentication/Auth';
 
-
 // == Import
 import './styles.scss';
 

@@ -3,8 +3,6 @@ import { SAVE_USER, LOGOUT } from 'src/actions';
 
 const initialState = {
   isLogged: false,
-  login_email: '',
-  login_password: '',
 };
 
 export default (state = initialState, action = {}) => {
