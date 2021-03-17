@@ -25,16 +25,26 @@
     margin-left: 2rem;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 424px) {
+      margin-left: 0;
+    }
   }
   &__badges {
+    margin-bottom: 3rem;
     display: flex;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1024px) {
+      align-items: center;
       flex-direction: column;
     }
   }
   &__wrapper {
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: 650px) {
+      margin-bottom: 2rem;
+      flex-direction: column;
+    }
   }  
 }
 
@@ -83,4 +93,7 @@
 
 .logout-container {
   display: flex;
+  @media screen and (max-width: 1024px) {
+    justify-content: center;
+  }
 }

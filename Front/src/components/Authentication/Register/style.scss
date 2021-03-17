@@ -66,6 +66,11 @@ h2 {
   justify-content: space-evenly;
   padding: 1rem;
   margin: 2rem 0;
+
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+  }
+
   &__text {
     margin: 1.5em 0;
     font-size: 1em;
