@@ -56,7 +56,7 @@ const Menu = ({ isLogged, username, id }) => {
           <NavLink to="/search">
             <BiSearch className="menu__logo__user" />
           </NavLink>
-          <NavLink to="/">
+          <NavLink to="/team">
             <RiTeamFill className="menu__logo__user" />
           </NavLink>
         </div>
