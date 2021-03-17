@@ -3,19 +3,17 @@
 .book-page {
   background-color: vars.$color-off-white;
   border-radius: 10px;
-  height: 100vh;
   padding: vars.$gutter * 2;
   margin: vars.$gutter;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   &__presentation {
     display:flex;
     justify-content: space-evenly;
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
+    }
   }
   &__image {
     margin: vars.$gutter vars.$gutter *2;
-    box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
   }
   &__info {
     margin: 1.2em 2em;
@@ -57,6 +55,9 @@
   &__notes {
     margin-bottom: vars.$gutter * 2;
     display: flex;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+  }
   }
   &__container-stars {
     margin: vars.$gutter vars.$gutter *2;
@@ -81,6 +82,10 @@
   &__rating__button:hover {
     transform: scale(1.1);
   }
+  &__rating-modal {
+    display: flex;
+    align-items: center;
+  }
   &__comment__button {
     background-color: vars.$color-white;
     color: vars.$color-dark-gray;
@@ -96,6 +101,9 @@
   &__comments-header {
     display: flex;
     align-items: center;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+  }
   }
   &__comments-title {
     font-size: 1.5em;
@@ -110,6 +118,9 @@
     margin-top: vars.$gutter;
     padding-bottom: vars.$gutter;
     overflow: auto;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+  }
   }
   &__comment {
     background-color: white;
@@ -119,6 +130,11 @@
     overflow: hidden;
     padding: 1em;
     box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
+    margin-bottom: 1em;
+    
+    @media screen and (max-width: 767px) {
+      width: 90%;
+  }
   }
   &__comment-infos {
     display: flex;
@@ -145,6 +161,9 @@
     color: vars.$color-purple;
     font-size: 2em;
     margin-left: vars.$gutter;
+    position: fixed;
+    top: 30px;
+    right: 30px;
   }
   &__comment-user {
     margin-left: 1rem;
@@ -165,14 +184,37 @@
     font-size: 1em;
     font-weight: 400;
   }
-
-  @media screen and (max-width: 424px) {
-    flex-direction: column;
-    &__comments-container {
-      flex-direction: column;
-      justify-content: space-evenly;
-    }
+  &__comment-modal {
+    display: flex;
   }
+  &__comment-modal-btn {
+    display: block;
+    margin: auto;
+    margin-top: 2rem;
+    width: 40%;
+    background: vars.$color-orange;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  &__comment-modal-input {
+    background-color: vars.$color-white;
+    color: vars.$color-dark-gray;
+    font-size: 1rem;
+    font-family: sans-serif;
+    width: 80%;
+    padding: vars.$gutter;
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+  }
+
+  
 }
 
 .toast-color {
