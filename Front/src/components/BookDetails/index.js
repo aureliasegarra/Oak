@@ -181,7 +181,7 @@ const BookDetails = ({
                   <div className="book-page__comment">
                     <p>{review.label}</p>
                     <p>par {review.username}</p>
-                    <p>le {review.publish_time}</p>
+                    <p>{`le ${review.publish_time.split('T')[0].split('-').reverse().join(' ')} à ${review.publish_time.split('T')[1].slice(0, 5)}`}</p>
                   </div>
                 ))
               ) : (
