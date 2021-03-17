@@ -11,16 +11,18 @@
   justify-content: space-evenly;
   &__presentation {
     display:flex;
+    justify-content: space-evenly;
   }
   &__image {
     margin: vars.$gutter vars.$gutter *2;
+    box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
   }
   &__info {
-    margin: vars.$gutter vars.$gutter *2;
-    width: 60%;
+    margin: 1.2em 2em;
+    width: 50%;
   }
   &__title {
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bold;
     margin-bottom: vars.$gutter;
   }
@@ -30,11 +32,17 @@
     margin-bottom: vars.$gutter;
   }
   &__text {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: normal;
     margin-bottom: vars.$gutter;
     display: inline-block;
     margin-right: vars.$gutter;
+  }
+  &__synopsis {
+    background-color: #fff;
+    height: 40vh;
+    overflow: auto;
+    border-radius: 20px;
   }
   &__synopsis-title {
     font-size: 1.5em;
@@ -42,12 +50,13 @@
     margin: vars.$gutter * 1.5;
   }
   &__synopsis-text {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: normal;
     margin: vars.$gutter * 1.5;
   }
   &__notes {
     margin-bottom: vars.$gutter * 2;
+    display: flex;
   }
   &__container-stars {
     margin: vars.$gutter vars.$gutter *2;
@@ -64,17 +73,29 @@
     background-color: vars.$color-white;
     color: vars.$color-dark-gray;
     font-size: 1rem;
+    height: 60px;
     padding: vars.$gutter;
     border: none;
     border-radius: 20px 20px 20px 20px;
+  }
+  &__rating__button:hover {
+    transform: scale(1.1);
   }
   &__comment__button {
     background-color: vars.$color-white;
     color: vars.$color-dark-gray;
     font-size: 1rem;
+    height: 60px;
     padding: vars.$gutter;
     border: none;
     border-radius: 20px 20px 20px 20px;
+  }
+  &__comment__button:hover {
+    transform: scale(1.1);
+  }
+  &__comments-header {
+    display: flex;
+    align-items: center;
   }
   &__comments-title {
     font-size: 1.5em;
@@ -86,13 +107,21 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: vars.$gutter * 2;
+    margin-top: vars.$gutter;
+    padding-bottom: vars.$gutter;
+    overflow: auto;
   }
   &__comment {
     background-color: white;
     border-radius: 10px;
-    width: 400px;
+    width: 300px;
     height: 200px;
+    overflow: hidden;
+    padding: 1em;
+    box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
+  }
+  &__comment-infos {
+    display: flex;
   }
   &__buttons {
     align-self: flex-end;
@@ -106,11 +135,50 @@
     border: none;
     padding: 10px;
     margin: vars.$gutter;
+    box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
+  }
+  &__button:hover {
+    transform: scale(1.1);
+    background-color: vars.$color-purple;
   }
   &__outButton {
     color: vars.$color-purple;
     font-size: 2em;
     margin-left: vars.$gutter;
   }
+  &__comment-user {
+    margin-left: 1rem;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.8em;
+    text-transform: uppercase;
+  }
+  &__comment-icon {
+    color: vars.$color-purple;
+    font-size: 1.5em;
+  }
+  &__comment-date {
+    font-size: 70%;
+    margin-bottom: 1em;
+  }
+  &__comment-text {
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 424px) {
+    flex-direction: column;
+    &__comments-container {
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }
 }
 
+.toast-color {
+  background-color: vars.$color-orange;
+  width: 600px;
+  font-size: 1.6em;
+  padding: 1em;
+  border-radius: 20px;
+}

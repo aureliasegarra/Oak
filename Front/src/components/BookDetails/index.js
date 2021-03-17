@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { FaUserCircle } from 'react-icons/fa';
 import { Rating } from '@material-ui/lab';
 import bookDefaultImg from './bookDefaultImg.png';
 
@@ -110,8 +111,8 @@ const BookDetails = ({
             </div>
             {isLogged && (
             <div className="book-page__buttons">
-              <button onClick={handleOnClick} type="submit" className="book-page__button">Lu</button>
               <button onClick={handleOnSecondClick} type="submit" className="book-page__button">À lire</button>
+              <button onClick={handleOnClick} type="submit" className="book-page__button">Lu</button>
               <ToastContainer
                 position="top-center"
                 autoClose={1500}
@@ -122,6 +123,7 @@ const BookDetails = ({
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
+                toastClassName="toast-color"
               />
             </div>
             )}
@@ -162,26 +164,31 @@ const BookDetails = ({
           </section>
 
           <section className="book-page__comments">
-            <p className="book-page__comments-title">Avis</p>
-            {isLogged && (
-              <>
-                {!isCommentModalOpen ? (
-                  <button type="button" className="book-page__comment__button" onClick={handleCommentClick}>Commenter</button>
-                ) : (
-                  <form onSubmit={handleCommentSubmit}>
-                    <textarea value={labelComment} onChange={handleCommentChange} />
-                    <button type="submit">Envoyer</button>
-                  </form>
-                )}
-              </>
-            )}
+            <div className="book-page__comments-header">
+              <p className="book-page__comments-title">Avis</p>
+              {isLogged && (
+                <>
+                  {!isCommentModalOpen ? (
+                    <button type="button" className="book-page__comment__button" onClick={handleCommentClick}>Commenter</button>
+                  ) : (
+                    <form onSubmit={handleCommentSubmit}>
+                      <textarea value={labelComment} onChange={handleCommentChange} />
+                      <button type="submit">Envoyer</button>
+                    </form>
+                  )}
+                </>
+              )}
+            </div>
             <div className="book-page__comments-container">
               {(reviews.length > 0) ? (
                 reviews.map((review) => (
                   <div className="book-page__comment">
-                    <p>{review.label}</p>
-                    <p>par {review.username}</p>
-                    <p>le {review.publish_time}</p>
+                    <div className="book-page__comment-infos">
+                      <FaUserCircle className="book-page__comment-icon" />
+                      <p className="book-page__comment-user">par {review.username}</p>
+                    </div>
+                    <p className="book-page__comment-date">le {review.publish_time}</p>
+                    <p className="book-page__comment-text">{review.label}</p>
                   </div>
                 ))
               ) : (
