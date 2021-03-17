@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import avatar1 from 'src/assets/avatars/avatar1.png';
+import waiting from 'src/assets/images/waiting.svg';
 
 import Book from './Book';
 
@@ -20,7 +20,7 @@ const Results = ({ results }) => (
       ))
     ) : (
       <div className="results_none">
-        <img src={avatar1} alt="" />
+        <img src={waiting} alt="" />
       </div>
     )}
   </div>
