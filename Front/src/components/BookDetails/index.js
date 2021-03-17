@@ -123,6 +123,7 @@ const BookDetails = ({
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
+                toastClassName="toast-color"
               />
             </div>
             )}
