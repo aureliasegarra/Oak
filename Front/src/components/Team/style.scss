@@ -1,0 +1,87 @@
+@use 'src/styles/vars'; 
+
+.aboutus {
+  display: flex;
+}
+
+.team {
+  width: 50%;
+  margin: vars.$gutter * 2;
+}
+
+.title {
+  color: vars.$color-purple;
+  font-size: 2rem;
+}
+
+.members {
+  display: block;
+  margin: vars.$gutter * 2;
+  text-align: center;
+  padding: vars.$gutter;
+  box-shadow: 10px 5px 5px vars.$color-light-gray;
+  border-radius: 10px;
+  width: 250px;
+}
+
+.memberscontainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.images {
+  width: 150px;
+  height: 150px;
+}
+.name {
+  color: vars.$color-purple;
+  font-weight: 700;
+  margin: 1rem;
+}
+
+.description {
+  font-size: 0.8rem;
+}
+
+.linkedin {
+  color: vars.$color-orange;
+  margin: 1rem;
+}
+
+.about {
+  align-self: center;
+  width: 50%;
+}
+
+.abouttitle {
+  font-size: 2rem;
+  margin: 1rem;
+  color: black;
+  font-weight: bold;
+}
+
+.text {
+  background-color: vars.$color-purple;
+  color: white;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.paragraph1 {
+  margin: 2rem;
+  line-height: normal;
+  text-align: justify;
+}
+
+.paragraph2 {
+  margin: 2rem;
+  line-height: normal;
+  text-align: justify;
+}
+
+.paragraph3 {
+  margin: 2rem;
+  line-height: normal;
+  text-align: justify;
+}
