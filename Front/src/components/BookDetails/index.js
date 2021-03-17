@@ -178,7 +178,11 @@ const BookDetails = ({
             <div className="book-page__comments-container">
               {(reviews.length > 0) ? (
                 reviews.map((review) => (
-                  <div className="book-page__comment">{review.label}</div>
+                  <div className="book-page__comment">
+                    <p>{review.label}</p>
+                    <p>par {review.username}</p>
+                    <p>le {review.publish_time}</p>
+                  </div>
                 ))
               ) : (
                 <p>Soyez le premier à commenter ce livre</p>
