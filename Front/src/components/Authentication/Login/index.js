@@ -4,7 +4,9 @@ import Field from 'src/containers/Field';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-const Login = ({ login, isLogged, username, id }) => {
+const Login = ({
+  login, isLogged, username, id,
+}) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     login();
@@ -24,13 +26,15 @@ const Login = ({ login, isLogged, username, id }) => {
           label="Email"
           name="login_email"
           className="email__input"
-          placeholder=""
+          placeholder="Saisissez votre email"
+          isRequired
         />
         <Field
           type="password"
           label="Mot de passe"
           name="login_password"
-          placeholder=""
+          placeholder="Saisissez votre mot de passe"
+          isRequired
         />
         <button type="submit" className="login__submit">C'est parti !</button>
       </form>
