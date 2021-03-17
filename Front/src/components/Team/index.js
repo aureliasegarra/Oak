@@ -46,8 +46,10 @@ const Team = () => (
     <div>
       <h2>À propos</h2>
       <p>
-        Oak est le site que nous avons créé pour notre projet de fin de formation chez O'Clock.
-        Ce projet clôture une formation intensive de 6 mois en développement web fullstack.
+        Oak est le site que nous avons créé pour notre projet de fin de formation chez O'Clock,
+        labellisée Grande École du Numérique.
+        Ce projet clôture une formation intensive de 6 mois en
+        développement web et web mobile fullstack.
       </p>
       <p>
         Oak vous permet de rechercher de nouvelles idées de lecture pour vos enfants,
