@@ -144,7 +144,7 @@ const BookDetails = ({
                 )}
             </div>
             {isLogged && (
-              <>
+              <div className="book-page__rating-modal">
                 {!isRatingModalOpen ? (
                   <button type="button" className="book-page__rating__button" onClick={handleRatingClick}>Noter</button>
                 ) : (
@@ -154,7 +154,7 @@ const BookDetails = ({
                     onChange={handleRatingChange}
                   />
                 )}
-              </>
+              </div>
             )}
           </section>
 
@@ -171,9 +171,9 @@ const BookDetails = ({
                   {!isCommentModalOpen ? (
                     <button type="button" className="book-page__comment__button" onClick={handleCommentClick}>Commenter</button>
                   ) : (
-                    <form onSubmit={handleCommentSubmit}>
-                      <textarea value={labelComment} onChange={handleCommentChange} />
-                      <button type="submit">Envoyer</button>
+                    <form className="book-page__comment-modal" onSubmit={handleCommentSubmit}>
+                      <textarea className="book-page__comment-modal-input" value={labelComment} onChange={handleCommentChange} />
+                      <button className="book-page__comment-modal-btn" type="submit">Envoyer</button>
                     </form>
                   )}
                 </>
