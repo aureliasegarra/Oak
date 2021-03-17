@@ -77,6 +77,7 @@ const List = ({
           key={book.id}
           id={book.id}
           listId={id}
+          publicApiId={book.public_api_id}
           {...book}
         />
       ))}

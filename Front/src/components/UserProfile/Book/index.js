@@ -2,17 +2,19 @@
 // == Import npm
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // == Import
 import './styles.scss';
 
-import { TiDelete as DeleteBookIcon } from 'react-icons/ti';
+import { TiDelete as DeleteBookIcon, TiEye as SeeDetailsIcon } from 'react-icons/ti';
 import { CgMoveTask } from 'react-icons/cg';
 
 // == Composant
 const Book = ({
   title,
   id,
+  publicApiId,
   deleteBook,
   moveBook,
   lists,
@@ -37,6 +39,9 @@ const Book = ({
     <div className="userprofile-list__bookcard">
       <p>{title}</p>
       <div className="book-button__container">
+        <Link to={`/result/${publicApiId}`}>
+          <SeeDetailsIcon className="book-button"/>
+        </Link>
         {!isMovingModalOpen && (
           <CgMoveTask className="book-button" onClick={handleModalClick} />
         )}
