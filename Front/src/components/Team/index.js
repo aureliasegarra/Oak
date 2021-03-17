@@ -2,9 +2,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './style.scss';
-
 import { SiLinkedin } from 'react-icons/si';
+
+import './style.scss';
+import character1 from './character1.svg';
+import character2 from './character2.svg';
+import character3 from './character3.svg';
+import character4 from './character4.svg';
 
 // == Composant
 const Team = () => (
@@ -12,6 +16,7 @@ const Team = () => (
     <div>
       <h2>La team Oak</h2>
       <article className="members">
+        <img className="images" src={character3} alt="illustration" />
         <h3 className="name">Aurelia</h3>
         <p className="description">Developer Front-End</p>
         <p className="description">Product Owner</p>
@@ -20,6 +25,7 @@ const Team = () => (
         </Link>
       </article>
       <article className="members">
+        <img className="images" src={character1} alt="illustration" />
         <h3 className="name">Anthony</h3>
         <p className="description">Lead developer Back-End</p>
         <p className="description">Git Master</p>
@@ -28,6 +34,7 @@ const Team = () => (
         </Link>
       </article>
       <article className="members">
+        <img className="images" src={character2} alt="illustration" />
         <h3 className="name">Nicolas</h3>
         <p className="description">Lead developer Front-End</p>
         <Link to="https://www.linkedin.com/in/nicolas-pellan/">
@@ -35,6 +42,7 @@ const Team = () => (
         </Link>
       </article>
       <article className="members">
+        <img className="images" src={character4} alt="illustration" />
         <h3 className="name">Marina</h3>
         <p className="description">Developer Front-End</p>
         <p className="description">Scrum Master</p>
