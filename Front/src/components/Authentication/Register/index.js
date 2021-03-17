@@ -43,19 +43,22 @@ const Register = ({ register, saveAvatar }) => {
             type="username"
             label="Nom d'utilisateur"
             name="register_username"
-            placeholder=""
+            placeholder="Choisissez un nom d'utilisateur"
+            isRequired
           />
           <Field
             type="email"
-            label="Votre Email"
+            label="Email"
             name="register_email"
-            placeholder=""
+            placeholder="Saisissez votre email"
+            isRequired
           />
           <Field
             type="password"
             label="Votre meilleur mot de passe"
             name="register_password"
-            placeholder="Au moins 6 caractères"
+            placeholder="Choisissez un mot de passe, 6 caractères minimum"
+            isRequired
           />
           <fieldset className="avatar-container">
             <legend className="avatar-container__text">Je choisis un avatar :</legend>
