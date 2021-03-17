@@ -58,7 +58,7 @@ const Register = ({ register, saveAvatar }) => {
             placeholder="Au moins 6 caractères"
           />
           <fieldset className="avatar-container">
-            <legend className="avatar-container__text">Je choisi un avatar :</legend>
+            <legend className="avatar-container__text">Je choisis un avatar :</legend>
             <div className="avatar-wrapper">
               <img className="avatar" src={getAvatar(1)} alt="avatar" />
               <input type="radio" name="avatar-icon" id="1" value="1" onClick={handleOnClick} />
