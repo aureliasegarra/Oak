@@ -34,7 +34,7 @@ const App = () => (
         <Search />
         <Results />
       </Route>
-      <Route path="/result/:id" exact>
+      <Route path="/book/:id" exact>
         <BookDetails />
       </Route>
       <Route path="/profil/:pseudo/:id" exact>

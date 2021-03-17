@@ -39,7 +39,7 @@ const Book = ({
     <div className="userprofile-list__bookcard">
       <p>{title}</p>
       <div className="book-button__container">
-        <Link to={`/result/${publicApiId}`}>
+        <Link to={`/book/${publicApiId}`}>
           <SeeDetailsIcon className="book-button"/>
         </Link>
         {!isMovingModalOpen && (
