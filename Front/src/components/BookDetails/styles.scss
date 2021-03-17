@@ -106,6 +106,11 @@
     border: none;
     padding: 10px;
     margin: vars.$gutter;
+    box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
+  }
+  &__button:hover {
+    transform: scale(1.1);
+    background-color: vars.$color-purple;
   }
   &__outButton {
     color: vars.$color-purple;

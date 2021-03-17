@@ -110,8 +110,8 @@ const BookDetails = ({
             </div>
             {isLogged && (
             <div className="book-page__buttons">
-              <button onClick={handleOnClick} type="submit" className="book-page__button">Lu</button>
               <button onClick={handleOnSecondClick} type="submit" className="book-page__button">À lire</button>
+              <button onClick={handleOnClick} type="submit" className="book-page__button">Lu</button>
               <ToastContainer
                 position="top-center"
                 autoClose={1500}
