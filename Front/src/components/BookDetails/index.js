@@ -169,7 +169,7 @@ const BookDetails = ({
                   <button type="button" className="book-page__comment__button" onClick={handleCommentClick}>Commenter</button>
                 ) : (
                   <form onSubmit={handleCommentSubmit}>
-                    <input type="text" value={labelComment} onChange={handleCommentChange} />
+                    <textarea value={labelComment} onChange={handleCommentChange} />
                     <button type="submit">Envoyer</button>
                   </form>
                 )}
