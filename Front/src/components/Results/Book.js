@@ -9,7 +9,7 @@ const Book = ({ volumeInfo, id }) => (
     <div className="book-card__info">
       <h2 className="book-card__title">{volumeInfo.title}</h2>
       <h3>{volumeInfo.authors}</h3>
-      <Link to={`/result/${id}`} className="book-card__link">Détails</Link>
+      <Link to={`/book/${id}`} className="book-card__link">Détails</Link>
     </div>
   </article>
 );
