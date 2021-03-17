@@ -47,6 +47,7 @@ const ListDetails = ({
           <Book
             key={book.id}
             id={book.id}
+            publicApiId={book.public_api_id}
             {...book}
           />
         ))}

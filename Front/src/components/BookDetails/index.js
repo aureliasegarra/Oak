@@ -187,7 +187,7 @@ const BookDetails = ({
                       <FaUserCircle className="book-page__comment-icon" />
                       <p className="book-page__comment-user">par {review.username}</p>
                     </div>
-                    <p className="book-page__comment-date">le {review.publish_time}</p>
+                    <p className="book-page__comment-date">le {`${review.publish_time.split('T')[0].split('-').reverse().join(' ')} à ${review.publish_time.split('T')[1].slice(0, 5)}`}</p>
                     <p className="book-page__comment-text">{review.label}</p>
                   </div>
                 ))
