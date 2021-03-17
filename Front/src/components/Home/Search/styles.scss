@@ -2,10 +2,9 @@
 
 .home-search {
   text-align: center;
-  margin-top: 2*vars.$gutter;
-  margin-bottom: 5*vars.$gutter;
   display: flex;
   justify-content: center;
+  margin: 2*vars.$gutter 2rem 5*vars.$gutter 2rem;
 }
 
 .home-search__form {
