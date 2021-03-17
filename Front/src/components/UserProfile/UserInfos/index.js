@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { IoMdLogOut } from 'react-icons/io';
+import badge1 from './books.png';
+import badge2 from './study.png';
+import badge3 from './nut.png';
 
 // == Import
 import './styles.scss';
@@ -19,7 +22,6 @@ const UserInfos = ({
   const [isLoggedOut, setIsLoggedOut] = useState(false);
 
   const handleOnClick = () => {
-    console.log('je veux me déconnecter');
     handleLogout();
     localStorage.clear();
     setIsLoggedOut(!isLoggedOut);
@@ -36,6 +38,30 @@ const UserInfos = ({
         <div className="userprofile-infos__details">
           <h1 className="userprofile-infos__username">{username}</h1>
           <p className="userprofile-infos__email">{email}</p>
+        </div>
+      </div>
+
+      <div className="userprofile-infos__badges">
+        <div className="badge-container">
+          <div className="badge-wrapper">
+            <img className="badge-image" src={badge1} alt="book-badge" />
+            <strong>25</strong>
+          </div>
+          <p>Livres lus</p>
+        </div>
+        <div className="badge-container">
+          <div className="badge-wrapper">
+            <img className="badge-image" src={badge2} alt="book-badge" />
+            <strong>640</strong>
+          </div>
+          <p>Pages lues</p>
+        </div>
+        <div className="badge-container">
+          <div className="badge-wrapper">
+            <img className="badge-image" src={badge3} alt="book-badge" />
+            <strong>25</strong>
+          </div>
+          <p>Oak gagnés</p>
         </div>
       </div>
 
