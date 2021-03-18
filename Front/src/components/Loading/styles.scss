@@ -1,6 +1,11 @@
 .loading-text {
-  font-size: 3em;
-  font-weight: bold;
-  padding: 1em;
-  margin: 1em;
+  display: flex;
+  justify-content: center;
+  
+  & > p {
+    font-size: 3em;
+    font-weight: bold;
+    padding: 1em;
+    margin: 1em;
+  }
 }

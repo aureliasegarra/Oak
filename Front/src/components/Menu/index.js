@@ -63,7 +63,7 @@ const Menu = ({
           <NavLink to="/search" onClick={handleOnClick}>
             <BiSearch className="menu__logo__user" />
           </NavLink>
-          <NavLink to="/" onClick={handleOnClick}>
+          <NavLink to="/team" onClick={handleOnClick}>
             <RiTeamFill className="menu__logo__user" />
           </NavLink>
         </div>

@@ -8,6 +8,11 @@
   border-radius: 20px;
   box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
 
+  @media screen and (max-width: 767px) {
+    margin: 0 auto;
+    width: 80%;
+  }
+
   &__title {
     font-size: 2rem;
     margin-bottom: 1rem;

@@ -4,20 +4,21 @@
   background-color: vars.$color-off-white;
   border-radius: 10px;
   padding: vars.$gutter * 2;
-  margin: vars.$gutter;
+  margin: 8rem vars.$gutter vars.$gutter vars.$gutter;
+
   &__presentation {
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     @media screen and (max-width: 767px) {
         flex-direction: column;
     }
   }
-  &__image {
-    margin: vars.$gutter vars.$gutter *2;
-  }
   &__info {
     margin: 1.2em 2em;
     width: 50%;
+    @media screen and (max-width: 767px) {
+      margin: 1.2em 0;
+    }
   }
   &__title {
     font-size: 2em;
@@ -55,12 +56,10 @@
   &__notes {
     margin-bottom: vars.$gutter * 2;
     display: flex;
-    @media screen and (max-width: 767px) {
-      flex-direction: column;
-  }
+    flex-direction: column;
   }
   &__container-stars {
-    margin: vars.$gutter vars.$gutter *2;
+    margin: vars.$gutter 0;
     width: 125px;
     display: flex;
     justify-content: center;
@@ -94,16 +93,19 @@
     padding: vars.$gutter;
     border: none;
     border-radius: 20px 20px 20px 20px;
+    @media screen and (min-width: 767px) {
+      max-width: 150px;
+    }
   }
   &__comment__button:hover {
     transform: scale(1.1);
   }
   &__comments-header {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     @media screen and (max-width: 767px) {
-      flex-direction: column;
-  }
+      align-items: center;
+    }
   }
   &__comments-title {
     font-size: 1.5em;
@@ -120,7 +122,7 @@
     overflow: auto;
     @media screen and (max-width: 767px) {
       flex-direction: column;
-  }
+    }
   }
   &__comment {
     background-color: white;
@@ -134,13 +136,14 @@
     
     @media screen and (max-width: 767px) {
       width: 90%;
-  }
+    }
   }
   &__comment-infos {
     display: flex;
   }
   &__buttons {
-    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
   }
   &__button {
     width: 150px;
@@ -150,8 +153,11 @@
     border-radius: 10px;
     border: none;
     padding: 10px;
-    margin: vars.$gutter;
+    margin: 0 vars.$gutter 1rem;
     box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
+    @media screen and (max-width: 767px) {
+      margin: 0 0 1rem 0;
+    }
   }
   &__button:hover {
     transform: scale(1.1);
@@ -161,9 +167,12 @@
     color: vars.$color-purple;
     font-size: 2em;
     margin-left: vars.$gutter;
-    position: fixed;
-    top: 30px;
-    right: 30px;
+
+    @media screen and (max-width: 767px) {
+      position: fixed;
+      top: calc(8rem + 30px);
+      right: 30px;
+    }
   }
   &__comment-user {
     margin-left: 1rem;
@@ -186,12 +195,15 @@
   }
   &__comment-modal {
     display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 767px) {
+      align-items: center;
+    }
   }
   &__comment-modal-btn {
     display: block;
-    margin: auto;
     margin-top: 2rem;
-    width: 40%;
+    max-width: 150px;
     background: vars.$color-orange;
     color: white;
     text-align: center;
