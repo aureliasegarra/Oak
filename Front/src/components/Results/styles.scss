@@ -37,8 +37,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   &__title {
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: vars.$gutter;
   }
   &__author {
@@ -46,10 +47,12 @@
   }
   &__image {
     margin: auto;
+    max-height: 120px;
   }
   &__info {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
   }
   &__link {
     background-color: vars.$color-orange;
