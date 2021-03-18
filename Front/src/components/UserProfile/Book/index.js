@@ -37,7 +37,7 @@ const Book = ({
 
   return (
     <div className="userprofile-list__bookcard">
-      <p>{title}</p>
+      <p>{title.split('').splice(0, 28).join('')}...</p>
       <div className="book-button__container">
         {!isMovingModalOpen && (
           <CgMoveTask className="book-button" onClick={handleModalClick} />
