@@ -72,15 +72,17 @@ const List = ({
           )}
         </div>
       </div>
-      {books.map((book) => (
-        <Book
-          key={book.id}
-          id={book.id}
-          listId={id}
-          publicApiId={book.public_api_id}
-          {...book}
-        />
-      ))}
+      <div className="userprofile-list__container-books">
+        {books.map((book) => (
+          <Book
+            key={book.id}
+            id={book.id}
+            listId={id}
+            publicApiId={book.public_api_id}
+            {...book}
+          />
+        ))}
+      </div>
       <div className="userprofile-list__share">
         {!isSharingModalOpen ? (
           <button type="button" className="userprofile-list__share__button" onClick={handleShareClick}>Partager</button>
