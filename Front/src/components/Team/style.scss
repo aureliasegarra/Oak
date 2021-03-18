@@ -2,6 +2,9 @@
 
 .aboutus {
   display: flex;
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
 }
 
 .team {
@@ -46,6 +49,10 @@
 .linkedin {
   color: vars.$color-orange;
   margin: 1rem;
+}
+
+.linkedin:hover {
+  color: vars.$color-purple;
 }
 
 .about {
