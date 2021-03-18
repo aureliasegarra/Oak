@@ -13,7 +13,7 @@ const Book = ({
   publicApiId,
 }) => (
   <div className="userprofile-list__bookcard">
-    <p>{title}</p>
+    <p>{title.split(' ').splice(0, 8).join(' ')}</p>
     <div className="book-button__container">
       <Link to={`/book/${publicApiId}`}>
         <SeeDetailsIcon className="book-button" />
