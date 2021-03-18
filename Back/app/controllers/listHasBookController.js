@@ -10,16 +10,29 @@ const listHasbookController = {
       const ListBelongsToUser = await listHasbookMapper.checkIfListBelongsToUser(
         req.body
       );
+      // We check if the book is in the database
+      const book = await bookMapper.getBookByPublicApiId(
+        req.body.public_api_id
+      );
+      // we add the book id to the payload
+      req.body.book_id = book.id;
+      const bookAlreadyInList = await listHasbookMapper.checkIfBookAlreadyInList(
+        req.body
+      );
+      // If the book is already in the list
+      if (bookAlreadyInList)
+        return res
+          .status(400)
+          .json(
+            `The book ${req.body.book_id} is already in the list ${req.body.list_id}`
+          );
       if (!ListBelongsToUser)
         return res
           .status(400)
           .json(
             `The list ${req.body.list_id} does not belong to the user ${req.body.user_id}`
           );
-      // We check if the book is in the database
-      const book = await bookMapper.getBookByPublicApiId(
-        req.body.public_api_id
-      );
+
       const newBook = new Book(req.body);
       newBook.user_id = req.user.id;
       // If the book is not in the database
@@ -53,7 +66,6 @@ const listHasbookController = {
           .json(
             `The list ${req.body.list_id} does not belong to the user ${req.body.user_id}`
           );
-      console.log(req.body);
       await listHasbookMapper.deleteBookFromList(req.body);
       res.json('OK');
     } catch (error) {

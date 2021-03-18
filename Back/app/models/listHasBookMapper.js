@@ -82,6 +82,20 @@ const listHasbookMapper = {
       throw new Error(error);
     }
   },
+  checkIfBookAlreadyInList: async (list_has_book) => {
+    const { list_id, book_id } = list_has_book;
+    try {
+      const query = ` SELECT *
+                      FROM list_has_book
+                      WHERE list_id = $1 AND book_id = $2;`;
+
+      const data = [list_id, book_id];
+      const { rows } = await db.query(query, data);
+      return rows[0];
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 };
 
 module.exports = listHasbookMapper;
