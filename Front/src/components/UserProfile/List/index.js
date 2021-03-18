@@ -57,7 +57,7 @@ const List = ({
         )
           : (
             <form onSubmit={handleSubmit}>
-              <input type="text" value={listName} onChange={handleChange} />
+              <input className="userprofile-list__input-modify" type="text" value={listName} onChange={handleChange} />
             </form>
           )}
         <div className="userprofile-list__container-icon">
