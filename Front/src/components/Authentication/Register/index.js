@@ -27,7 +27,7 @@ const Register = ({ register, saveAvatar }) => {
     <div className="split-screen">
       <div className="left">
         <section className="copy">
-          <h1 className="title">Bienvenue chez Oak</h1>
+          <h1 className="main-title">Bienvenue chez Oak</h1>
           <h2 className="subtitle">Recherchez un livre, ajoutez-le à votre liste de lecture et partagez-la !</h2>
         </section>
       </div>
