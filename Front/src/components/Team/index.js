@@ -1,6 +1,5 @@
 // == Import npm
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { SiLinkedin } from 'react-icons/si';
 
@@ -20,35 +19,35 @@ const Team = () => (
           <h3 className="name">Aurelia</h3>
           <p className="description">Front-End Developer</p>
           <p className="description">Product Owner</p>
-          <Link to="https://www.linkedin.com/in/aureliasegarra/">
+          <a href="https://www.linkedin.com/in/aureliasegarra/">
             <SiLinkedin className="linkedin" />
-          </Link>
+          </a>
         </article>
         <article className="members">
           <img className="images" src={character1} alt="illustration" />
           <h3 className="name">Anthony</h3>
           <p className="description">Lead Developer Back-End</p>
           <p className="description">Git Master</p>
-          <Link to="https://www.linkedin.com/in/monsieurz/">
+          <a href="https://www.linkedin.com/in/monsieurz/">
             <SiLinkedin className="linkedin" />
-          </Link>
+          </a>
         </article>
         <article className="members">
           <img className="images" src={character2} alt="illustration" />
           <h3 className="name">Nicolas</h3>
           <p className="description">Lead Developer Front-End</p>
-          <Link to="https://www.linkedin.com/in/nicolas-pellan/">
+          <a href="https://www.linkedin.com/in/nicolas-pellan/">
             <SiLinkedin className="linkedin" />
-          </Link>
+          </a>
         </article>
         <article className="members">
           <img className="images" src={character4} alt="illustration" />
           <h3 className="name">Marina</h3>
           <p className="description">Front-End Developer</p>
           <p className="description">Scrum Master</p>
-          <Link to="https://www.linkedin.com/in/marina-garibotti/">
+          <a href="https://www.linkedin.com/in/marina-garibotti/">
             <SiLinkedin className="linkedin" />
-          </Link>
+          </a>
         </article>
       </div>
     </div>
