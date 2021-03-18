@@ -39,7 +39,8 @@
   }
   &__synopsis {
     background-color: #fff;
-    height: 40vh;
+    min-height: 20vh;
+    max-height: 40vh;
     overflow: auto;
     border-radius: 20px;
   }
@@ -114,9 +115,10 @@
     text-align: left;
   }
   &__comments-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 3rem;
     justify-content: space-evenly;
-    align-items: center;
     margin-top: vars.$gutter;
     padding-bottom: vars.$gutter;
     overflow: auto;
@@ -173,13 +175,16 @@
       top: calc(8rem + 30px);
       right: 30px;
     }
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   &__comment-user {
     margin-left: 1rem;
     font-size: 1em;
     font-weight: 500;
     line-height: 1.8em;
-    text-transform: uppercase;
   }
   &__comment-icon {
     color: vars.$color-purple;
@@ -192,6 +197,7 @@
   &__comment-text {
     font-size: 1em;
     font-weight: 400;
+    line-height: 1.5;
   }
   &__comment-modal {
     display: flex;
