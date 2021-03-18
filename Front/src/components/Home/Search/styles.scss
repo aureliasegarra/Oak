@@ -2,10 +2,9 @@
 
 .home-search {
   text-align: center;
-  margin-top: 2*vars.$gutter;
-  margin-bottom: 5*vars.$gutter;
   display: flex;
   justify-content: center;
+  margin: 2*vars.$gutter 2rem 5*vars.$gutter 2rem;
 }
 
 .home-search__form {
@@ -29,11 +28,18 @@
 
   @media screen and (max-width: 767px) {
     width: 250px;
+    
+    &::placeholder {
+      color: vars.$color-dark-gray;
+      font-size: 1rem;
+    }
   }
+
 }
 
 .home-search__button {
   background-color: vars.$color-off-white;
+  color: vars.$color-dark-gray;
   border: none;
   border-radius: 0 20px 20px 0;
   padding-right: 2rem;

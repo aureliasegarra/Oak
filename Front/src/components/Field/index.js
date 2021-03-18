@@ -9,6 +9,7 @@ const Field = ({
   placeholder,
   inputValue,
   onChangeInputValue,
+  isRequired,
 }) => {
   const handleOnChange = (event) => {
     console.log('inputChange');
@@ -24,6 +25,7 @@ const Field = ({
         onChange={handleOnChange}
         className="field__input"
         placeholder={placeholder}
+        required={isRequired}
       />
     </div>
   );

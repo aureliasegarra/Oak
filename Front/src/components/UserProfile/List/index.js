@@ -60,14 +60,14 @@ const List = ({
               <input type="text" value={listName} onChange={handleChange} />
             </form>
           )}
-        <div>
+        <div className="userprofile-list__container-icon">
           <Link to={`/list/${id}`}>
-            <SeeDetailsIcon />
+            <SeeDetailsIcon className="icon" />
           </Link>
-          {(label !== 'Lus' && label !== 'A lire') && (
+          {(label !== 'Lus' && label !== 'À lire') && (
             <>
-              <ChangeListNameIcon onClick={handleModifyList} />
-              <DeleteListIcon onClick={handleDeleteList} />
+              <ChangeListNameIcon className="icon" onClick={handleModifyList} />
+              <DeleteListIcon className="icon" onClick={handleDeleteList} />
             </>
           )}
         </div>
@@ -77,6 +77,7 @@ const List = ({
           key={book.id}
           id={book.id}
           listId={id}
+          publicApiId={book.public_api_id}
           {...book}
         />
       ))}

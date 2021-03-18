@@ -17,6 +17,7 @@ import Error from 'src/components/Error';
 import Footer from 'src/components/Footer';
 import Auth from 'src/components/Authentication/Auth';
 import Register from 'src/containers/Register';
+import Team from 'src/components/Team';
 
 // == Import
 import './styles.scss';
@@ -34,7 +35,7 @@ const App = () => (
         <Search />
         <Results />
       </Route>
-      <Route path="/result/:id" exact>
+      <Route path="/book/:id" exact>
         <BookDetails />
       </Route>
       <Route path="/profil/:pseudo/:id" exact>
@@ -52,6 +53,9 @@ const App = () => (
       <Route path="/search" exact>
         <Search />
         <Results />
+      </Route>
+      <Route path="/team" exact>
+        <Team />
       </Route>
       <Route>
         <Error />

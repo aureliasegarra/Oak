@@ -5,7 +5,7 @@ import { readListId, toReadListId } from 'src/selectors/bookDetails';
 import {
   addToReadList, addToToReadList, fetchBookDetail, fetchBookReviews,
 } from 'src/actions/search';
-import { sendComment, sendRating } from 'src/actions/bookDetail';
+import { sendComment, sendRating, saveBookToDB } from 'src/actions/bookDetail';
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;

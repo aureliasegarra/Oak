@@ -10,6 +10,7 @@ export const FETCH_BOOK_DETAIL = 'FETCH_BOOK_DETAIL';
 export const SET_BOOK_DETAIL = 'SET_BOOK_DETAIL';
 export const FETCH_BOOK_REVIEWS = 'FETCH_BOOK_REVIEWS';
 export const SET_BOOK_REVIEWS = 'SET_BOOK_REVIEWS';
+export const EMPTY_RESULTS = 'EMPTY_RESULTS';
 
 // Action creator
 export const setInputValue = (value) => ({
@@ -68,4 +69,8 @@ export const fetchBookReviews = (bookId) => ({
 export const setBookReviews = (bookReviews) => ({
   type: SET_BOOK_REVIEWS,
   bookReviews,
+});
+
+export const emptyResults = () => ({
+  type: EMPTY_RESULTS,
 });

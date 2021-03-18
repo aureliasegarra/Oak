@@ -13,7 +13,9 @@ import './styles.scss';
 import logo from './logo-glan.svg';
 
 // == Composant
-const Menu = ({ isLogged, username, id }) => {
+const Menu = ({
+  isLogged, username, id, emptyResults,
+}) => {
   const [open, setOpen] = useState(false);
 
   const handleOnClick = () => {
@@ -28,8 +30,22 @@ const Menu = ({ isLogged, username, id }) => {
       <RiCloseFill className={open ? 'cross cross--open' : 'cross'} onClick={handleOnClick} />
       <header className={open ? 'menu menu--open' : 'menu'}>
         <div className="menu__logo">
-          <img className="menu__logo__glan" src={logo} alt="illustration" />
-          <NavLink to="/">
+          <NavLink
+            to="/"
+            onClick={() => {
+              handleOnClick();
+              emptyResults();
+            }}
+          >
+            <img className="menu__logo__glan" src={logo} alt="illustration" />
+          </NavLink>
+          <NavLink
+            to="/"
+            onClick={() => {
+              handleOnClick();
+              emptyResults();
+            }}
+          >
             <h2 className="menu__logo__title">oak</h2>
           </NavLink>
         </div>
@@ -47,7 +63,7 @@ const Menu = ({ isLogged, username, id }) => {
           <NavLink to="/search" onClick={handleOnClick}>
             <BiSearch className="menu__logo__user" />
           </NavLink>
-          <NavLink to="/" onClick={handleOnClick}>
+          <NavLink to="/team" onClick={handleOnClick}>
             <RiTeamFill className="menu__logo__user" />
           </NavLink>
         </div>

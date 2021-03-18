@@ -8,32 +8,81 @@
   @media screen and (max-width: 424px) {
     flex-direction: column;
   }
-}
-
-.userprofile-infos__avatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  & > p {
-    font-size: 3rem;
+  &__username {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
   }
+  &__avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > p {
+    font-size: 3rem;
+    }
+  }
+  &__details {
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 424px) {
+      margin-left: 0;
+    }
+  }
+  &__badges {
+    margin-bottom: 3rem;
+    display: flex;
+    @media screen and (max-width: 1024px) {
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 650px) {
+      margin-bottom: 2rem;
+      flex-direction: column;
+    }
+  }  
 }
 
-.userprofile-infos__details {
-  margin-left: 3rem;
+.badge-container {
+  width: 150px;
+  height: 90px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:white;
+  margin: 0.5em;
+  border-radius: 10px;
+  box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
 }
 
-.userprofile-infos__pseudo {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+.badge-container p {
+  font-size: 80%;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 1 0.5em;
 }
 
-.userprofile-infos__badges {
-  margin-left: 3rem;
+.badge-container strong {
+  font-weight: 600;
+}
+
+.badge-image {
+  width: 40px;
+  margin-right: 1em;
+}
+
+.badge-wrapper {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-bottom: 0.5em;
+
 }
 
 .logout-icon {
@@ -44,9 +93,7 @@
 
 .logout-container {
   display: flex;
-  align-items: center;
-}
-.userprofile-infos__wrapper {
-  display: flex;
-  justify-content: space-between;
+  @media screen and (max-width: 1024px) {
+    justify-content: center;
+  }
 }

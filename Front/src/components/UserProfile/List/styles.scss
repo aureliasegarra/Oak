@@ -1,51 +1,74 @@
 @use 'src/styles/vars'; 
 
 .userprofile-list {
-  width: 30%;
   margin-bottom: 3rem;
-  background-color: vars.$color-medium-gray;
+  background-color: white;
   border-radius: 20px;
   box-shadow: 3px 5px 10px 0px vars.$color-medium-gray;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-right: 2rem;
+  width: 29%;
 
   @media screen and (max-width: 767px) {
-    width: 45%;
+    width: 80%;
+    margin-right: 0;
   }
 
   @media screen and (max-width: 425px) {
     width: 100%;
+    margin-right: 0;
   }
 }
 
 .userprofile-list__header {
   font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 1rem;
-  background-color: vars.$color-light-gray;
+  color: white;
+  background-color: vars.$color-purple;
   border-radius: 20px 20px 0 0;
-  padding: 1rem;
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
+}
+
+.userprofile-list__container-icon {
+  display: flex;
+  justify-content: space-around;
+}
+.icon {
+  font-size: 1.5em;
 }
 
 .userprofile-list__share {
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
-  background-color: vars.$color-light-gray;
   border-radius: 0 0 20px 20px;
   padding: 1rem;
+  background-color: white;
 }
 
 .userprofile-list__share__button {
-  background-color: vars.$color-white;
-  color: vars.$color-dark-gray;
-  font-size: 1rem;
-  padding: vars.$gutter;
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+  width: 50%;
+  background: vars.$color-orange;
+  color: white;
+  font-weight: 700;
   border: none;
-  border-radius: 20px 20px 20px 20px;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.userprofile-list__share__button:hover {
+  background: #6556a6;
+  cursor: pointer;
 }
 
 .userprofile-list__share__modal {
