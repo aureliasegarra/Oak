@@ -2,6 +2,6 @@
 
 BEGIN;
 
--- XXX Add verifications here.
+SELECT 1/COUNT(*) FROM public.rating WHERE rating = 3;
 
 ROLLBACK;

@@ -2,6 +2,8 @@
 
 BEGIN;
 
--- XXX Add verifications here.
+SELECT 1/COUNT(*)
+FROM INFORMATION_SCHEMA.domains
+WHERE domain_name = 'posint';
 
 ROLLBACK;

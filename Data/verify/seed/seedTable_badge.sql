@@ -2,6 +2,6 @@
 
 BEGIN;
 
--- XXX Add verifications here.
+SELECT 1/COUNT(*) FROM public.badge WHERE label = 'Soldat' ;
 
 ROLLBACK;

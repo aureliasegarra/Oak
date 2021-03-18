@@ -2,6 +2,6 @@
 
 BEGIN;
 
--- XXX Add verifications here.
+SELECT 1/COUNT(*) FROM public.user_has_badge WHERE badge_id = 5;
 
 ROLLBACK;

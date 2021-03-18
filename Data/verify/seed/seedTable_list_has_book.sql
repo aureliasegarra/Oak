@@ -2,6 +2,6 @@
 
 BEGIN;
 
--- XXX Add verifications here.
+SELECT 1/COUNT(*) FROM public.list_has_book WHERE list_id = 1;
 
 ROLLBACK;
