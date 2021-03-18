@@ -1,8 +1,9 @@
 @use 'src/styles/vars'; 
 
 .results-box {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 3rem;
   justify-content: space-evenly;
   margin: vars.$gutter * 2;
   min-height: 70vh;
