@@ -14,6 +14,13 @@
   &__button {
     font-size: 1.5em;
   }
+  &__button-modal {
+    color: vars.$color-purple;
+    position: relative;
+    top: -40px;
+    right: -750px;
+    font-size: 1.5em;
+  }
   &__text {
     font-size: 1em;
   }
@@ -33,14 +40,27 @@
 .userprofile-addlistmodalcontent {
   background-color: #fefefe;
   margin: 20% auto; /* 15% from the top and centered */
-  padding: 20px;
+  padding: 30px;
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userprofile-addlistmodalcontent form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-form__label {
+  display: none;
 }
 
 .list-input {
   width: 300px;
-  height: 80px;
+  height: 60px;
   font-size: 1em;
   text-align: center;
   padding: vars.$gutter;
@@ -52,7 +72,6 @@
 }
 
 .list-button {
-  margin-top: 2rem;
   min-width: 25%;
   background: vars.$color-orange;
   color: white;

@@ -39,6 +39,12 @@
 }
 .icon {
   font-size: 1.5em;
+  cursor: pointer;
+}
+
+.userprofile-list__container-books {
+  max-height: 400px;
+  overflow: auto;
 }
 
 .userprofile-list__share {
@@ -92,4 +98,14 @@
 
 .userprofile-list__modal__copy:hover {
   transform: scale(1.1);
+}
+
+.userprofile-list__input-modify {
+  border: none;
+  border-radius: 20px;
+  height: 30px;
+  color: vars.$color-dark-gray;
+  font-size: 1em;
+  padding: 10px;
+
 }

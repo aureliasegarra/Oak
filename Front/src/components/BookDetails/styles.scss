@@ -180,6 +180,10 @@
       transform: scale(1.1);
     }
   }
+  &__outButton:hover {
+    color: vars.$color-orange;
+    transform: scale(1.1);
+  }
   &__comment-user {
     margin-left: 1rem;
     font-size: 1em;

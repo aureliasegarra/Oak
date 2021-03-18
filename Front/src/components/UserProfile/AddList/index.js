@@ -37,9 +37,9 @@ const AddList = ({
       {isModalOpen && (
         <div className="userprofile-addlistmodal">
           <div className="userprofile-addlistmodalcontent">
-            <CloseModalIcon className="userprofile-addlist__button" onClick={handleModalClick} />
+            <CloseModalIcon className="userprofile-addlist__button-modal" onClick={handleModalClick} />
             <form className="list-form" onSubmit={handleSubmit}>
-              <label htmlFor="list-label">Nommez votre liste</label>
+              <label className="list-form__label" htmlFor="list-label">Nommez votre liste</label>
               <input
                 type="text"
                 id="list-label"
