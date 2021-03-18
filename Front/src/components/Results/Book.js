@@ -7,7 +7,7 @@ const Book = ({ volumeInfo, id }) => (
   <article className="book-card">
     <img className="book-card__image" src={volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail : bookDefaultImg} alt="illustration" />
     <div className="book-card__info">
-      <h2 className="book-card__title">{volumeInfo.title}</h2>
+      <h2 className="book-card__title">{volumeInfo.title.split(' ').splice(0, 8).join(' ')}</h2>
       <h3 className="book-card__author">
         {volumeInfo.authors && volumeInfo.authors.map((author) => (
           <p key={author}>{author}</p>
