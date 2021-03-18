@@ -64,7 +64,7 @@ const List = ({
           <Link to={`/list/${id}`}>
             <SeeDetailsIcon className="icon" />
           </Link>
-          {(label !== 'Lus' && label !== 'A lire') && (
+          {(label !== 'Lus' && label !== 'À lire') && (
             <>
               <ChangeListNameIcon className="icon" onClick={handleModifyList} />
               <DeleteListIcon className="icon" onClick={handleDeleteList} />
