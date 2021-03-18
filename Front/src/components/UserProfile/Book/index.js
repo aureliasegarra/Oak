@@ -39,16 +39,13 @@ const Book = ({
     <div className="userprofile-list__bookcard">
       <p>{title}</p>
       <div className="book-button__container">
-        <Link to={`/book/${publicApiId}`}>
-          <SeeDetailsIcon className="book-button"/>
-        </Link>
         {!isMovingModalOpen && (
           <CgMoveTask className="book-button" onClick={handleModalClick} />
         )}
         {isMovingModalOpen && (
           <form>
             <label htmlFor="listes">Choisir une liste</label>
-            <select onChange={handleChange} name="listes">
+            <select className="input-select-list" onChange={handleChange} name="listes">
               <option>...</option>
               {lists.map((list) => (
                 <option
@@ -62,6 +59,9 @@ const Book = ({
             </select>
           </form>
         )}
+        <Link to={`/book/${publicApiId}`}>
+          <SeeDetailsIcon className="book-button" />
+        </Link>
         <DeleteBookIcon className="book-button" onClick={handleClick} />
       </div>
     </div>

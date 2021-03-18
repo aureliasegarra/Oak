@@ -19,4 +19,15 @@
   cursor: pointer;
   font-size: 1.5em;
   color: vars.$color-purple;
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.input-select-list {
+  border: none;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
 }
