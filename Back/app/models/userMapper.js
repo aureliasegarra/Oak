@@ -47,6 +47,7 @@ const userMapper = {
       const queryBooks = `SELECT
                           book.id,
                           book.title,
+                          book.public_api_id,
                           list_has_book.list_id,
                           book_position.position
                           FROM book
