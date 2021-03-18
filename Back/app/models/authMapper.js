@@ -27,7 +27,7 @@ const authMapper = {
       // Create two default lists
       const queryList = `INSERT INTO public.list (label, description, "position", user_id) VALUES
       ('Lus'::text, 'Les livres que j''ai lu'::text, '0'::integer, $1::integer),
-      ('A lire'::text, 'Les livres que je veux lire'::text, '1'::integer, $1::integer)
+      ('À lire'::text, 'Les livres que je veux lire'::text, '1'::integer, $1::integer)
          returning id;`;
       const dataList = [newUser.id];
       await db.query(queryList, dataList);
