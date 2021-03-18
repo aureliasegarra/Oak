@@ -9,17 +9,19 @@ import Book from './Book';
 import './styles.scss';
 
 const Results = ({ results }) => (
-  <div className="results-box">
+  <div className="results">
     <Helmet>
       <title>Résultats de recherche | Oak</title>
       <meta name="description" content="Découvrez les livres pour enfants correspondant à votre recherche" />
     </Helmet>
     {(results.length > 0) ? (
-      results.map((result) => (
-        <Book key={result.id} {...result} />
-      ))
+      <div className="results-box">
+        {results.map((result) => (
+          <Book key={result.id} {...result} />
+        ))}
+      </div>
     ) : (
-      <div className="results_none">
+      <div className="results-none">
         <img src={waiting} alt="" />
       </div>
     )}
