@@ -118,7 +118,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     gap: 3rem;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: vars.$gutter;
     padding-bottom: vars.$gutter;
     overflow: auto;
