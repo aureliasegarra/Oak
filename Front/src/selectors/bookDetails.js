@@ -12,7 +12,7 @@ export const readListId = (lists = []) => {
 export const toReadListId = (lists = []) => {
   if (lists.length > 0) {
     const listId = lists.find(
-      (list) => list.label === 'A lire',
+      (list) => list.label === 'À lire',
     );
     return listId.id;
   }
