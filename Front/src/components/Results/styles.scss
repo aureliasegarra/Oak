@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: vars.$gutter * 2;
+  min-height: 70vh;
 
   @media screen and (max-width: 766px) {
     margin: vars.$gutter * 2 0;
