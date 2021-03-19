@@ -91,6 +91,12 @@
   cursor: pointer;
 }
 
+.logout-icon:hover {
+  font-size: 2.5em;
+  color: vars.$color-orange;
+  cursor: pointer;
+  transform: scale(1.1);
+}
 .logout-container {
   display: flex;
   @media screen and (max-width: 1024px) {

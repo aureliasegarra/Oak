@@ -12,44 +12,42 @@ import character4 from './character4.svg';
 // == Composant
 const Team = () => (
   <div className="aboutus">
-    <div className="team">
-      <div className="memberscontainer">
-        <article className="members">
-          <img className="images" src={character3} alt="illustration" />
-          <h3 className="name">Aurelia</h3>
-          <p className="description">Front-End Developer</p>
-          <p className="description">Product Owner</p>
-          <a href="https://www.linkedin.com/in/aureliasegarra/">
-            <SiLinkedin className="linkedin" />
-          </a>
-        </article>
-        <article className="members">
-          <img className="images" src={character1} alt="illustration" />
-          <h3 className="name">Anthony</h3>
-          <p className="description">Lead Developer Back-End</p>
-          <p className="description">Git Master</p>
-          <a href="https://www.linkedin.com/in/monsieurz/">
-            <SiLinkedin className="linkedin" />
-          </a>
-        </article>
-        <article className="members">
-          <img className="images" src={character2} alt="illustration" />
-          <h3 className="name">Nicolas</h3>
-          <p className="description">Lead Developer Front-End</p>
-          <a href="https://www.linkedin.com/in/nicolas-pellan/">
-            <SiLinkedin className="linkedin" />
-          </a>
-        </article>
-        <article className="members">
-          <img className="images" src={character4} alt="illustration" />
-          <h3 className="name">Marina</h3>
-          <p className="description">Front-End Developer</p>
-          <p className="description">Scrum Master</p>
-          <a href="https://www.linkedin.com/in/marina-garibotti/">
-            <SiLinkedin className="linkedin" />
-          </a>
-        </article>
-      </div>
+    <div className="memberscontainer">
+      <article className="members">
+        <img className="images" src={character3} alt="illustration" />
+        <h3 className="name">Aurelia</h3>
+        <p className="description">Front-End Developer</p>
+        <p className="description">Product Owner</p>
+        <a href="https://www.linkedin.com/in/aureliasegarra/">
+          <SiLinkedin className="linkedin" />
+        </a>
+      </article>
+      <article className="members">
+        <img className="images" src={character1} alt="illustration" />
+        <h3 className="name">Anthony</h3>
+        <p className="description">Lead Developer Back-End</p>
+        <p className="description">Git Master</p>
+        <a href="https://www.linkedin.com/in/monsieurz/">
+          <SiLinkedin className="linkedin" />
+        </a>
+      </article>
+      <article className="members">
+        <img className="images" src={character2} alt="illustration" />
+        <h3 className="name">Nicolas</h3>
+        <p className="description">Lead Developer Front-End</p>
+        <a href="https://www.linkedin.com/in/nicolas-pellan/">
+          <SiLinkedin className="linkedin" />
+        </a>
+      </article>
+      <article className="members">
+        <img className="images" src={character4} alt="illustration" />
+        <h3 className="name">Marina</h3>
+        <p className="description">Front-End Developer</p>
+        <p className="description">Scrum Master</p>
+        <a href="https://www.linkedin.com/in/marina-garibotti/">
+          <SiLinkedin className="linkedin" />
+        </a>
+      </article>
     </div>
     <div className="about">
       <h2 className="abouttitle">À propos</h2>
