@@ -182,7 +182,7 @@ const BookDetails = ({
             <div className="book-page__comments-container">
               {(reviews.length > 0) ? (
                 reviews.map((review) => (
-                  <div className="book-page__comment">
+                  <div className="book-page__comment" key={review.id}>
                     <div className="book-page__comment-infos">
                       <FaUserCircle className="book-page__comment-icon" />
                       <p className="book-page__comment-user">par {review.username}</p>
@@ -204,7 +204,7 @@ const BookDetails = ({
 
 BookDetails.propTypes = {
   id: PropTypes.string.isRequired,
-  bookAPIId: PropTypes.number.isRequired,
+  bookAPIId: PropTypes.number,
   book: PropTypes.object,
   isLogged: PropTypes.bool.isRequired,
   addToReadList: PropTypes.func,
@@ -220,6 +220,7 @@ BookDetails.propTypes = {
 };
 
 BookDetails.defaultProps = {
+  bookAPIId: 0,
   addToReadList: () => {},
   addToToReadList: () => {},
   readListId: 0,
