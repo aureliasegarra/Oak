@@ -204,6 +204,7 @@ const BookDetails = ({
 
 BookDetails.propTypes = {
   id: PropTypes.string.isRequired,
+  bookAPIId: PropTypes.number.isRequired,
   book: PropTypes.object,
   isLogged: PropTypes.bool.isRequired,
   addToReadList: PropTypes.func,
@@ -211,6 +212,9 @@ BookDetails.propTypes = {
   readListId: PropTypes.number,
   toReadListId: PropTypes.number,
   fetchBookDetail: PropTypes.func,
+  fetchBookReviews: PropTypes.func,
+  sendComment: PropTypes.func,
+  sendRating: PropTypes.func,
   rating: PropTypes.number,
   reviews: PropTypes.array,
 };
@@ -221,6 +225,9 @@ BookDetails.defaultProps = {
   readListId: 0,
   toReadListId: 1,
   fetchBookDetail: () => {},
+  fetchBookReviews: () => {},
+  sendComment: () => {},
+  sendRating: () => {},
   book: {},
   rating: null,
   reviews: [],

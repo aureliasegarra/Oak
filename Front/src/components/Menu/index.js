@@ -76,11 +76,13 @@ Menu.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   username: PropTypes.string,
   id: PropTypes.number,
+  emptyResults: PropTypes.func,
 };
 
 Menu.defaultProps = {
   username: '',
   id: 1,
+  emptyResults: () => {},
 };
 
 // == Export

@@ -24,6 +24,7 @@ const Book = ({
 
 Book.propTypes = {
   title: PropTypes.string.isRequired,
+  publicApiId: PropTypes.string.isRequired,
 };
 
 Book.defaultProps = {

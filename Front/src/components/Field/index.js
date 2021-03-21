@@ -37,10 +37,12 @@ Field.propTypes = {
   placeholder: PropTypes.string.isRequired,
   inputValue: PropTypes.string,
   onChangeInputValue: PropTypes.func.isRequired,
+  isRequired: PropTypes.bool,
 };
 
 Field.defaultProps = {
   inputValue: '',
+  isRequired: false,
 };
 
 export default Field;
