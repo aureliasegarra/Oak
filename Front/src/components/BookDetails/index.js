@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { FaUserCircle } from 'react-icons/fa';
 import { Rating } from '@material-ui/lab';
-import bookDefaultImg from './bookDefaultImg.png';
+import bookDefaultImg from 'src/assets/images/bookDefaultImg.png';
 
 import './styles.scss';
 

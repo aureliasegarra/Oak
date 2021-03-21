@@ -7,9 +7,9 @@ import { IoMdLogOut } from 'react-icons/io';
 // == Import
 import './styles.scss';
 import { getAvatar } from 'src/selectors/getAvatar';
-import badge1 from './books.png';
-import badge2 from './study.png';
-import badge3 from './nut.png';
+import badge1 from 'src/assets/images/books.png';
+import badge2 from 'src/assets/images/study.png';
+import badge3 from 'src/assets/images/nut.png';
 
 // == Composant
 const UserInfos = ({

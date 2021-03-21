@@ -10,7 +10,7 @@ import { RiTeamFill, RiCloseFill } from 'react-icons/ri';
 
 // == Import
 import './styles.scss';
-import logo from './logo-glan.svg';
+import logo from 'src/assets/images/logo-glan.svg';
 
 // == Composant
 const Menu = ({
