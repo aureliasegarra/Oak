@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UserInfos from 'src/components/UserProfile/UserInfos';
-import { logout } from 'src/actions';
+import { logout } from 'src/actions/auth';
 
 const mapStateToProps = (state) => ({
   username: JSON.parse(localStorage.getItem('username')) || state.user.username,

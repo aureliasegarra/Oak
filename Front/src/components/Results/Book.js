@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import bookDefaultImg from './bookDefaultImg.png';
+import bookDefaultImg from 'src/assets/images/bookDefaultImg.png';
 
 const Book = ({ volumeInfo, id }) => (
   <article className="book-card">

@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { FaUserCircle } from 'react-icons/fa';
 import { Rating } from '@material-ui/lab';
-import bookDefaultImg from './bookDefaultImg.png';
+import bookDefaultImg from 'src/assets/images/bookDefaultImg.png';
 
 import './styles.scss';
 
@@ -182,7 +182,7 @@ const BookDetails = ({
             <div className="book-page__comments-container">
               {(reviews.length > 0) ? (
                 reviews.map((review) => (
-                  <div className="book-page__comment">
+                  <div className="book-page__comment" key={review.id}>
                     <div className="book-page__comment-infos">
                       <FaUserCircle className="book-page__comment-icon" />
                       <p className="book-page__comment-user">par {review.username}</p>
@@ -204,6 +204,7 @@ const BookDetails = ({
 
 BookDetails.propTypes = {
   id: PropTypes.string.isRequired,
+  bookAPIId: PropTypes.number,
   book: PropTypes.object,
   isLogged: PropTypes.bool.isRequired,
   addToReadList: PropTypes.func,
@@ -211,16 +212,23 @@ BookDetails.propTypes = {
   readListId: PropTypes.number,
   toReadListId: PropTypes.number,
   fetchBookDetail: PropTypes.func,
+  fetchBookReviews: PropTypes.func,
+  sendComment: PropTypes.func,
+  sendRating: PropTypes.func,
   rating: PropTypes.number,
   reviews: PropTypes.array,
 };
 
 BookDetails.defaultProps = {
+  bookAPIId: 0,
   addToReadList: () => {},
   addToToReadList: () => {},
   readListId: 0,
   toReadListId: 1,
   fetchBookDetail: () => {},
+  fetchBookReviews: () => {},
+  sendComment: () => {},
+  sendRating: () => {},
   book: {},
   rating: null,
   reviews: [],

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Menu from 'src/components/Menu';
-import { toggleBurgerMenu } from 'src/actions/menu';
 import { emptyResults } from 'src/actions/search';
 
 const mapStateToProps = (state) => ({
@@ -10,10 +9,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onClick: () => {
-    const action = toggleBurgerMenu();
-    dispatch(action);
-  },
   emptyResults: () => {
     dispatch(emptyResults());
   },

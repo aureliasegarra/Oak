@@ -4,10 +4,10 @@ import React from 'react';
 import { SiLinkedin } from 'react-icons/si';
 
 import './style.scss';
-import character1 from './character1.svg';
-import character2 from './character2.svg';
-import character3 from './character3.svg';
-import character4 from './character4.svg';
+import character1 from 'src/assets/team/character1.svg';
+import character2 from 'src/assets/team/character2.svg';
+import character3 from 'src/assets/team/character3.svg';
+import character4 from 'src/assets/team/character4.svg';
 
 // == Composant
 const Team = () => (

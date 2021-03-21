@@ -1,4 +1,4 @@
-import { CHANGE_INPUT_VALUE, SAVE_USER, SAVE_AVATAR } from 'src/actions';
+import { CHANGE_INPUT_VALUE, SAVE_AVATAR } from 'src/actions/auth';
 
 const initialState = {
   register_username: '',

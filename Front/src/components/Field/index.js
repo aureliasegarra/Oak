@@ -12,7 +12,6 @@ const Field = ({
   isRequired,
 }) => {
   const handleOnChange = (event) => {
-    console.log('inputChange');
     onChangeInputValue(event.target.value);
   };
   return (
@@ -38,10 +37,12 @@ Field.propTypes = {
   placeholder: PropTypes.string.isRequired,
   inputValue: PropTypes.string,
   onChangeInputValue: PropTypes.func.isRequired,
+  isRequired: PropTypes.bool,
 };
 
 Field.defaultProps = {
   inputValue: '',
+  isRequired: false,
 };
 
 export default Field;

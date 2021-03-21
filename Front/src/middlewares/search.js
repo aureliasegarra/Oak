@@ -3,8 +3,8 @@ import {
   FETCH_DATA,
   saveData,
   isLoading,
+  setInputValue,
 } from 'src/actions/search';
-import { setInputValue } from '../actions/search';
 
 const search = (store) => (next) => (action) => {
   switch (action.type) {
@@ -15,7 +15,6 @@ const search = (store) => (next) => (action) => {
       const fetchData = async () => {
         try {
           const response = await axios.get(baseUrl);
-          console.log('response', response.data.items);
           store.dispatch(saveData(response.data.items));
         }
         catch (error) {

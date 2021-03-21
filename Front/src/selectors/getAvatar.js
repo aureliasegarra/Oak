@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+
 import avatar1 from 'src/assets/avatars/avatar1.png';
 import avatar2 from 'src/assets/avatars/avatar2.png';
 import avatar3 from 'src/assets/avatars/avatar3.png';

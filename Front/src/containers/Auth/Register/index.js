@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import Register from 'src/components/Authentication/Register';
-import { register, saveAvatar } from 'src/actions';
+import Register from 'src/components/Auth/Register';
+import { register, saveAvatar } from 'src/actions/auth';
 
 const mapState = (state) => ({
   register_avatar: state.auth.register_avatar,

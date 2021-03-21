@@ -11,29 +11,30 @@ import {
   SEND_COMMENT,
   SEND_RATING,
   saveBookId,
+  saveBookToDB,
+  SAVE_BOOK_TO_DB,
 } from 'src/actions/bookDetail';
 import axios from 'src/api/herokuAPI';
 import axiosGoogle from 'src/api/googleAPI';
-import { saveBookToDB, SAVE_BOOK_TO_DB } from '../actions/bookDetail';
 
 const bookDetails = (store) => (next) => async (action) => {
   switch (action.type) {
     case ADD_TO_READ_LIST: {
       try {
-        const res = await axios.post('/listHasBook', {
+        await axios.post('/listHasBook', {
           public_api_id: action.publicApiId,
           title: action.title,
           list_id: action.listId,
         });
       }
       catch (error) {
-        console.log(error);
+        console.error(error);
       }
       break;
     }
     case ADD_TO_TO_READ_LIST: {
       try {
-        const res = await axios.post('/listHasBook', {
+        await axios.post('/listHasBook', {
           public_api_id: action.publicApiId,
           title: action.title,
           list_id: action.listId,
@@ -67,11 +68,10 @@ const bookDetails = (store) => (next) => async (action) => {
     }
     case SEND_COMMENT: {
       try {
-        const res = await axios.post('/review', {
+        await axios.post('/review', {
           label: action.labelComment,
           book_id: action.bookAPIId,
         });
-        console.log(res.data);
         store.dispatch(fetchBookReviews(action.bookGoogleId));
       }
       catch (error) {
@@ -81,12 +81,10 @@ const bookDetails = (store) => (next) => async (action) => {
     }
     case SEND_RATING: {
       try {
-        console.log(action);
-        const res = await axios.post('/rating', {
+        await axios.post('/rating', {
           rating: action.rating,
           book_id: action.bookAPIId,
         });
-        console.log(res.data);
         store.dispatch(fetchBookReviews(action.bookGoogleId));
       }
       catch (error) {
@@ -96,11 +94,11 @@ const bookDetails = (store) => (next) => async (action) => {
     }
     case SAVE_BOOK_TO_DB: {
       try {
-        const res = await axios.post('/book', {
+        const response = await axios.post('/book', {
           title: action.bookTitle,
           public_api_id: action.bookGoogleId,
         });
-        store.dispatch(saveBookId(res.data.id));
+        store.dispatch(saveBookId(response.data.id));
       }
       catch (error) {
         console.log(error);

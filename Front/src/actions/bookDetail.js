@@ -30,4 +30,3 @@ export const saveBookId = (id) => ({
   type: 'SAVE_BOOK_ID',
   id,
 });
-

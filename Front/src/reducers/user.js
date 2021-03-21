@@ -1,5 +1,5 @@
 import { SET_USER_INFOS } from 'src/actions/userProfile';
-import { SAVE_USER, LOGOUT, SUBSCRIBED } from 'src/actions';
+import { SAVE_USER, LOGOUT, SUBSCRIBED } from 'src/actions/auth';
 
 const initialState = {
   isLogged: false,

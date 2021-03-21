@@ -1,5 +1,3 @@
-/* eslint-disable no-empty */
-
 import {
   FETCH_USER_INFOS,
   setUserInfos,
@@ -15,7 +13,7 @@ import {
 
 import axiosInstance from 'src/api/herokuAPI';
 
-export default (store) => (next) => async (action) => {
+const userProfile = (store) => (next) => async (action) => {
   switch (action.type) {
     case FETCH_USER_INFOS: {
       try {
@@ -74,7 +72,6 @@ export default (store) => (next) => async (action) => {
       break;
     case DELETE_BOOK:
       try {
-        console.log(action);
         await axiosInstance.delete('/listHasBook/', {
           data: {
             book_id: action.bookId,
@@ -88,7 +85,6 @@ export default (store) => (next) => async (action) => {
       }
       break;
     case MOVE_BOOK:
-      console.log(action);
       try {
         await axiosInstance.patch('/listHasBook', {
           book_id: action.bookId,
@@ -101,6 +97,8 @@ export default (store) => (next) => async (action) => {
       }
       break;
     default:
-      return next(action);
+      next(action);
   }
 };
+
+export default userProfile;

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Field from 'src/containers/Field';
-import { getAvatar } from 'src/selectors/index';
+import { getAvatar } from 'src/selectors/getAvatar';
 
 import './style.scss';
 

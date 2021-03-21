@@ -70,6 +70,7 @@ const Book = ({
 
 Book.propTypes = {
   id: PropTypes.number.isRequired,
+  publicApiId: PropTypes.string.isRequired,
   listId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   lists: PropTypes.array,

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import Login from 'src/components/Authentication/Login';
-import { login } from 'src/actions';
+import Login from 'src/components/Auth/Login';
+import { login } from 'src/actions/auth';
 
 const mapState = (state) => ({
   isLogged: JSON.parse(localStorage.getItem('isLogged')) || state.user.isLogged,

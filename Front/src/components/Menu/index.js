@@ -10,7 +10,7 @@ import { RiTeamFill, RiCloseFill } from 'react-icons/ri';
 
 // == Import
 import './styles.scss';
-import logo from './logo-glan.svg';
+import logo from 'src/assets/images/logo-glan.svg';
 
 // == Composant
 const Menu = ({
@@ -76,11 +76,13 @@ Menu.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   username: PropTypes.string,
   id: PropTypes.number,
+  emptyResults: PropTypes.func,
 };
 
 Menu.defaultProps = {
   username: '',
   id: 1,
+  emptyResults: () => {},
 };
 
 // == Export
