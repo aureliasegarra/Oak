@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import BookDetails from 'src/components/BookDetails';
-import { readListId, toReadListId } from 'src/selectors/bookDetails';
+import { readListId, toReadListId } from 'src/selectors/getListIds';
 import {
   addToReadList, addToToReadList, fetchBookDetail, fetchBookReviews,
 } from 'src/actions/search';
-import { sendComment, sendRating, saveBookToDB } from 'src/actions/bookDetail';
+import { sendComment, sendRating } from 'src/actions/bookDetail';
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;

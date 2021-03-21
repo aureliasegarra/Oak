@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 export const readListId = (lists = []) => {
   if (lists.length > 0) {
     const listId = lists.find(
@@ -8,7 +7,7 @@ export const readListId = (lists = []) => {
   }
   return 0;
 };
-// eslint-disable-next-line no-unused-vars
+
 export const toReadListId = (lists = []) => {
   if (lists.length > 0) {
     const listId = lists.find(

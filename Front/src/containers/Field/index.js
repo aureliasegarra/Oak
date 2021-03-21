@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Field from 'src/components/Field';
-import { changeInputValue } from 'src/actions';
+import { changeInputValue } from 'src/actions/auth';
 
 const mapStateToProps = (state, ownProps) => ({
   inputValue: state.auth[ownProps.name],

@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     id,
-    list: state.lists,
+    list: state.list,
   };
 };
 

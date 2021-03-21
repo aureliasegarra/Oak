@@ -12,7 +12,6 @@ const Field = ({
   isRequired,
 }) => {
   const handleOnChange = (event) => {
-    console.log('inputChange');
     onChangeInputValue(event.target.value);
   };
   return (
