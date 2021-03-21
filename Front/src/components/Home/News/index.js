@@ -2,10 +2,10 @@
 import React from 'react';
 
 // == Import
-import cover1 from '../../../data/cover/cover1.png';
-import cover2 from '../../../data/cover/cover2.png';
-import cover3 from '../../../data/cover/cover3.png';
-import cover4 from '../../../data/cover/cover4.png';
+import cover1 from 'src/assets/covers/cover1.png';
+import cover2 from 'src/assets/covers/cover2.png';
+import cover3 from 'src/assets/covers/cover3.png';
+import cover4 from 'src/assets/covers/cover4.png';
 import underline from './underline.svg';
 
 import './styles.scss';
