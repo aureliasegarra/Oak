@@ -1,5 +1,60 @@
 @use 'src/styles/vars';
 
+.split-screen{
+  display: flex;
+  flex-direction: column;
+}
+.main-title {
+   font-size: 3rem;
+   font-weight: 700;
+   margin-bottom: 1em;
+   margin-top: 1.2em;
+   text-shadow: 2px 2px 2px rgb(118, 118, 118);
+ }
+
+.subtitle {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 700;
+  text-shadow: 2px 2px 2px rgb(118, 118, 118);
+}
+
+ .left {
+   background: linear-gradient(90deg, rgba(255,255,255), rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1549737221-bef65e2604a6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
+   background-size: cover;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   @media screen and (max-width: 767px) {
+    background: url(https://images.unsplash.com/photo-1549737221-bef65e2604a6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+ }
+
+ .left .copy {
+   width: 80%;
+  color: white;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ }
+
+ @media screen and (min-width: 767px) {
+   .split-screen {
+     flex-direction: row;
+     height: 100vh;
+   }
+   .left, .right {
+     display: flex;
+     width: 50%;
+     height: auto;
+   }
+ }
+
 .right {
   display: flex;
   justify-content: center;

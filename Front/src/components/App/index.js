@@ -15,8 +15,8 @@ import ListDetails from 'src/containers/ListDetails';
 import BookDetails from 'src/containers/BookDetails';
 import Error from 'src/components/Error';
 import Footer from 'src/components/Footer';
-import Auth from 'src/components/Authentication/Auth';
-import Register from 'src/containers/Register';
+import Login from 'src/containers/Auth/Login';
+import Register from 'src/containers/Auth/Register';
 import Team from 'src/components/Team';
 
 // == Import
@@ -45,7 +45,7 @@ const App = () => (
         <ListDetails />
       </Route>
       <Route path="/login" exact>
-        <Auth />
+        <Login />
       </Route>
       <Route path="/register" exact>
         <Register />
